@@ -1,0 +1,16 @@
+{
+  "_comment": "Built by BrandSure. The warmest traffic in the system: someone who has just used a client's BrandSure-built website and followed the credit. noindex — this is a referral surface, not a search surface. Personalisation reads ?ref= against the clients array in data/proof.json; while that array is empty (OPEN-ITEMS item 8) every visitor sees the generic version, which reads correctly on its own.",
+
+  "slug": "built-by-brandsure",
+  "title": "Built by BrandSure",
+  "meta_description": "You followed a link from a website BrandSure built. Here is what else we do for furniture businesses in India.",
+
+  "generic_eyebrow": "You just came from a site we built",
+  "named_eyebrow": "You just visited %s's website",
+
+  "headline": "We built that. We also build what fills it.",
+  "body": "The website is usually the smallest part. Most of what we do for a furniture business is what happens after someone enquires — the calling, the following up, and getting them into the showroom.",
+
+  "cta": { "label": "See what we do", "url": "/plans/" },
+  "secondary": { "label": "Send us four numbers", "url": "/start/" }
+}

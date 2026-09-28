@@ -1,0 +1,49 @@
+{
+  "_comment": "The 404. PUBLIC-NEUTRAL: no prices, no plan names, no commercial mechanism. Listed in BUILD-MANIFEST §F from Chat 0 and found unbuilt by Chat 12's audit. Its copy lives here rather than in 404.php for the same reason every other controlled page's does — a template that contains words is a second place words live.",
+
+  "_tone_note": "A visitor arriving here has usually mistyped, or followed a link from an old page or an old deck. The page says so plainly and sends them somewhere useful. It does not apologise at length, and it does not joke: the reader is an owner who wanted something specific and did not get it.",
+
+  "slug": "404",
+  "title": "Page not found — BrandSure",
+  "meta_description": "That page is not here. The main pages of the BrandSure website are linked below.",
+
+  "sections": [
+    {
+      "type": "hero",
+      "tone": "light",
+      "eyebrow": "404",
+      "headline": "That page is not here.",
+      "body": "Either the address has a typo in it, or the page has moved since somebody linked to it. Here is where everything else lives.",
+      "primary": { "label": "Go to the home page", "url": "/" },
+      "secondary": { "label": "See if we can help", "url": "/start/" }
+    },
+
+    {
+      "type": "link-cards",
+      "tone": "light",
+      "headline": "The rest of the site",
+      "items": [
+        {
+          "title": "Plans",
+          "body": "Three ways to build the side of the business that brings customers in.",
+          "url": "/plans/"
+        },
+        {
+          "title": "How it works",
+          "body": "The journey from an advertisement to a delivered sofa, and where it leaks.",
+          "url": "/how-it-works/"
+        },
+        {
+          "title": "Proof",
+          "body": "What BrandSure has actually run, and one client result with its caveat.",
+          "url": "/proof/"
+        },
+        {
+          "title": "Other Services",
+          "body": "Marketing, consulting, product design and labour hiring, one at a time.",
+          "url": "/services/"
+        }
+      ]
+    }
+  ]
+}

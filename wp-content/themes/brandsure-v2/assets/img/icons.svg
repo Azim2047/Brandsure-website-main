@@ -1,0 +1,599 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<!--
+	BrandSure icon sprite. GENERATED — `npm run build:icons` overwrites this.
+
+	Glyphs: lucide-static, unmodified, 2px stroke on the 24 grid.
+	Lanes:  theme-source/theme.js ICON_LANE (sha256 701e3dcb266b89b0…)
+
+	Two forms per meaning:
+	  #bs-icon-NAME    bare glyph, inherits currentColor
+	  #bs-circle-NAME  the theme form — white glyph in a SOLID circle
+
+	Theme s3: "The circle fill is the lane code — no borders, no tiles, no
+	rounded squares." The fill reads --bs-lane, which each symbol defaults to
+	its own lane, so a component can recolour a circle by setting one variable
+	and the meaning follows. Blue is us, green is you, teal is shared, slate is
+	a problem.
+-->
+
+	<!-- ad · lucide "megaphone" · lane bs -->
+	<symbol id="bs-icon-ad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
+		<path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" />
+		<path d="M8 6v8" />
+	</symbol>
+
+	<symbol id="bs-circle-ad" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
+			<path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" />
+			<path d="M8 6v8" />
+		</g>
+	</symbol>
+
+	<!-- arrow-right · lucide "arrow-right" · lane bs · website-only, not in the deck vocabulary -->
+	<symbol id="bs-icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M5 12h14" />
+		<path d="m12 5 7 7-7 7" />
+	</symbol>
+
+	<symbol id="bs-circle-arrow-right" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M5 12h14" />
+			<path d="m12 5 7 7-7 7" />
+		</g>
+	</symbol>
+
+	<!-- calendar · lucide "calendar-days" · lane bs -->
+	<symbol id="bs-icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M8 2v3" />
+		<path d="M16 2v3" />
+		<rect x="3" y="3" width="18" height="18" rx="2" />
+		<path d="M3 9h18" />
+		<path d="M8 13h.01" />
+		<path d="M12 13h.01" />
+		<path d="M16 13h.01" />
+		<path d="M8 17h.01" />
+		<path d="M12 17h.01" />
+		<path d="M16 17h.01" />
+	</symbol>
+
+	<symbol id="bs-circle-calendar" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M8 2v3" />
+			<path d="M16 2v3" />
+			<rect x="3" y="3" width="18" height="18" rx="2" />
+			<path d="M3 9h18" />
+			<path d="M8 13h.01" />
+			<path d="M12 13h.01" />
+			<path d="M16 13h.01" />
+			<path d="M8 17h.01" />
+			<path d="M12 17h.01" />
+			<path d="M16 17h.01" />
+		</g>
+	</symbol>
+
+	<!-- check · lucide "check" · lane you -->
+	<symbol id="bs-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M20 6 9 17l-5-5" />
+	</symbol>
+
+	<symbol id="bs-circle-check" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-you)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M20 6 9 17l-5-5" />
+		</g>
+	</symbol>
+
+	<!-- clipboard · lucide "clipboard-list" · lane bs -->
+	<symbol id="bs-icon-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+		<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+		<path d="M12 11h4" />
+		<path d="M12 16h4" />
+		<path d="M8 11h.01" />
+		<path d="M8 16h.01" />
+	</symbol>
+
+	<symbol id="bs-circle-clipboard" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+			<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+			<path d="M12 11h4" />
+			<path d="M12 16h4" />
+			<path d="M8 11h.01" />
+			<path d="M8 16h.01" />
+		</g>
+	</symbol>
+
+	<!-- clock · lucide "clock" · lane problem -->
+	<symbol id="bs-icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<circle cx="12" cy="12" r="10" />
+		<path d="M12 6v6l4 2" />
+	</symbol>
+
+	<symbol id="bs-circle-clock" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-problem)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="12" cy="12" r="10" />
+			<path d="M12 6v6l4 2" />
+		</g>
+	</symbol>
+
+	<!-- close · lucide "x" · lane bs · website-only, not in the deck vocabulary -->
+	<symbol id="bs-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M18 6 6 18" />
+		<path d="m6 6 12 12" />
+	</symbol>
+
+	<symbol id="bs-circle-close" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M18 6 6 18" />
+			<path d="m6 6 12 12" />
+		</g>
+	</symbol>
+
+	<!-- compass · lucide "compass" · lane bs · website-only, not in the deck vocabulary -->
+	<symbol id="bs-icon-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<circle cx="12" cy="12" r="10" />
+		<path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" />
+	</symbol>
+
+	<symbol id="bs-circle-compass" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="12" cy="12" r="10" />
+			<path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" />
+		</g>
+	</symbol>
+
+	<!-- creative · lucide "pen-tool" · lane bs -->
+	<symbol id="bs-icon-creative" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" />
+		<path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18" />
+		<path d="m2.3 2.3 7.286 7.286" />
+		<circle cx="11" cy="11" r="2" />
+	</symbol>
+
+	<symbol id="bs-circle-creative" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" />
+			<path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18" />
+			<path d="m2.3 2.3 7.286 7.286" />
+			<circle cx="11" cy="11" r="2" />
+		</g>
+	</symbol>
+
+	<!-- customer · lucide "user" · lane shared -->
+	<symbol id="bs-icon-customer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+		<circle cx="12" cy="7" r="4" />
+	</symbol>
+
+	<symbol id="bs-circle-customer" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-shared)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+			<circle cx="12" cy="7" r="4" />
+		</g>
+	</symbol>
+
+	<!-- customers · lucide "users" · lane shared -->
+	<symbol id="bs-icon-customers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+		<path d="M16 3.128a4 4 0 0 1 0 7.744" />
+		<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+		<circle cx="9" cy="7" r="4" />
+	</symbol>
+
+	<symbol id="bs-circle-customers" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-shared)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+			<path d="M16 3.128a4 4 0 0 1 0 7.744" />
+			<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+			<circle cx="9" cy="7" r="4" />
+		</g>
+	</symbol>
+
+	<!-- factory · lucide "factory" · lane you -->
+	<symbol id="bs-icon-factory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M12 16h.01" />
+		<path d="M16 16h.01" />
+		<path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" />
+		<path d="M8 16h.01" />
+	</symbol>
+
+	<symbol id="bs-circle-factory" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-you)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 16h.01" />
+			<path d="M16 16h.01" />
+			<path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" />
+			<path d="M8 16h.01" />
+		</g>
+	</symbol>
+
+	<!-- gear · lucide "settings" · lane bs -->
+	<symbol id="bs-icon-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+		<circle cx="12" cy="12" r="3" />
+	</symbol>
+
+	<symbol id="bs-circle-gear" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+			<circle cx="12" cy="12" r="3" />
+		</g>
+	</symbol>
+
+	<!-- grid · lucide "layout-grid" · lane bs · website-only, not in the deck vocabulary -->
+	<symbol id="bs-icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<rect width="7" height="7" x="3" y="3" rx="1" />
+		<rect width="7" height="7" x="14" y="3" rx="1" />
+		<rect width="7" height="7" x="14" y="14" rx="1" />
+		<rect width="7" height="7" x="3" y="14" rx="1" />
+	</symbol>
+
+	<symbol id="bs-circle-grid" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<rect width="7" height="7" x="3" y="3" rx="1" />
+			<rect width="7" height="7" x="14" y="3" rx="1" />
+			<rect width="7" height="7" x="14" y="14" rx="1" />
+			<rect width="7" height="7" x="3" y="14" rx="1" />
+		</g>
+	</symbol>
+
+	<!-- growth · lucide "trending-up" · lane bs -->
+	<symbol id="bs-icon-growth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M16 7h6v6" />
+		<path d="m22 7-8.5 8.5-5-5L2 17" />
+	</symbol>
+
+	<symbol id="bs-circle-growth" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M16 7h6v6" />
+			<path d="m22 7-8.5 8.5-5-5L2 17" />
+		</g>
+	</symbol>
+
+	<!-- handshake · lucide "handshake" · lane bs -->
+	<symbol id="bs-icon-handshake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="m11 17 2 2a1 1 0 1 0 3-3" />
+		<path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+		<path d="m21 3 1 11h-2" />
+		<path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+		<path d="M3 4h8" />
+	</symbol>
+
+	<symbol id="bs-circle-handshake" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="m11 17 2 2a1 1 0 1 0 3-3" />
+			<path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+			<path d="m21 3 1 11h-2" />
+			<path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+			<path d="M3 4h8" />
+		</g>
+	</symbol>
+
+	<!-- keep · lucide "coins" · lane you -->
+	<symbol id="bs-icon-keep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M13.744 17.736a6 6 0 1 1-7.48-7.48" />
+		<path d="M15 6h1v4" />
+		<path d="m6.134 14.768.866-.5 2 3.464" />
+		<circle cx="16" cy="8" r="6" />
+	</symbol>
+
+	<symbol id="bs-circle-keep" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-you)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M13.744 17.736a6 6 0 1 1-7.48-7.48" />
+			<path d="M15 6h1v4" />
+			<path d="m6.134 14.768.866-.5 2 3.464" />
+			<circle cx="16" cy="8" r="6" />
+		</g>
+	</symbol>
+
+	<!-- leak · lucide "droplets" · lane problem -->
+	<symbol id="bs-icon-leak" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" />
+		<path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" />
+	</symbol>
+
+	<symbol id="bs-circle-leak" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-problem)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" />
+			<path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" />
+		</g>
+	</symbol>
+
+	<!-- menu · lucide "menu" · lane bs · website-only, not in the deck vocabulary -->
+	<symbol id="bs-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M4 5h16" />
+		<path d="M4 12h16" />
+		<path d="M4 19h16" />
+	</symbol>
+
+	<symbol id="bs-circle-menu" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M4 5h16" />
+			<path d="M4 12h16" />
+			<path d="M4 19h16" />
+		</g>
+	</symbol>
+
+	<!-- owner · lucide "user-round" · lane you -->
+	<symbol id="bs-icon-owner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<circle cx="12" cy="8" r="5" />
+		<path d="M20 21a8 8 0 0 0-16 0" />
+	</symbol>
+
+	<symbol id="bs-circle-owner" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-you)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="12" cy="8" r="5" />
+			<path d="M20 21a8 8 0 0 0-16 0" />
+		</g>
+	</symbol>
+
+	<!-- phone · lucide "phone" · lane bs -->
+	<symbol id="bs-icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+	</symbol>
+
+	<symbol id="bs-circle-phone" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+		</g>
+	</symbol>
+
+	<!-- play · lucide "play" · lane bs · website-only, not in the deck vocabulary -->
+	<symbol id="bs-icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" />
+	</symbol>
+
+	<symbol id="bs-circle-play" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" />
+		</g>
+	</symbol>
+
+	<!-- quotation · lucide "receipt" · lane shared -->
+	<symbol id="bs-icon-quotation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M12 17V7" />
+		<path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8" />
+		<path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
+	</symbol>
+
+	<symbol id="bs-circle-quotation" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-shared)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 17V7" />
+			<path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8" />
+			<path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
+		</g>
+	</symbol>
+
+	<!-- report · lucide "file-text" · lane bs -->
+	<symbol id="bs-icon-report" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+		<path d="M14 2v5a1 1 0 0 0 1 1h5" />
+		<path d="M10 9H8" />
+		<path d="M16 13H8" />
+		<path d="M16 17H8" />
+	</symbol>
+
+	<symbol id="bs-circle-report" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+			<path d="M14 2v5a1 1 0 0 0 1 1h5" />
+			<path d="M10 9H8" />
+			<path d="M16 13H8" />
+			<path d="M16 17H8" />
+		</g>
+	</symbol>
+
+	<!-- review · lucide "search" · lane bs -->
+	<symbol id="bs-icon-review" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="m21 21-4.34-4.34" />
+		<circle cx="11" cy="11" r="8" />
+	</symbol>
+
+	<symbol id="bs-circle-review" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="m21 21-4.34-4.34" />
+			<circle cx="11" cy="11" r="8" />
+		</g>
+	</symbol>
+
+	<!-- rupee · lucide "indian-rupee" · lane bs -->
+	<symbol id="bs-icon-rupee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M6 3h12" />
+		<path d="M6 8h12" />
+		<path d="m6 13 8.5 8" />
+		<path d="M6 13h3" />
+		<path d="M9 13c6.667 0 6.667-10 0-10" />
+	</symbol>
+
+	<symbol id="bs-circle-rupee" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M6 3h12" />
+			<path d="M6 8h12" />
+			<path d="m6 13 8.5 8" />
+			<path d="M6 13h3" />
+			<path d="M9 13c6.667 0 6.667-10 0-10" />
+		</g>
+	</symbol>
+
+	<!-- shield · lucide "shield-check" · lane bs -->
+	<symbol id="bs-icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+		<path d="m9 12 2 2 4-4" />
+	</symbol>
+
+	<symbol id="bs-circle-shield" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+			<path d="m9 12 2 2 4-4" />
+		</g>
+	</symbol>
+
+	<!-- showroom · lucide "store" · lane you -->
+	<symbol id="bs-icon-showroom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5" />
+		<path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244" />
+		<path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05" />
+	</symbol>
+
+	<symbol id="bs-circle-showroom" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-you)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5" />
+			<path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244" />
+			<path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05" />
+		</g>
+	</symbol>
+
+	<!-- sofa · lucide "sofa" · lane shared -->
+	<symbol id="bs-icon-sofa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" />
+		<path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z" />
+		<path d="M4 18v2" />
+		<path d="M20 18v2" />
+		<path d="M12 4v9" />
+	</symbol>
+
+	<symbol id="bs-circle-sofa" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-shared)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" />
+			<path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z" />
+			<path d="M4 18v2" />
+			<path d="M20 18v2" />
+			<path d="M12 4v9" />
+		</g>
+	</symbol>
+
+	<!-- territory · lucide "map-pin" · lane bs -->
+	<symbol id="bs-icon-territory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+		<circle cx="12" cy="10" r="3" />
+	</symbol>
+
+	<symbol id="bs-circle-territory" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+			<circle cx="12" cy="10" r="3" />
+		</g>
+	</symbol>
+
+	<!-- truck · lucide "truck" · lane you -->
+	<symbol id="bs-icon-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+		<path d="M15 18H9" />
+		<path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+		<circle cx="17" cy="18" r="2" />
+		<circle cx="7" cy="18" r="2" />
+	</symbol>
+
+	<symbol id="bs-circle-truck" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-you)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+			<path d="M15 18H9" />
+			<path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+			<circle cx="17" cy="18" r="2" />
+			<circle cx="7" cy="18" r="2" />
+		</g>
+	</symbol>
+
+	<!-- unknown · lucide "circle-help" · lane problem -->
+	<symbol id="bs-icon-unknown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<circle cx="12" cy="12" r="10" />
+		<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+		<path d="M12 17h.01" />
+	</symbol>
+
+	<symbol id="bs-circle-unknown" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-problem)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="12" cy="12" r="10" />
+			<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+			<path d="M12 17h.01" />
+		</g>
+	</symbol>
+
+	<!-- website · lucide "globe" · lane bs -->
+	<symbol id="bs-icon-website" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<circle cx="12" cy="12" r="10" />
+		<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+		<path d="M2 12h20" />
+	</symbol>
+
+	<symbol id="bs-circle-website" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="12" cy="12" r="10" />
+			<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+			<path d="M2 12h20" />
+		</g>
+	</symbol>
+
+	<!-- whatsapp · lucide "message-circle" · lane bs -->
+	<symbol id="bs-icon-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+	</symbol>
+
+	<symbol id="bs-circle-whatsapp" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-bs)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+		</g>
+	</symbol>
+
+	<!-- worker · lucide "hard-hat" · lane shared -->
+	<symbol id="bs-icon-worker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" />
+		<path d="M14 6a6 6 0 0 1 6 6v3" />
+		<path d="M4 15v-3a6 6 0 0 1 6-6" />
+		<rect x="2" y="15" width="20" height="4" rx="1" />
+	</symbol>
+
+	<symbol id="bs-circle-worker" viewBox="0 0 40 40" style="--bs-lane: var(--bs-lane-shared)">
+		<circle cx="20" cy="20" r="20" fill="var(--bs-lane)"/>
+		<g transform="translate(10 10) scale(0.8333)" fill="none" stroke="var(--bs-lane-glyph)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" />
+			<path d="M14 6a6 6 0 0 1 6 6v3" />
+			<path d="M4 15v-3a6 6 0 0 1 6-6" />
+			<rect x="2" y="15" width="20" height="4" rx="1" />
+		</g>
+	</symbol>
+
+	<!-- alias: templates already say "enquiry" for customers -->
+	<symbol id="bs-icon-enquiry" viewBox="0 0 24 24"><use href="#bs-icon-customers"/></symbol>
+	<symbol id="bs-circle-enquiry" viewBox="0 0 40 40"><use href="#bs-circle-customers"/></symbol>
+
+	<!-- alias: templates already say "written" for clipboard -->
+	<symbol id="bs-icon-written" viewBox="0 0 24 24"><use href="#bs-icon-clipboard"/></symbol>
+	<symbol id="bs-circle-written" viewBox="0 0 40 40"><use href="#bs-circle-clipboard"/></symbol>
+
+</svg>

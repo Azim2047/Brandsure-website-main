@@ -1,0 +1,22 @@
+/* furniture-labour-hiring-india */
+(function(){
+  var box = document.getElementById('requirement');
+  if (!box) return;
+  var send = document.getElementById('reqSend');
+  var base = 'Hi BrandSure, I need help hiring furniture/sofa labour for my factory.';
+  function build(){
+    var roles = [].slice.call(box.querySelectorAll('input[name=role]:checked')).map(function(i){return i.value;});
+    var city = (document.getElementById('req_city').value || '').trim();
+    var count = (document.getElementById('req_count').value || '').trim();
+    var whenEl = box.querySelector('input[name=when]:checked');
+    var msg = base;
+    if (roles.length) msg += '\n\nRoles needed: ' + roles.join(', ');
+    if (count) msg += '\nNumber of workers: ' + count;
+    if (city) msg += '\nCity / factory location: ' + city;
+    if (whenEl) msg += '\nWhen needed: ' + whenEl.value;
+    send.href = 'https://wa.me/918884446668?text=' + encodeURIComponent(msg);
+  }
+  box.addEventListener('change', build);
+  box.addEventListener('input', build);
+  build();
+})();

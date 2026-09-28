@@ -1,0 +1,44 @@
+{
+  "_comment": "Which videos the public site may embed, and their ids. Videos 2, 4 and 5 are present with public:false and no id, so the theme cannot embed them even by mistake — components/video-block.php refuses to render a video whose public flag is false, and renders the gate card instead of a player when a public video has no id yet.",
+
+  "video1": {
+    "title": "Video 1 — Hook",
+    "public": true,
+    "youtube_id": "",
+    "_id_note": "Not yet recorded. OPEN-ITEMS item 7. Home renders the gate card in its place until supplied.",
+    "poster": "",
+    "duration_minutes": 9,
+    "used_on": ["/", "/start/", "/blog/<post>/"]
+  },
+
+  "video2": {
+    "title": "Video 2 — Choose Your Plan",
+    "public": false,
+    "_note": "GATED. Lives on go.brandsure.in behind a token. /plans/ links to /start/ instead of embedding it.",
+    "used_on": []
+  },
+
+  "video3": {
+    "title": "Video 3 — Digital Partner",
+    "public": true,
+    "youtube_id": "",
+    "_id_note": "Permitted public (Architecture v3 §5) — contains no partnership economics. Not yet recorded.",
+    "poster": "",
+    "duration_minutes": 14,
+    "used_on": ["/digital-partner/"]
+  },
+
+  "video4": {
+    "title": "",
+    "public": false,
+    "_note": "GATED. Title deliberately omitted: it must not appear in public markup. Video 4 economics are private (Override 2).",
+    "used_on": []
+  },
+
+  "video5": {
+    "title": "",
+    "public": false,
+    "_note": "GATED. Title deliberately omitted, as above.",
+    "used_on": []
+  }
+}

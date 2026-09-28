@@ -1,0 +1,240 @@
+/* ==========================================================================
+   BrandSure v2 — Design Tokens
+
+   GENERATED FILE. Do not edit by hand — `npm run build:tokens` overwrites it.
+   Source: theme-source/theme.js (BSU Master Theme v3, 4 Sep 2026)
+   sha256: 701e3dcb266b89b0c91e35ceaa7c06d0225411b153df9fd543163ace2b376ed2
+
+   To change a colour, change the theme file and regenerate. The point of
+   generating this is that the website and the video decks cannot drift:
+   the theme file is the single source for both, which is what it asks for
+   ("No hex literal belongs in a deck file — import from here").
+
+   Forbidden here and everywhere: the older presentation identity —
+   navy #0E2439, gold #C79A4B, cream #F3ECDD, terracotta #A85A32, Bookman
+   Old Style. Theme v3 supersedes those. There is no red or coral in this
+   system at all: a problem is a slate circle, its consequence a yellow pill.
+   ========================================================================== */
+
+:root {
+
+  /* --- Core — the lane colours carry meaning, not decoration --------------- */
+  --bs-ink:             #081E2E;         /* headlines · dark payoff card · the customer's step */
+  --bs-blue:            #116E98;         /* BrandSure's lane. Icon circles, tick bar, numbers */
+  --bs-blue-d:          #0D5D81;         /* pressed / darker blue */
+  --bs-green:           #22BE6C;         /* YOUR lane. A sale, ticks, included */
+  --bs-green-d:         #1BA85C;         /* green TEXT on light — see the contrast note below */
+  --bs-teal:            #30A4A0;         /* shared lane · your team inside our journey */
+  --bs-aqua:            #7DD1C9;         /* connectors, chevrons, the glow, progress */
+
+  /* --- Dark panels — a component, never a page ----------------------------- */
+  --bs-navy:            #0E3247;         /* hero panel gradient start */
+  --bs-blue-deep:       #12384E;         /* hero panel gradient, deep fills */
+  --bs-navy-2:          #27546B;
+
+  /* --- Text ---------------------------------------------------------------- */
+  --bs-white:           #FFFFFF;
+  --bs-body:            #4B6673;         /* paragraphs · problem-state icon circles */
+  --bs-muted:           #A9C4D2;         /* body text ON dark cards */
+  --bs-muted-d:         #8FA9B6;         /* secondary on dark, struck-through / "before" */
+
+  /* --- Surfaces and borders ------------------------------------------------ */
+  --bs-bg:              #FFFFFF;
+  --bs-border:          #E8F3F2;         /* every card edge */
+  --bs-border-2:        #CFE4EA;         /* stronger card edge, chips */
+  --bs-border-g:        #BEE9CF;         /* the green lane card's border */
+  --bs-mist:            #F0F8F7;         /* tinted panel fill, chip fill */
+  --bs-mist-2:          #DCEBF0;         /* money that belongs to nobody — GST, material, transport */
+  --bs-tint-g:          #E7F6F0;
+  --bs-tint-g2:         #F4FAF9;
+
+  /* --- Caution — the system's ONLY warm colour. There is no red or coral. --- */
+  --bs-warn:            #FCC851;         /* SALE LOST pill, caution tag */
+  --bs-warn-bg:         #FBF3DF;         /* disclaimer strip fill */
+  --bs-warn-line:       #FFEDC2;         /* disclaimer strip border */
+
+  /* THEME VALUE #9A7B2E IS OVERRIDDEN — deliberate, measured, documented. */
+  /* The theme's own warm text colour does not pass WCAG AA anywhere it is */
+  /* used: 4.00:1 on white, and 3.62:1 on the #FBF3DF disclaimer strip it was */
+  /* specified for. Both are below the 4.5:1 a body-size caveat needs, and a */
+  /* caveat nobody can read is the one thing a caveat may not be. */
+  /* The value below is the same warm brown at 5.37:1 on white and 4.85:1 on */
+  /* the strip. Found by the contrast audit within minutes of generating */
+  /* tokens from the theme for the first time. OPEN-ITEMS item 9. */
+  --bs-warn-txt:        #8A6410; /* theme says #9A7B2E */
+
+  /* THEME VALUE #7F96A0 IS OVERRIDDEN — deliberate, measured, documented. */
+  /* Every use of this token in the website sets the colour of text or of a */
+  /* glyph beside text: captions, post dates, lane labels, the byline, the */
+  /* case context. #7F96A0 measures 3.10:1 on white and 2.88:1 on the tint, */
+  /* below the 4.5:1 body-size text needs. On a slide it sits under a */
+  /* narrator and nobody has to read it; on a page it is read. */
+  /* The value below is the same cool grey at 5.17:1 on white, 4.79:1 on the */
+  /* tint, and still clearly lighter than --bs-body (6.09:1) so the hierarchy */
+  /* holds. OPEN-ITEMS item 9. */
+  --bs-subtle:          #5A7080;           /* theme: #7F96A0 */
+
+  /* --- Aliases used by the existing stylesheet -------------------------- */
+  --bs-headline:        var(--bs-ink);
+  --bs-on-dark:         var(--bs-white);
+  --bs-on-dark-muted:   var(--bs-muted);
+  --bs-bg-footer:       var(--bs-ink);
+  --bs-border-light:    var(--bs-mist);
+  --bs-border-secondary-btn: var(--bs-border-2);
+  --bs-secondary-btn-hover-bg: var(--bs-tint-g2);
+  --bs-meter-track:     var(--bs-mist-2);
+  --bs-tag-pending-bg:  var(--bs-mist);
+  --bs-tag-pending-border: var(--bs-border-2);
+  --bs-green-dot:       var(--bs-green);
+  --bs-green-verification: #C6E7B9;
+  --bs-green-verified:  #A6DA8E;
+  --bs-green-verified-border: #7DCC67;
+  --bs-yellow:          var(--bs-warn);
+  --bs-yellow-bg:       var(--bs-warn-bg);
+  --bs-yellow-border:   var(--bs-warn-line);
+  --bs-blue-hover:      var(--bs-blue-d);
+  --bs-pattern:         #E4F4F3;
+  --bs-pattern-opacity: 0.04;
+
+  /* WARN #FCC851 on WARN_BG #FBF3DF measures 1.40:1 — invisible as text.
+     The theme's own WARN_TXT is the readable pairing and is used wherever
+     the yellow carries a word or a glyph. OPEN-ITEMS item 9. */
+  --bs-yellow-text:     var(--bs-warn-txt);
+
+  /* --- The lane code, as CSS -------------------------------------------- *
+   *
+   * theme.js derives an icon's colour from its MEANING: ICON_LANE maps each
+   * glyph to a lane, CIRCLE maps each lane to a fill. Colour is never chosen
+   * by hand, which is what makes "blue is us, green is you" readable without
+   * a legend.
+   *
+   * These four tokens are that rule in CSS. A component sets --bs-lane on a
+   * circle and the fill follows; it never names a colour. Written the other
+   * way round — each component picking blue or green itself — the meaning
+   * survives only as long as everybody remembers it, which is how the build
+   * ended up with no teal token at all.
+   */
+  --bs-lane-bs:      var(--bs-blue);    /* BrandSure does it        */
+  --bs-lane-you:     var(--bs-green);   /* you do it · a sale       */
+  --bs-lane-shared:  var(--bs-teal);    /* shared · your team       */
+  --bs-lane-problem: var(--bs-body);    /* a problem · a leak       */
+  --bs-lane-quiet:   var(--bs-mist);    /* quiet, on a tinted panel */
+
+  /* Default lane, so a circle with no lane set is still legible. */
+  --bs-lane:         var(--bs-lane-bs);
+  --bs-lane-glyph:   var(--bs-white);
+
+  /* --- Typography ------------------------------------------------------- *
+   *
+   * Inter, per the theme (2,856 uses in the deck). The SIZES are web sizes,
+   * not the theme's points: v4 s8 requires translation rather than copying.
+   * Each is annotated with the slide role it descends from.
+   */
+  --bs-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+             "Helvetica Neue", Arial, sans-serif;
+
+  --bs-fs-header:      2.5rem;   /* 40px · 700 · from HEADLINE 27pt        */
+  --bs-fs-subheader:   1.25rem;  /* 20px · 600 · from CARD 15pt            */
+  --bs-fs-body-lg:     1rem;     /* 16px · 400 · from SUB 13.5pt           */
+  --bs-fs-note:        1rem;     /* 16px · 400 · qualifying prose          */
+  --bs-fs-body:        0.875rem; /* 14px · 400 · from LABEL 12.5pt         */
+  --bs-fs-button:      0.875rem; /* 14px · 600 · web only                  */
+
+  --bs-fw-bold:        700;
+  --bs-fw-semibold:    600;
+  --bs-fw-regular:     400;
+
+  --bs-lh-tight:       1.15;
+  --bs-lh-snug:        1.35;
+  --bs-lh-body:        1.6;
+
+  /* --- Shape · the theme's card is radius 12px, 1px BORDER, cool shadow -- */
+  --bs-radius-button:  10px;
+  --bs-radius-card:    12px;
+  --bs-radius-tag:     16px;
+  --bs-radius-pill:    100px;
+
+  --bs-shadow-card:       0 5px 9px rgba(17, 110, 152, 0.07);
+  --bs-shadow-card-hover: 0 10px 22px rgba(17, 110, 152, 0.10);
+
+  /* --- The two permitted gradients, plus the glow ----------------------- */
+  --bs-gradient-hero:      linear-gradient(135deg, #0E3247 0%, #1E5C74 100%);
+  --bs-gradient-progress:  linear-gradient(135deg, #7DD1C9 0%, #30A4A0 100%);
+  /* The name brandsure.css already uses for the same aqua->teal fill. */
+  --bs-gradient-aqua:      var(--bs-gradient-progress);
+  --bs-gradient-signature: linear-gradient(135deg, #116E98 0%, #7DD1C9 65%, #C6E7B9 100%);
+  --bs-glow-aqua:          #7DD1C9;
+  --bs-glow-warm:          #FCC851;
+
+  /* --- Spacing · 4px base ----------------------------------------------- */
+  --bs-space-1: 0.25rem;  --bs-space-2: 0.5rem;   --bs-space-3: 0.75rem;
+  --bs-space-4: 1rem;     --bs-space-5: 1.5rem;   --bs-space-6: 2rem;
+  --bs-space-7: 3rem;     --bs-space-8: 4rem;
+
+  /* --- Layout · designed at 390px first --------------------------------- */
+  --bs-gutter:         1.25rem;
+  --bs-container:      75rem;
+  --bs-prose:          40rem;
+  --bs-sticky-bar-h:   3.5rem;
+  --bs-header-h:       3.5rem;
+
+  /* Minimum size of anything a thumb has to hit. Layer 4 v4: "touch targets
+     at least 48 px." Every interactive rule reads this; none sets its own. */
+  --bs-tap:            3rem;
+
+  /* --- Motion · the deck's grammar, translated --------------------------- *
+   *
+   * Generated from theme.js MOTION, so the website moves at the same speeds
+   * as the videos. The firing order is fixed by the spec and belongs in the
+   * stylesheet that uses these, not here:
+   *   tick bar (M2) -> headline (M1) -> sub (M1) -> picture -> dark card
+   *   -> green accents (M4, always last)
+   */
+  --bs-m1-settle:  400ms;   /* float in from bottom      */
+  --bs-m2-draw:    500ms;   /* wipe from left            */
+  --bs-m3-pop:     300ms;   /* zoom, icon circles only   */
+  --bs-m4-verify:  500ms;   /* zoom then one pulse       */
+  --bs-m5-stagger: 150ms;   /* per node in a chain       */
+  --bs-m6-grow:    600ms;   /* wipe from bottom          */
+  --bs-page-fade:  500ms;   /* between pages             */
+  --bs-page-gate:  600ms;   /* push into /start/         */
+
+  /* Interaction feedback. Not from the deck — a slide has no buttons, so
+     these have no theme value and are the web's own.
+
+     --bs-transition KEEPS ITS 160ms MEANING. Twenty-six rules in
+     brandsure.css use it for hovers, presses and colour changes. An early
+     version of this generator pointed it at the theme's 500ms slide fade,
+     which would have turned every button hover on the site into a half-second
+     smear — a silent regression, since nothing errors and nothing looks
+     broken in a screenshot. Page transitions are --bs-page-fade above. */
+  --bs-transition: 160ms;
+  --bs-t-fast:     120ms;
+  --bs-t-base:     160ms;
+
+  --bs-ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  --bs-ease-sheet:  cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Larger type only once there is room for it. Mobile is the source layout;
+   desktop is the expanded version, never the other way round. */
+@media (min-width: 48rem) { :root { --bs-gutter: 2rem; } }
+
+@media (min-width: 64rem) {
+  :root {
+    --bs-fs-header:    3rem;
+    --bs-fs-subheader: 1.375rem;
+    --bs-gutter:       2.5rem;
+  }
+}
+
+/* Reduced motion turns motion OFF, not down. Someone who asked their
+   operating system for less movement asked for a reason, and a 40ms
+   version of an animation is still an animation. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --bs-m1-settle: 0ms; --bs-m2-draw: 0ms; --bs-m3-pop: 0ms;
+    --bs-m4-verify: 0ms; --bs-m5-stagger: 0ms; --bs-m6-grow: 0ms;
+    --bs-transition: 0ms; --bs-t-fast: 0ms; --bs-t-base: 0ms;
+  }
+}

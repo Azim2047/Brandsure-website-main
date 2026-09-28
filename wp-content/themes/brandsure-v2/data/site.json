@@ -1,0 +1,229 @@
+{
+  "_comment": "Site-wide configuration. Empty strings are unresolved inputs tracked in docs/OPEN-ITEMS.md — do not fill them by guessing. Filled in Chat 1.",
+  "brand": {
+    "name": "BrandSure",
+    "legal_name": "BrandSure Consultancy Pvt. Ltd.",
+    "cin": "U73100KA2025PTC199105",
+    "locality": "Bengaluru",
+    "region": "Karnataka",
+    "country": "IN"
+  },
+  "contact": {
+    "_note": "CHANGED IN CHAT 15, and the change needs BrandSure's eye — see docs/OPEN-ITEMS.md item 13. numbers.v2.js (5 Sep 2026) is named the authority for contact details by Layer 4 v4 §2, and the update prompt says in terms: 'Do not use older chat memory to override these files.' It gives WHATSAPP '+91 8891 199 199' and EMAIL 'hello@brandsure.in'. Both differ from what was in this file, and what was in this file came from BrandSure directly in an earlier chat. The file wins on the stated authority, so it is applied here — but two things follow that only BrandSure can settle: (1) the WhatsApp number is now the same line as the phone, which undoes the deliberate split recorded below; (2) hello@brandsure.in must actually receive mail before launch. Previous values, for reversal: email info@brandsure.in, whatsapp_number 917624964199.",
+    "email": "hello@brandsure.in",
+    "phone_display": "+91 88911 99199",
+    "phone_tel": "+918891199199",
+    "whatsapp_number": "918891199199",
+    "_whatsapp_note": "E.164 without '+' — the wa.me path segment. Until Chat 15 this was 917624964199, deliberately a different number from phone_tel so the WhatsApp line reached the AI assistant and the phone line reached a person. numbers.v2.js gives one number for both. If the split is still wanted, this is the field to put 917624964199 back into; nothing else needs to change."
+  },
+  "nav_primary": [
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "Plans",
+      "url": "/plans/"
+    },
+    {
+      "label": "How It Works",
+      "url": "/how-it-works/"
+    },
+    {
+      "label": "Proof",
+      "url": "/proof/"
+    },
+    {
+      "label": "About",
+      "url": "/about/"
+    }
+  ],
+  "nav_cta": {
+    "label": "Start",
+    "url": "/start/"
+  },
+  "_nav_note": "Other Services is deliberately absent from nav_primary. It is footer-only (Architecture v3 §4). Digital Partner and Growth Partnership are reached from /plans/, not from the header.",
+  "footer": {
+    "other_services": [
+      {
+        "label": "Other Services",
+        "url": "/services/"
+      },
+      {
+        "label": "Furniture Growth & Marketing",
+        "url": "/furniture-growth-marketing-india/"
+      },
+      {
+        "label": "Furniture Business Consulting",
+        "url": "/furniture-business-consulting-india/"
+      },
+      {
+        "label": "Furniture Product Design",
+        "url": "/furniture-product-design-services-india/"
+      },
+      {
+        "label": "Furniture Labour Hiring",
+        "url": "/furniture-labour-hiring-india/"
+      }
+    ],
+    "company": [
+      {
+        "label": "About",
+        "url": "/about/"
+      },
+      {
+        "label": "Proof",
+        "url": "/proof/"
+      },
+      {
+        "label": "Blog",
+        "url": "/blog/"
+      }
+    ],
+    "legal": [
+      {
+        "label": "Privacy Policy",
+        "url": "/privacy-policy/"
+      },
+      {
+        "label": "Terms and Conditions",
+        "url": "/terms-and-conditions/"
+      },
+      {
+        "label": "Cookie Policy",
+        "url": "/cookie-policy/"
+      },
+      {
+        "label": "Disclaimer",
+        "url": "/disclaimer/"
+      }
+    ]
+  },
+  "seo": {
+    "_comment": "The blog index is the one public surface with no data/pages file and no WordPress page of its own to carry a description, so its two strings live here. Every other page's title and description come from the page that owns it — a data file for a controlled page, WordPress for an editable one. There is deliberately no place here to override those.",
+    "blog": {
+      "title": "Notes on growing a furniture business — BrandSure",
+      "meta_description": "For Indian furniture manufacturers and showroom owners: what happens between an advertisement and a delivered sofa, and where the money leaks."
+    }
+  },
+  "sticky_bar": {
+    "_comment": "The bar is the mobile launcher. 'Chat on WhatsApp' opens the panel; with JavaScript off it is an ordinary wa.me link and still works. Layer 4 v4 §5 keeps sticky WhatsApp + Call on the main public pages.",
+    "whatsapp_label": "Chat on WhatsApp",
+    "call_label": "Call"
+  },
+  "routing": {
+    "_comment": "Override 3. The plan parameter is permitted for Agency and Digital Partner only. Growth Partnership passes the interest parameter instead; pairing it with the plan parameter is a guard failure (rule R3).",
+    "agency": {
+      "param": "plan",
+      "value": "Agency",
+      "cta": "Ask about Agency"
+    },
+    "digital_partner": {
+      "param": "plan",
+      "value": "Digital Partner",
+      "cta": "Ask about Digital Partner"
+    },
+    "growth_partnership": {
+      "param": "interest",
+      "value": "Growth Partnership",
+      "cta": "Check If My Business Qualifies"
+    },
+    "service_marketing": {
+      "param": "service",
+      "value": "marketing",
+      "label": "furniture marketing"
+    },
+    "service_consulting": {
+      "param": "service",
+      "value": "consulting",
+      "label": "furniture business consulting"
+    },
+    "service_design": {
+      "param": "service",
+      "value": "design",
+      "label": "furniture product design"
+    },
+    "service_labour": {
+      "param": "service",
+      "value": "labour",
+      "label": "furniture labour hiring"
+    }
+  },
+  "whatsapp_templates": {
+    "_comment": "PROVISIONAL — OPEN-ITEMS item 3. The supplied n8n parser only recognises a code word plus an existing BS-##### id, which a first-touch website visitor does not have, so no agreed first-touch format exists yet. This is the fallback recorded in that item: labelled lines a human can read before sending, and that n8n can parse with one regex per line. Placeholders in {braces} are filled by the browser; any line whose placeholder is still empty is dropped before sending, so nobody ever receives 'Monthly sales: {sales}'. Changing this is a data edit, never a code change.",
+    "gate": "Hi BrandSure, I want to grow my furniture business.\nMonthly sales: {sales}\nAd spend now: {adspend}\nShowrooms: {showrooms}\nMonthly production: {production}\n{route}\nRef: {ref}",
+    "service_enquiry": "Hi BrandSure, I need help with {service}.",
+    "general": "Hi BrandSure, I want to grow my furniture business.",
+    "choose_plan": "Hi BrandSure, I want to grow my furniture business. Can you help me choose the right plan?",
+    "_choose_plan_note": "Deliberately carries no plan parameter. 'Help me choose' means the visitor has not chosen, and sending a plan= for them would put a guess into the funnel as if it were their answer."
+  },
+  "integration": {
+    "_comment": "SUPPLIED BY BRANDSURE. The base is the production webhook prefix from the WF-03 landing_event node; inc/events.php appends event_path to it. Do not add a trailing slash and do not use the /webhook-test/ form, which only answers while the n8n editor is open. OPEN-ITEMS item 2(a) is closed; 2(b), the WF-03 change needed for it to accept website events, is not.",
+    "n8n_base": "https://n8n.srv1944094.hstgr.cloud/webhook",
+    "event_path": "/landing-event",
+    "session_cookie": "bs_vid",
+    "session_cookie_days": 180
+  },
+  "whatsapp_panel": {
+    "_comment": "The WhatsApp panel — a bottom sheet on phones, a corner panel on desktop. Copy lives here because the panel is a CONTROLLED surface (Override 4): one editable copy, in this file, never also in WordPress. Every option opens WhatsApp on the visitor's own device; the panel is not a chat window and the closing line says so, because implying the conversation happens on the website is the thing Layer 4 v4 forbids most plainly. No 'online now', no response-time promise, no unread badge, no invented agent.",
+    "heading": "What does your furniture business need?",
+    "intro": "Choose an option to start a conversation on WhatsApp.",
+    "footnote": "This opens WhatsApp on your phone with the message already written. You can read it before you send it.",
+    "close_label": "Close",
+    "back_label": "Back",
+    "options": [
+      {
+        "id": "choose",
+        "label": "Help me choose a plan",
+        "hint": "Not sure which of the three fits",
+        "icon": "compass",
+        "template": "choose_plan"
+      },
+      {
+        "id": "digital-partner",
+        "label": "Ask about Digital Partner",
+        "hint": "The plan most businesses start with",
+        "icon": "whatsapp",
+        "route": "digital_partner"
+      },
+      {
+        "id": "service",
+        "label": "Ask about another service",
+        "hint": "Marketing, consulting, product design or labour hiring",
+        "icon": "grid",
+        "children": "services"
+      }
+    ],
+    "services_heading": "Which service?",
+    "services": [
+      {
+        "id": "marketing",
+        "label": "Furniture growth & marketing",
+        "route": "service_marketing"
+      },
+      {
+        "id": "consulting",
+        "label": "Furniture business consulting",
+        "route": "service_consulting"
+      },
+      {
+        "id": "design",
+        "label": "Furniture product design",
+        "route": "service_design"
+      },
+      {
+        "id": "labour",
+        "label": "Furniture labour hiring",
+        "route": "service_labour"
+      }
+    ],
+    "_service_page_note": "On one of the four service pages the panel leads with that service instead of the generic list, per Layer 4 v4 §5 'Labour and other service pages use contextual messages'. On /furniture-labour-hiring-india/ it offers ONLY labour hiring: a factory owner short two upholsterers is not a growth-plan prospect, and v4 says in terms not to push that buyer into the main growth qualification.",
+    "invite": {
+      "_comment": "The one-time nudge. Appears after real engagement, never on load, never over what somebody is reading, and once dismissed it stays dismissed for the rest of the browsing session (sessionStorage, not a cookie — it is a UI preference, not tracking).",
+      "text": "Need help choosing?",
+      "dismiss_label": "No thanks",
+      "after_scroll_percent": 55,
+      "after_seconds": 45
+    }
+  }
+}

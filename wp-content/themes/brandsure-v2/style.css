@@ -1,0 +1,21 @@
+/*
+Theme Name: BrandSure v2
+Theme URI: https://brandsure.in/
+Author: BrandSure Consultancy Pvt. Ltd.
+Description: Custom WordPress theme for brandsure.in. Public front door for a furniture-only growth company: trust, proof and routing to the four-number gate. No page builder, no framework, no private commercial facts. Content for controlled pages lives in the theme's data/ directory; editable pages live in WordPress.
+Version: 2.0.0-alpha
+Requires at least: 6.4
+Requires PHP: 8.0
+License: Proprietary — all rights reserved
+Text Domain: brandsure-v2
+*/
+
+/*
+ * This file exists for the WordPress theme header only.
+ *
+ * Do not write styles here. Styles live in:
+ *   assets/css/tokens.css     the design tokens — the only place a colour is defined
+ *   assets/css/brandsure.css  component styles, built on those tokens  (Chat 1)
+ *
+ * Both are enqueued from functions.php, in that order.
+ */

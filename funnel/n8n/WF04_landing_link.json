@@ -1,0 +1,99 @@
+{
+  "name": "WF-04 Landing Link Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "workflowInputs",
+        "workflowInputs": {
+          "values": [
+            { "name": "lead_id", "type": "string" },
+            { "name": "hours", "type": "number" }
+          ]
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000001",
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT lead_id, route FROM leads WHERE lead_id = $1;",
+        "options": { "queryReplacement": "={{ $json.lead_id }}" }
+      },
+      "id": "a1000000-0000-4000-8000-000000000002",
+      "name": "Load Route",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [220, 0],
+      "credentials": {
+        "postgres": { "id": "REPLACE_PG", "name": "Postgres account" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// No row from Load Route means the lead does not exist, and the chain never\n// reaches here - so no token can be minted for an unknown lead_id.\nconst r = $('Load Route').first().json;\nconst trg = $('When Executed by Another Workflow').first().json || {};\n\nconst hours = Number(trg.hours) > 0 ? Number(trg.hours) : 48;\nconst exp = new Date(Date.now() + hours * 3600 * 1000);\n\n// The token's unguessability comes from the HMAC signature, not from jti;\n// jti is here so two tokens minted in the same second are still distinct.\nconst jti = (globalThis.crypto && globalThis.crypto.randomUUID)\n  ? globalThis.crypto.randomUUID()\n  : Date.now().toString(36) + Math.random().toString(36).slice(2, 12);\n\n// exp_iso is deliberately OUTSIDE the signed claims - it is only needed for\n// the landing_tokens row and the caller, and signing it would just bloat\n// every token with a duplicate of exp.\nreturn [{ json: {\n  claims: {\n    lead_id: r.lead_id,\n    route: r.route,\n    jti,\n    iat: Math.floor(Date.now() / 1000),\n    exp: Math.floor(exp.getTime() / 1000)\n  },\n  exp_iso: exp.toISOString()\n}}];"
+      },
+      "id": "a1000000-0000-4000-8000-000000000003",
+      "name": "Build Claims",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 0]
+    },
+    {
+      "parameters": {
+        "operation": "sign",
+        "useJson": true,
+        "claimsJson": "={{ JSON.stringify($json.claims) }}",
+        "options": { "algorithm": "HS256" }
+      },
+      "id": "a1000000-0000-4000-8000-000000000004",
+      "name": "Sign JWT",
+      "type": "n8n-nodes-base.jwt",
+      "typeVersion": 1,
+      "position": [660, 0],
+      "credentials": {
+        "jwtAuth": { "id": "REPLACE_JWT", "name": "JWT Auth account" }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO landing_tokens (token, lead_id, route, expires_at)\nVALUES ($1, $2, $3, $4::timestamptz)\nRETURNING token, expires_at;",
+        "options": {
+          "queryReplacement": "={{ $('Sign JWT').first().json.token }},{{ $('Build Claims').first().json.claims.lead_id }},{{ $('Build Claims').first().json.claims.route }},{{ $('Build Claims').first().json.exp_iso }}"
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000005",
+      "name": "Store Token",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [880, 0],
+      "credentials": {
+        "postgres": { "id": "REPLACE_PG", "name": "Postgres account" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const s = $('Sign JWT').first().json;\nconst token = s.token || s.jwt || s.signature;\nconst c = $('Build Claims').first().json;\n\nreturn [{ json: {\n  url: 'https://go.brandsure.in/a?t=' + token,\n  token,\n  lead_id: c.claims.lead_id,\n  route: c.claims.route,\n  expires_at: c.exp_iso\n}}];"
+      },
+      "id": "a1000000-0000-4000-8000-000000000006",
+      "name": "Return URL",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1100, 0]
+    }
+  ],
+  "connections": {
+    "When Executed by Another Workflow": { "main": [[{ "node": "Load Route", "type": "main", "index": 0 }]] },
+    "Load Route": { "main": [[{ "node": "Build Claims", "type": "main", "index": 0 }]] },
+    "Build Claims": { "main": [[{ "node": "Sign JWT", "type": "main", "index": 0 }]] },
+    "Sign JWT": { "main": [[{ "node": "Store Token", "type": "main", "index": 0 }]] },
+    "Store Token": { "main": [[{ "node": "Return URL", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}

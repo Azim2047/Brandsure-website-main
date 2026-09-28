@@ -1,0 +1,1051 @@
+<!-- wp:html -->
+<style>
+/* ============ BrandSure Theme v1.0 tokens ============ */
+:root{
+  --blue:#116E98;--blue-hover:#0D5D81;--aqua:#7DD1C9;--aqua-deep:#30A4A0;
+  --green:#C6E7B9;--green-strong:#A6DA8E;--green-line:#7DCC67;
+  --ink:#081E2E;--body:#4B6673;--subtle:#7F96A0;--bg:#FFFFFF;--dark:#17232B;
+  --border:#E8F3F2;--border-2:#F0F8F7;--btn-border:#CDE7E4;--btn-hover-bg:#F0FBFB;
+  --yellow:#FCC851;--yellow-bg:#FBF3DF;--wa:#25D366;
+  --grad-brand:linear-gradient(135deg,#116E98 0%,#7DD1C9 65%,#C6E7B9 100%);
+  --grad-aqua:linear-gradient(135deg,#7DD1C9 0%,#30A4A0 100%);
+  --shadow:0 10px 30px rgba(17,110,152,.05);--shadow-h:0 15px 40px rgba(17,110,152,.07);
+  --r:20px;--rb:10px;--maxw:1140px;--gut:20px;
+  --band:clamp(64px,8.5vw,116px);--ease:cubic-bezier(.22,.61,.36,1);
+  --green-verify:#22BE6C;--yellow-line:#FFEDC2;
+  --tag-pending-bg:#EAF0F3;--tag-pending-line:#D6E0E6;
+  --meter-track:#DDE7EC;--pattern:#E4F4F3;
+  --tint-1:#FBFDFD;--tint-2:#F6FBFB;--dark-2:#1E2E38;
+  --error:#E0A0A0;--error-bg:#FEFAFA;
+  --fs-header:2.5rem;--fs-subheader:1.25rem;--fs-body-lg:1rem;
+  --fs-body:.875rem;--fs-btn:.875rem;
+  --fw-header:700;--fw-subheader:600;--fw-body:400;--fw-btn:600;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:#fff;color:var(--body);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:var(--fs-body-lg);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:var(--fw-header);letter-spacing:-.032em;line-height:1.1}
+p{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+img{max-width:100%;display:block}
+::selection{background:var(--green);color:var(--ink)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.band{padding:var(--band) 0;position:relative}
+.band--tint{background:linear-gradient(180deg,var(--tint-1),var(--tint-2))}
+.h1{font-size:clamp(38px,8vw,72px);line-height:1.05;letter-spacing:-.04em}
+.h2{font-size:clamp(26px,4.6vw,44px);line-height:1.12;letter-spacing:-.034em}
+.lead{font-size:clamp(16.5px,1.6vw,19px);line-height:1.6;max-width:56ch}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);
+  margin:0 0 16px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--grad-aqua);flex:none}
+.eyebrow--light{color:var(--aqua)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---- buttons ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:var(--fs-btn);font-weight:var(--fw-btn);
+  padding:17px 27px;border-radius:var(--rb);border:1px solid transparent;text-align:center;
+  transition:background .22s var(--ease),border-color .22s var(--ease),color .22s var(--ease),box-shadow .22s var(--ease),transform .22s var(--ease)}
+.btn--primary{background:var(--blue);color:#fff;box-shadow:0 8px 24px rgba(17,110,152,.22)}
+.btn--primary:hover{background:var(--blue-hover);box-shadow:0 12px 30px rgba(17,110,152,.3)}
+.btn--outline,.btn--secondary{background:#fff;border-color:var(--btn-border);color:var(--blue)}
+.btn--outline:hover,.btn--secondary:hover{background:var(--btn-hover-bg);border-color:var(--aqua)}
+.btn--onDark{background:rgba(255,255,255,.06);border-color:rgba(125,209,201,.34);color:#fff}
+.btn--onDark:hover{background:rgba(125,209,201,.14);border-color:var(--aqua)}
+.btn--sm{padding:12px 18px;font-size:14px}
+.btn .arw{transition:transform .22s var(--ease)}
+.btn:hover .arw{transform:translateX(3px)}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+/* ---- nav ---- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(23,35,43,.9);backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);transition:background .3s var(--ease),box-shadow .3s var(--ease)}
+.nav.is-light{background:rgba(255,255,255,.92);box-shadow:0 6px 24px rgba(8,30,46,.05)}
+.nav__in{display:flex;align-items:center;gap:22px;height:70px}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand__m{width:33px;height:33px;border-radius:9px;background:var(--grad-brand);display:grid;place-items:center;flex:none;box-shadow:0 4px 14px rgba(17,110,152,.25)}
+.brand__m span{color:#fff;font-weight:700;font-size:16px;line-height:1}
+.brand__t b{display:block;color:#fff;font-size:16px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.brand__t i{font-style:normal;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--aqua);font-weight:500}
+.nav.is-light .brand__t b{color:var(--ink)}
+.nav.is-light .brand__t i{color:var(--subtle)}
+.nav__links{display:none;align-items:center;gap:24px}
+.nav__links>a,.dd>button{font-size:14.5px;font-weight:500;color:rgba(255,255,255,.78);background:none;border:0;padding:6px 0;display:inline-flex;align-items:center;gap:6px;transition:color .2s var(--ease)}
+.nav__links>a:hover,.dd>button:hover{color:#fff}
+.nav.is-light .nav__links>a,.nav.is-light .dd>button{color:var(--body)}
+.nav.is-light .nav__links>a:hover,.nav.is-light .dd>button:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--aqua);text-decoration-thickness:1px;text-underline-offset:6px}
+.dd{position:relative}
+.dd__menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);min-width:280px;
+  background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 50px rgba(8,30,46,.14);
+  padding:8px;opacity:0;visibility:hidden;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.dd.is-open .dd__menu,.dd:hover .dd__menu{opacity:1;visibility:visible;transform:translateX(-50%)}
+.dd__menu a{display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;color:var(--ink);font-weight:500}
+.dd__menu a span{display:block;font-size:12.5px;color:var(--subtle);font-weight:400;margin-top:2px}
+.dd__menu a:hover{background:var(--btn-hover-bg)}
+.dd__car{transition:transform .2s var(--ease)}
+.dd.is-open .dd__car,.dd:hover .dd__car{transform:rotate(180deg)}
+.nav__cta{display:none}
+.burger{width:44px;height:44px;border:1px solid rgba(255,255,255,.2);background:transparent;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.nav.is-light .burger{border-color:var(--border);background:#fff}
+.burger i{display:block;width:17px;height:1.7px;background:#fff;border-radius:2px;transition:transform .25s var(--ease),opacity .2s var(--ease)}
+.nav.is-light .burger i{background:var(--ink)}
+.nav.is-open .burger i:nth-child(1){transform:translateY(6.7px) rotate(45deg)}
+.nav.is-open .burger i:nth-child(2){opacity:0}
+.nav.is-open .burger i:nth-child(3){transform:translateY(-6.7px) rotate(-45deg)}
+.mnav{display:none;background:#fff;border-top:1px solid var(--border);max-height:calc(100vh - 70px);overflow:auto}
+.nav.is-open .mnav{display:block}
+.mnav a{display:block;padding:15px 0;font-size:16px;font-weight:500;color:var(--ink);border-bottom:1px solid var(--border-2)}
+.mnav details{border-bottom:1px solid var(--border-2)}
+.mnav summary{list-style:none;cursor:pointer;padding:15px 0;font-size:16px;font-weight:500;color:var(--ink);display:flex;justify-content:space-between;align-items:center}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav details a{padding:11px 0 11px 14px;font-size:15px;color:var(--body);border-bottom:0}
+.mnav .btn{width:100%;margin:18px 0 22px}
+
+/* ---- page hero ---- */
+.pagehero{background:var(--dark);color:#fff;padding:calc(70px + clamp(44px,6vw,76px)) 0 clamp(44px,6vw,72px);position:relative;overflow:hidden}
+.pagehero h1{color:#fff;max-width:20ch}
+.hero__aura{position:absolute;top:-45%;left:50%;transform:translateX(-50%);width:min(1000px,130vw);aspect-ratio:1;border-radius:50%;
+  background:var(--grad-brand);opacity:.18;filter:blur(100px);pointer-events:none}
+.hero__grid{position:absolute;inset:0;pointer-events:none;opacity:.45;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:58px 58px;
+  -webkit-mask-image:radial-gradient(ellipse 62% 62% at 50% 34%,#000 10%,transparent 74%);
+  mask-image:radial-gradient(ellipse 62% 62% at 50% 34%,#000 10%,transparent 74%)}
+.hero__sub{margin:24px 0 0;font-size:clamp(17px,2vw,20px);line-height:1.6;color:rgba(255,255,255,.76);max-width:58ch}
+.hero__sub b{color:#fff;font-weight:600}
+.hero__rail{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.hero__rail s{text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:11px 18px;font-size:14px;font-weight:600;color:#fff}
+.hero__rail s i{font-style:normal;width:18px;height:18px;border-radius:50%;background:var(--green-strong);color:var(--ink);
+  display:grid;place-items:center;font-size:10px;font-weight:700;flex:none}
+.hero__price{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px 28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+.hero__price s{text-decoration:none;display:block}
+.hero__price b{display:block;font-size:clamp(19px,2.3vw,23px);color:#fff;letter-spacing:-.035em;font-variant-numeric:tabular-nums;line-height:1.2}
+.hero__price span{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--aqua);font-weight:600;margin-top:5px}
+
+/* ---- what never changes ---- */
+.keep{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(28px,3.6vw,40px)}
+.keepc{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.keepc i{font-style:normal;display:grid;place-items:center;width:30px;height:30px;border-radius:9px;
+  background:var(--green);color:var(--ink);font-size:13px;font-weight:700;margin-bottom:13px}
+.keepc b{display:block;font-size:var(--fs-subheader);color:var(--ink);font-weight:var(--fw-subheader);letter-spacing:-.02em;line-height:1.25}
+.keepc span{display:block;font-size:var(--fs-body);color:var(--body);margin-top:7px;line-height:1.5}
+.keep__why{margin-top:22px;display:flex;align-items:flex-start;gap:12px;background:var(--tint-1);border:1px solid var(--border);
+  border-left:3px solid var(--blue);border-radius:var(--r);padding:18px 22px;max-width:74ch}
+.keep__why p{font-size:16px;line-height:1.6;color:var(--ink)}
+
+/* ---- plan finder ---- */
+.finder{margin-top:clamp(26px,3.4vw,38px)}
+.finder__opts{display:grid;gap:11px}
+.fopt{display:grid;grid-template-columns:1fr 22px;gap:14px;align-items:center;text-align:left;width:100%;
+  background:#fff;border:1px solid var(--border);border-radius:16px;padding:19px 21px;box-shadow:var(--shadow);
+  transition:border-color .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease)}
+.fopt span{font-size:clamp(16px,1.8vw,18px);color:var(--ink);font-weight:var(--fw-subheader);letter-spacing:-.02em;line-height:1.4}
+.fopt em{font-style:normal;display:block;font-size:13.5px;color:var(--subtle);font-weight:var(--fw-body);margin-top:4px;letter-spacing:0}
+.fopt i{font-style:normal;justify-self:end;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--btn-border);
+  display:grid;place-items:center;font-size:11px;color:transparent;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
+.fopt:hover{border-color:var(--aqua)}
+.fopt[aria-pressed="true"]{border-color:var(--aqua);background:var(--btn-hover-bg);box-shadow:var(--shadow-h)}
+.fopt[aria-pressed="true"] i{background:var(--green-strong);border-color:var(--green-line);color:var(--ink)}
+.fres{margin-top:14px;background:var(--dark);border-radius:var(--r);padding:clamp(22px,3vw,30px);position:relative;overflow:hidden;display:none}
+.fres.is-on{display:block}
+.fres__aura{position:absolute;right:-20%;top:-70%;width:min(460px,90%);aspect-ratio:1;border-radius:50%;
+  background:var(--grad-brand);opacity:.2;filter:blur(72px);pointer-events:none}
+.fres__in{position:relative;display:grid;gap:20px;align-items:start}
+.fres__tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);font-weight:var(--fw-subheader)}
+.fres h3{color:#fff;font-size:clamp(21px,2.7vw,28px);letter-spacing:-.03em;margin-top:9px;line-height:1.2}
+.fres p{margin-top:12px;font-size:16.5px;line-height:1.62;color:rgba(255,255,255,.76)}
+.fres p b{color:#fff;font-weight:var(--fw-subheader)}
+.fres__side{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:15px;padding:20px}
+.fres__side b{display:block;color:#fff;font-size:clamp(20px,2.4vw,25px);letter-spacing:-.035em;font-variant-numeric:tabular-nums;line-height:1.2}
+.fres__side b small{font-size:.52em;font-weight:var(--fw-subheader);color:rgba(255,255,255,.6);letter-spacing:0}
+.fres__side span{display:block;font-size:13px;color:rgba(255,255,255,.6);margin-top:8px;line-height:1.5}
+.fres__side .btn{width:100%;margin-top:16px}
+.fres__jump{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:var(--aqua);font-weight:var(--fw-subheader);font-size:14.5px}
+
+/* ---- plan cards ---- */
+.plans{display:grid;gap:14px;margin-top:clamp(28px,4vw,44px);grid-template-columns:repeat(3,1fr)}
+.plan{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);
+  border-radius:var(--r);padding:clamp(22px,3vw,28px);box-shadow:var(--shadow);
+  transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.plan:hover{border-color:var(--aqua);box-shadow:var(--shadow-h)}
+.plan--pick{border-color:var(--aqua);box-shadow:var(--shadow-h)}
+.plan__badge{position:absolute;top:-12px;left:clamp(22px,3vw,28px)}
+.plan__name{font-size:11.5px;font-weight:var(--fw-subheader);letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.plan__line{margin-top:10px;font-size:var(--fs-subheader);font-weight:var(--fw-subheader);color:var(--ink);letter-spacing:-.02em;line-height:1.32}
+.plan__price{margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
+.plan__price b{display:block;font-size:clamp(27px,3.2vw,34px);color:var(--ink);letter-spacing:-.035em;line-height:1.1;font-variant-numeric:tabular-nums}
+.plan__price b small{font-size:.5em;font-weight:var(--fw-subheader);letter-spacing:-.01em;color:var(--body)}
+.plan__price u{display:block;text-decoration:none;margin-top:8px;font-size:13.5px;color:var(--blue);font-weight:var(--fw-subheader)}
+.plan__price span{display:block;margin-top:7px;font-size:var(--fs-body);color:var(--subtle);line-height:1.55}
+.plan__meta{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.plan__meta li{display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;font-size:14.5px;color:var(--body);line-height:1.45}
+.plan__meta li i{font-style:normal;color:var(--green-verify);font-weight:var(--fw-header);font-size:12.5px;line-height:1.6}
+.plan__meta li b{color:var(--ink);font-weight:var(--fw-subheader)}
+.plan__meta li.is-out i{color:var(--tag-pending-line)}
+.plan__meta li.is-out span{color:var(--subtle)}
+.plan__if{margin-top:18px;background:var(--tint-1);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
+.plan__if span{display:block;font-size:12px;color:var(--subtle);font-weight:var(--fw-subheader);letter-spacing:.1em;text-transform:uppercase}
+.plan__if p{margin-top:7px;font-size:15px;color:var(--ink);font-weight:var(--fw-subheader);line-height:1.45}
+.plan__go{margin-top:auto;padding-top:20px}
+.plan__go .btn{width:100%}
+.plan__go small{display:block;margin-top:10px;font-size:12.5px;color:var(--subtle);text-align:center;line-height:1.5}
+
+/* ---- in-house cost comparison ---- */
+.swap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:clamp(26px,4vw,54px);align-items:center;margin-top:clamp(28px,4vw,44px)}
+.swap__copy p{font-size:17px;line-height:1.65}
+.swap__copy p+p{margin-top:14px}
+.swap__copy p b{color:var(--ink);font-weight:var(--fw-subheader)}
+.swap__punch{margin-top:20px;font-size:clamp(18px,2.1vw,23px);color:var(--ink);font-weight:700;letter-spacing:-.028em;line-height:1.35;max-width:26ch}
+.swap__note{margin-top:16px;font-size:12.5px;color:var(--subtle);line-height:1.6}
+.ledger{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:clamp(20px,2.8vw,28px);box-shadow:var(--shadow)}
+.ledger__t{font-size:11.5px;font-weight:var(--fw-subheader);letter-spacing:.14em;text-transform:uppercase;color:var(--subtle);margin-bottom:6px}
+.ledger ul{list-style:none;margin:14px 0 0;padding:0}
+.ledger li{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--body)}
+.ledger li b{color:var(--ink);font-weight:var(--fw-subheader);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:14.5px}
+.ledger li em{font-style:normal;color:var(--subtle);font-size:13.5px;white-space:nowrap}
+.ledger__sum{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:baseline;padding-top:16px;margin-top:4px}
+.ledger__sum span{font-size:14.5px;color:var(--ink);font-weight:var(--fw-subheader)}
+.ledger__sum b{font-size:clamp(19px,2.2vw,24px);color:var(--ink);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ledger__vs{margin-top:16px;background:var(--dark);border-radius:15px;padding:18px 20px}
+.ledger__vs b{display:block;color:#fff;font-size:clamp(19px,2.2vw,24px);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ledger__vs span{display:block;font-size:13.5px;color:var(--aqua);margin-top:6px;font-weight:var(--fw-subheader)}
+
+/* ---- calculator ---- */
+.calc{margin-top:clamp(28px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.calc__in{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:clamp(20px,2.8vw,28px);box-shadow:var(--shadow)}
+.calc__grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.calc__f{display:block}
+.calc__f label{display:block;font-size:13px;font-weight:var(--fw-subheader);color:var(--ink);margin-bottom:7px;line-height:1.35}
+.calc__f .unit{position:relative;display:block}
+.calc__f .unit i{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-style:normal;font-size:15px;color:var(--subtle);pointer-events:none}
+.calc__f .unit u{position:absolute;right:14px;top:50%;transform:translateY(-50%);text-decoration:none;font-size:14px;color:var(--subtle);pointer-events:none}
+.inp{width:100%;font-family:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--btn-border);
+  border-radius:var(--rb);padding:13px 15px;font-variant-numeric:tabular-nums;
+  transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.inp:focus{outline:none;border-color:var(--aqua);box-shadow:0 0 0 4px rgba(125,209,201,.18)}
+.inp--pad{padding-left:30px}
+.inp--padr{padding-right:34px}
+.calc__seg{margin-top:16px}
+.calc__seg>span{display:block;font-size:13px;font-weight:var(--fw-subheader);color:var(--ink);margin-bottom:8px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg button{background:#fff;border:1px solid var(--btn-border);border-radius:var(--rb);padding:12px 10px;font-size:14px;
+  font-weight:var(--fw-subheader);color:var(--blue);line-height:1.3;
+  transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
+.seg button small{display:block;font-size:11.5px;font-weight:var(--fw-body);color:var(--subtle);margin-top:2px}
+.seg button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.seg button[aria-pressed="true"] small{color:rgba(255,255,255,.7)}
+.calc__out{background:var(--dark);border-radius:var(--r);padding:clamp(22px,3vw,30px);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.calc__out__aura{position:absolute;left:-25%;bottom:-60%;width:min(420px,90%);aspect-ratio:1;border-radius:50%;
+  background:var(--grad-brand);opacity:.18;filter:blur(72px);pointer-events:none}
+.calc__head{position:relative;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);font-weight:var(--fw-subheader)}
+.calc__big{position:relative;margin-top:16px}
+.calc__big b{display:block;font-size:clamp(40px,7vw,64px);color:#fff;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
+.calc__big span{display:block;margin-top:12px;font-size:clamp(16px,1.9vw,19px);color:#fff;font-weight:var(--fw-subheader);line-height:1.4;max-width:24ch}
+.calc__big u{display:block;text-decoration:none;margin-top:8px;font-size:14px;color:var(--aqua);font-weight:var(--fw-subheader)}
+.calc__wif{position:relative;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:var(--fw-subheader);line-height:1.5}
+.calc__wif span{color:var(--aqua)}
+.calc__rows+.calc__wif{margin-top:18px}
+.calc__rows{position:relative;list-style:none;margin:22px 0 0;padding:0}
+.calc__rows li{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:baseline;padding:11px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);font-size:14.5px;color:rgba(255,255,255,.7)}
+.calc__rows li b{color:#fff;font-weight:var(--fw-subheader);font-variant-numeric:tabular-nums;white-space:nowrap}
+.calc__rows li.is-net b{color:var(--aqua)}
+.calc__disc{position:relative;margin-top:18px;font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.45)}
+
+/* ---- comparison matrix ---- */
+.cmp{margin-top:clamp(28px,4vw,44px);background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.cmp__hint{display:none;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid var(--border);
+  background:var(--tint-2);font-size:12.5px;color:var(--subtle)}
+.cmp__scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp table{width:100%;min-width:720px;border-collapse:collapse}
+.cmp caption{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.cmp th,.cmp td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:14.5px;text-align:center;vertical-align:middle}
+.cmp thead th{background:var(--tint-2);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);font-weight:var(--fw-subheader)}
+.cmp thead th:first-child{text-align:left}
+.cmp tbody th{text-align:left;font-weight:var(--fw-body);color:var(--body);position:sticky;left:0;
+  background:#fff;min-width:196px;box-shadow:1px 0 0 var(--border)}
+.cmp tbody tr:hover th,.cmp tbody tr:hover td{background:var(--tint-1)}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp td{color:var(--ink);font-weight:var(--fw-subheader)}
+.cmp .is-price{font-size:16.5px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cmp .is-price small{display:block;font-size:12px;font-weight:var(--fw-body);color:var(--subtle);margin-top:3px;letter-spacing:0}
+.cmp .is-you{color:var(--subtle);font-weight:var(--fw-body)}
+.cmp .is-none{color:var(--tag-pending-line);font-weight:var(--fw-body)}
+.cmp .is-think{font-size:14px;font-weight:var(--fw-body);color:var(--ink);line-height:1.45;font-style:italic;min-width:160px}
+.cmp .is-soft{font-weight:var(--fw-body);color:var(--body);font-size:13.5px;line-height:1.45;min-width:150px}
+.cmp__tick{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.cmp__tick::before{content:"\2713";width:17px;height:17px;border-radius:50%;flex:none;
+  background:var(--green-strong);border:1px solid var(--green-line);color:var(--ink);
+  font-size:9.5px;font-weight:var(--fw-header);line-height:1;display:inline-flex;align-items:center;justify-content:center}
+
+/* ---- add-ons ---- */
+.adds{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:clamp(26px,3.6vw,40px)}
+.addc{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.addc>b{display:block;font-size:15.5px;color:var(--ink);font-weight:var(--fw-subheader);letter-spacing:-.02em}
+.addc ul{list-style:none;margin:12px 0 0;padding:0}
+.addc li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:9px 0;
+  border-bottom:1px solid var(--border-2);font-size:14px;color:var(--body)}
+.addc li:last-child{border-bottom:0}
+.addc li b{color:var(--ink);font-weight:var(--fw-subheader);font-variant-numeric:tabular-nums;white-space:nowrap}
+.addc>span{display:block;margin-top:12px;font-size:12.5px;color:var(--subtle);line-height:1.55}
+.adds__note{margin-top:20px;display:inline-flex;align-items:center;gap:11px;background:var(--tint-1);border:1px solid var(--border);
+  border-radius:100px;padding:12px 22px;font-size:14.5px;color:var(--ink);font-weight:500}
+.adds__note i{font-style:normal;width:18px;height:18px;border-radius:50%;background:var(--green-strong);color:var(--ink);
+  display:grid;place-items:center;font-size:10px;font-weight:700;flex:none}
+
+/* ---- first 30 days ---- */
+.wks{margin-top:clamp(28px,4vw,44px);border-top:1px solid var(--border)}
+.wk{display:grid;grid-template-columns:96px 1fr;gap:8px 24px;padding:clamp(20px,2.8vw,28px) 0;border-bottom:1px solid var(--border)}
+.wk>i{font-style:normal;font-size:12px;font-weight:var(--fw-subheader);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);padding-top:5px}
+.wk b{display:block;font-size:clamp(18px,2.1vw,22px);color:var(--ink);letter-spacing:-.025em;line-height:1.25}
+.wk p{margin-top:8px;font-size:16px;max-width:62ch;line-height:1.6}
+.wk p b{display:inline;font-size:inherit;letter-spacing:0;font-weight:var(--fw-subheader)}
+
+/* ---- faq ---- */
+.faq{margin-top:clamp(24px,3vw,36px);border-top:1px solid var(--border);max-width:820px}
+.faq details{border-bottom:1px solid var(--border)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 32px 18px 0;font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-.02em;position:relative;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--blue)}
+.faq summary::after{content:"";position:absolute;right:4px;top:26px;width:9px;height:9px;border-right:1.8px solid var(--subtle);border-bottom:1.8px solid var(--subtle);transform:rotate(45deg);transition:transform .25s var(--ease)}
+.faq details[open] summary::after{transform:rotate(-135deg);top:29px}
+.faq p{padding:0 24px 20px 0;font-size:16px;line-height:1.62;max-width:70ch}
+.faq p+p{padding-top:0;margin-top:-8px}
+.faq p b{color:var(--ink);font-weight:600}
+
+/* ---- fine print ---- */
+.fine{margin-top:clamp(26px,3.4vw,38px);background:#fff;border:1px solid var(--border);border-radius:var(--r);
+  padding:clamp(22px,3vw,30px);box-shadow:var(--shadow);max-width:900px}
+.fine dl{margin:0;display:grid;gap:16px}
+.fine dt{font-size:14.5px;color:var(--ink);font-weight:var(--fw-subheader);letter-spacing:-.015em}
+.fine dd{margin:5px 0 0;font-size:14px;line-height:1.62;color:var(--body)}
+
+/* ---- closing CTA ---- */
+.pcta{background:var(--dark);border-radius:26px;padding:clamp(28px,4.5vw,52px);position:relative;overflow:hidden;margin-top:clamp(26px,3vw,40px)}
+.pcta__aura{position:absolute;right:-15%;top:-60%;width:min(560px,90%);aspect-ratio:1;border-radius:50%;background:var(--grad-brand);opacity:.18;filter:blur(80px);pointer-events:none}
+.pcta__in{position:relative;display:grid;gap:clamp(22px,3.5vw,44px);align-items:center;grid-template-columns:minmax(0,1fr) minmax(0,.86fr)}
+.pcta h2{color:#fff}
+.pcta p{margin-top:14px;font-size:16.5px;line-height:1.65;color:rgba(255,255,255,.74)}
+.pcta p b{color:#fff;font-weight:var(--fw-subheader)}
+.pcta__box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:var(--r);padding:clamp(20px,2.6vw,26px)}
+.pcta__box span{display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);font-weight:var(--fw-subheader)}
+.pcta__box p{margin-top:10px;font-size:16px;color:#fff}
+.pcta__box .btn{width:100%;margin-top:18px}
+.pcta__box small{display:block;margin-top:12px;font-size:12.5px;color:rgba(255,255,255,.5);text-align:center;line-height:1.5}
+
+/* ---- state tags ---- */
+.tag-success,.tag-pending,.tag-warning{display:inline-flex;align-items:center;gap:6px;border-radius:100px;padding:6px 12px;
+  font-size:var(--fs-body);font-weight:var(--fw-subheader);line-height:1.2}
+.tag-success{background:var(--green-strong);color:var(--ink);border:1px solid var(--green-line)}
+.tag-pending{background:var(--tag-pending-bg);color:var(--subtle);border:1px solid var(--tag-pending-line)}
+
+/* ---- footer ---- */
+.ft{background:var(--dark);color:rgba(255,255,255,.6);padding:clamp(46px,5vw,64px) 0 30px}
+.ft__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:clamp(26px,5vw,56px)}
+.ft__b b{display:block;color:#fff;font-size:var(--fs-subheader);font-weight:var(--fw-header);letter-spacing:-.03em}
+.ft__b .tag{display:block;margin-top:6px;font-size:14px;color:var(--aqua)}
+.ft__b p{margin-top:16px;font-size:14.5px;line-height:1.7}
+.ft__b a:hover{color:var(--aqua)}
+.ft h4{color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin:0 0 15px}
+.ft__links{display:grid;gap:10px;font-size:14.5px}
+.ft__links a{color:rgba(255,255,255,.66)}
+.ft__links a:hover{color:#fff}
+.ft__bar{margin-top:clamp(34px,4vw,48px);border-top:1px solid rgba(255,255,255,.1);padding-top:20px;
+  display:flex;flex-wrap:wrap;gap:10px 24px;font-size:12.5px;color:rgba(255,255,255,.42)}
+.ft__bar .sep{margin-left:auto}
+.ft__legal{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px 16px;font-size:13px}
+.ft__legal a{color:rgba(255,255,255,.5)}
+.ft__legal a:hover{color:var(--aqua);text-decoration:underline;text-underline-offset:3px}
+
+/* ---- sticky whatsapp pill ---- */
+.wapill{position:fixed;right:16px;bottom:16px;z-index:70;display:inline-flex;align-items:center;gap:9px;
+  background:var(--wa);color:#fff;border-radius:100px;padding:14px 20px 14px 16px;font-size:14.5px;font-weight:600;
+  box-shadow:0 12px 32px rgba(37,211,102,.35);opacity:0;transform:translateY(140%);pointer-events:none;
+  transition:transform .35s var(--ease),opacity .35s var(--ease),box-shadow .25s var(--ease)}
+.wapill.is-on{opacity:1;transform:none;pointer-events:auto}
+.wapill:hover{box-shadow:0 16px 40px rgba(37,211,102,.45)}
+.wapill svg{width:21px;height:21px;flex:none}
+
+/* ---- reveal ---- */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+
+/* ---- breakpoints ---- */
+@media (min-width:1000px){
+  .nav__links{display:flex}
+  .nav__cta{display:block}
+  .burger{display:none}
+  .fres__in{grid-template-columns:minmax(0,1fr) 290px}
+}
+@media (max-width:999px){
+  .keep{grid-template-columns:1fr 1fr}
+  .swap{grid-template-columns:1fr}
+  .calc{grid-template-columns:1fr}
+  .adds{grid-template-columns:1fr}
+  .pcta__in{grid-template-columns:1fr}
+  .pcta__box .btn{width:100%}
+  .ft__top{grid-template-columns:1fr 1fr}
+  .ft__b{grid-column:1/-1}
+}
+@media (max-width:860px){
+  .plans{grid-template-columns:1fr}
+  .cmp__hint{display:flex}
+}
+@media (max-width:640px){
+  :root{--gut:18px}
+  .acts .btn{width:100%}
+  .keep{grid-template-columns:1fr}
+  .keepc{display:grid;grid-template-columns:30px 1fr;gap:0 14px}
+  .keepc i{margin-bottom:0;grid-row:1/3}
+  .calc__grid{grid-template-columns:1fr}
+  .wk{grid-template-columns:1fr;gap:6px}
+  .wk>i{padding-top:0}
+  .cmp th,.cmp td{padding:12px 14px}
+  .cmp tbody th{min-width:172px}
+  .ft__top{grid-template-columns:1fr}
+  .wapill{right:14px;bottom:14px;padding:13px 18px 13px 15px}
+}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="pagehero">
+  <span class="hero__aura" aria-hidden="true"></span>
+  <span class="hero__grid" aria-hidden="true"></span>
+  <div class="wrap" style="position:relative">
+    <p class="eyebrow eyebrow--light">Pricing</p>
+    <h1 class="h1">Two growth marketing plans. The difference is who calls the enquiry.</h1>
+    <p class="hero__sub">Both plans run the same Google and Meta ads and aim at the same thing: more of the right people walking into your showroom. What changes is whether your team calls and follows up the enquiries, or ours does.</p>
+    <div class="hero__rail">
+      <s><i aria-hidden="true">&#10003;</i>Your showroom closes every order</s>
+      <s><i aria-hidden="true">&#10003;</i>Prices on the page, not in a quote</s>
+      <s><i aria-hidden="true">&#10003;</i>Start small, move up when it works</s>
+    </div>
+    <div class="hero__price">
+      <s><b>&#8377;45,000<span>Agency Plan &middot; per month</span></b></s>
+      <s><b>&#8377;75,000<span>Digital Partner &middot; per month</span></b></s>
+    </div>
+    <div class="acts">
+      <a class="btn btn--primary" href="#finder" data-cta="hero-finder">Find my plan in one tap</a>
+      <a class="btn btn--onDark" href="#compare" data-cta="hero-compare">See the full comparison</a>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band" aria-labelledby="keep-h">
+  <div class="wrap">
+    <p class="eyebrow">Before the prices</p>
+    <h2 class="h2" id="keep-h">Four things do not change in any plan.</h2>
+    <div class="keep rv">
+      <div class="keepc">
+        <i aria-hidden="true">&#10003;</i>
+        <b>You set the price.</b>
+        <span>Quotation, discount, negotiation. We never quote on your behalf.</span>
+      </div>
+      <div class="keepc">
+        <i aria-hidden="true">&#10003;</i>
+        <b>You close the order.</b>
+        <span>The customer sits with your team, in your showroom, as always.</span>
+      </div>
+      <div class="keepc">
+        <i aria-hidden="true">&#10003;</i>
+        <b>The customer is yours.</b>
+        <span>Your bill, your relationship, your repeat order and your referral.</span>
+      </div>
+      <div class="keepc">
+        <i aria-hidden="true">&#10003;</i>
+        <b>Production stays yours.</b>
+        <span>We do not touch your factory floor or your delivery unless you ask us to.</span>
+      </div>
+    </div>
+    <div class="keep__why rv">
+      <p>This is the part most owners are quietly worried about when an outside team gets involved. So we put it above the prices instead of in the fine print.</p>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band band--tint" id="finder" aria-labelledby="finder-h">
+  <div class="wrap">
+    <p class="eyebrow">Plan finder</p>
+    <h2 class="h2" id="finder-h">Where does your growth actually stop?</h2>
+    <p class="lead" style="margin-top:12px">Tap the sentence that sounds most like your business this month. That decides the plan, not a sales pitch from us.</p>
+
+    <div class="finder">
+      <div class="finder__opts" id="fopts" role="group" aria-label="Choose the statement that fits your business">
+        <button type="button" class="fopt" aria-pressed="false" data-res="r1">
+          <span>Not enough people are enquiring at all.<em>The phone is quiet and the showroom is quiet.</em></span>
+          <i aria-hidden="true">&#10003;</i>
+        </button>
+        <button type="button" class="fopt" aria-pressed="false" data-res="r2">
+          <span>Enquiries come, but nobody calls and follows up properly.<em>Leads sit in a WhatsApp group and go cold.</em></span>
+          <i aria-hidden="true">&#10003;</i>
+        </button>
+        <button type="button" class="fopt" aria-pressed="false" data-res="r3">
+          <span>Ads are the small problem. Product, pricing and the factory need work too.<em>More enquiries alone will not fix this business.</em></span>
+          <i aria-hidden="true">&#10003;</i>
+        </button>
+        <button type="button" class="fopt" aria-pressed="false" data-res="r4">
+          <span>Honestly, I don&rsquo;t know where it stops.<em>Something is leaking, but nobody has measured it.</em></span>
+          <i aria-hidden="true">&#10003;</i>
+        </button>
+      </div>
+
+      <div class="fres" id="r1" role="region" aria-live="polite">
+        <span class="fres__aura" aria-hidden="true"></span>
+        <div class="fres__in">
+          <div>
+            <p class="fres__tag">Your plan</p>
+            <h3>Agency Plan</h3>
+            <p>Your sales team works. Your top of the funnel doesn&rsquo;t. So don&rsquo;t pay us to fix something that isn&rsquo;t broken. Keep your own CRM and your own calling, and let us put a properly built Google and Meta campaign in front of the right buyers in your market. <b>Three months is enough to know whether the enquiries are there.</b></p>
+            <a class="fres__jump" href="#plans">Read what is included <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="fres__side">
+            <b>&#8377;45,000<small> / month</small></b>
+            <span>You pay the ad budget directly. Minimum three months, then month to month.</span>
+            <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20My%20problem%20is%20not%20enough%20enquiries.%20Send%20me%20the%20Agency%20Plan%20details." target="_blank" rel="noopener" data-cta="finder-agency">Start with Agency Plan</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fres" id="r2" role="region" aria-live="polite">
+        <span class="fres__aura" aria-hidden="true"></span>
+        <div class="fres__in">
+          <div>
+            <p class="fres__tag">Your plan</p>
+            <h3>Digital Partner</h3>
+            <p>This is the most common answer we hear, and it is the most expensive leak in a furniture business. An enquiry that nobody calls within the hour is usually gone. So we take that whole job: we bring the enquiry, call it, qualify it, chase it on WhatsApp and book the showroom visit into your calendar. <b>Your team only walks into a room with someone who already wants to buy.</b></p>
+            <a class="fres__jump" href="#plans">Read what is included <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="fres__side">
+            <b>&#8377;75,000<small> / month</small></b>
+            <span>Plus a one-time &#8377;25,000 setup. You pay the ad budget directly. One city included, minimum three months.</span>
+            <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20Enquiries%20come%20but%20nobody%20follows%20up.%20Send%20me%20the%20Digital%20Partner%20details." target="_blank" rel="noopener" data-cta="finder-digital">Start with Digital Partner</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fres" id="r3" role="region" aria-live="polite">
+        <span class="fres__aura" aria-hidden="true"></span>
+        <div class="fres__in">
+          <div>
+            <p class="fres__tag">Start here instead</p>
+            <h3>More than marketing</h3>
+            <p>Then more enquiries on their own will not fix it, and a monthly marketing plan is the wrong place to start. Selected furniture manufacturers can work with BrandSure under a longer-term <b>Growth Partnership</b> covering growth, product, sales systems and business development. It is a different business relationship, not a bigger marketing package, and we check the business first.</p>
+            <a class="fres__jump" href="#partnership">Read about the Growth Partnership <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="fres__side">
+            <b>Business review first</b>
+            <span>Partnership structure explained after a business review. Selected manufacturers only.</span>
+            <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20want%20to%20check%20if%20my%20business%20is%20suitable%20for%20the%20Growth%20Partnership." target="_blank" rel="noopener" data-cta="finder-partnership">Check if my business is suitable</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fres" id="r4" role="region" aria-live="polite">
+        <span class="fres__aura" aria-hidden="true"></span>
+        <div class="fres__in">
+          <div>
+            <p class="fres__tag">Start here instead</p>
+            <h3>A 15-minute look at your numbers</h3>
+            <p>That is a normal answer, and guessing is expensive. Give us 15 minutes with four things: how many enquiries you got last month, what you spent on ads, how many walked into the showroom, and how many bought. Those four numbers show the leak. <b>Then we tell you which plan fits, including when the honest answer is the smallest one or none of them.</b></p>
+            <a class="fres__jump" href="#compare">Or read the full comparison first <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="fres__side">
+            <b>No charge<small> &nbsp;15 minutes</small></b>
+            <span>On WhatsApp or a call, whichever you prefer. No deck, no pitch.</span>
+            <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20am%20not%20sure%20which%20plan%20fits.%20Can%20we%20look%20at%20my%20numbers%3F" target="_blank" rel="noopener" data-cta="finder-notsure">Send &ldquo;not sure&rdquo;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band" id="plans" aria-labelledby="plans-h">
+  <div class="wrap">
+    <p class="eyebrow">Growth Marketing Plans</p>
+    <h2 class="h2" id="plans-h">Two plans. What each one actually includes.</h2>
+    <p class="lead" style="margin-top:12px">Nothing here is held back for the meeting. If a line matters to your decision, it is on this page.</p>
+
+    <div class="plans">
+
+      <article class="plan rv">
+        <p class="plan__name">Agency Plan</p>
+        <p class="plan__line">We bring enquiries. You sell.</p>
+        <div class="plan__price">
+          <b>&#8377;45,000<small> / month</small></b>
+          <u>Minimum 3 months</u>
+          <span>You pay the Google and Meta ad budget directly, so you always see exactly what reached the platforms.</span>
+        </div>
+        <ul class="plan__meta">
+          <li><i aria-hidden="true">&#10003;</i><span>Google and Meta ads, <b>creatives and designs included</b></span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>Campaign scope <b>agreed in writing</b> before we start</span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>Campaign reporting through the month</span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>CRM and lead system: <b>your own</b></span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>Calling and follow-up: <b>your team</b></span></li>
+          <li class="is-out"><i aria-hidden="true">&#8722;</i><span>Website, catalogue, SEO and social are not part of this plan</span></li>
+        </ul>
+        <div class="plan__if">
+          <span>Choose this if you are thinking</span>
+          <p>&ldquo;My sales team is good. I just need more enquiries.&rdquo;</p>
+        </div>
+        <div class="plan__go">
+          <a class="btn btn--outline" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20am%20interested%20in%20the%20Agency%20Plan%20at%20%E2%82%B945%2C000%20per%20month." target="_blank" rel="noopener" data-cta="plan-agency">Ask about Agency Plan</a>
+          <small>Moves up to Digital Partner whenever you want.</small>
+        </div>
+      </article>
+
+      <article class="plan plan--pick rv">
+        <span class="plan__badge tag-success">Most chosen</span>
+        <p class="plan__name">Digital Partner</p>
+        <p class="plan__line">We bring, call, follow up and book. You sell.</p>
+        <div class="plan__price">
+          <b>&#8377;75,000<small> / month</small></b>
+          <u>+ &#8377;25,000 one-time setup &middot; minimum 3 months</u>
+          <span>You pay the ad budget directly. One city included; extra cities are priced openly below.</span>
+        </div>
+        <ul class="plan__meta">
+          <li><i aria-hidden="true">&#10003;</i><span>Everything in Agency Plan, <b>plus:</b></span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>CRM and lead system <b>set up for you</b></span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>Best-Seller PDF built for your range, <b>up to 50 products</b></span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>We <b>call and qualify every new enquiry</b></span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>WhatsApp follow-up on active leads</span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>Showroom visits <b>booked into your calendar</b></span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>Capacity <b>up to 300 new leads a month</b></span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>A <b>180-day digital plan</b>, not a month-to-month scramble</span></li>
+          <li><i aria-hidden="true">&#10003;</i><span>Weekly Excel and appointment summary until the CRM is live, then live lead, call and chat visibility</span></li>
+        </ul>
+        <div class="plan__if">
+          <span>Choose this if you are thinking</span>
+          <p>&ldquo;Enquiries come, but nobody calls and follows up properly.&rdquo;</p>
+        </div>
+        <div class="plan__go">
+          <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20am%20interested%20in%20the%20Digital%20Partner%20plan%20at%20%E2%82%B975%2C000%20per%20month." target="_blank" rel="noopener" data-cta="plan-digital">Ask about Digital Partner</a>
+          <small>CRM setup takes up to 45 days. You get weekly reporting from week one.</small>
+        </div>
+      </article>
+
+
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band band--tint" aria-labelledby="swap-h">
+  <div class="wrap">
+    <p class="eyebrow">Why the fee looks like this</p>
+    <h2 class="h2" id="swap-h">The same job, built in-house.</h2>
+    <div class="swap">
+      <div class="swap__copy rv">
+        <p>Digital Partner is not a marketing retainer. It is a calling and conversion desk with the ads attached. So the fair comparison is not another agency&rsquo;s retainer. It is what you would have to hire, train and manage yourself to get the same work done.</p>
+        <p>And every one of those people has to be taught furniture from scratch: what a customer means when they say they want &ldquo;something like the corner sofa in the photo&rdquo;, why a &#8377;90,000 quote goes quiet, when to call back and when to stop.</p>
+        <p class="swap__punch">You are not buying hours. You are buying a desk that already knows how furniture is sold.</p>
+        <p class="swap__note">Indicative monthly salary and software ranges for South India, meant as a comparison and not a quote. Put your own numbers into the calculator below.</p>
+      </div>
+      <div class="ledger rv">
+        <p class="ledger__t">If you built it yourself</p>
+        <ul>
+          <li>Telecaller who calls every enquiry fast <b>&#8377;18,000&ndash;25,000</b></li>
+          <li>Marketing executive to run Google and Meta <b>&#8377;25,000&ndash;40,000</b></li>
+          <li>Creative and design work for the ads <b>&#8377;10,000&ndash;20,000</b></li>
+          <li>CRM and lead-tracking software <b>&#8377;2,000&ndash;6,000</b></li>
+          <li>Your own hours managing all of it <em>rarely priced</em></li>
+        </ul>
+        <div class="ledger__sum">
+          <span>Before anyone is trained</span>
+          <b>&#8377;55,000&ndash;91,000</b>
+        </div>
+        <div class="ledger__vs">
+          <b>&#8377;75,000 / month</b>
+          <span>Digital Partner: a team that has only ever sold furniture</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band" aria-labelledby="calc-h">
+  <div class="wrap">
+    <p class="eyebrow">Your numbers</p>
+    <h2 class="h2" id="calc-h">How many extra orders would this have to bring?</h2>
+    <p class="lead" style="margin-top:12px">Change these to your own figures. We are not going to promise you a result, but you should know the size of the target before you pay anyone, including us.</p>
+
+    <div class="calc">
+      <div class="calc__in">
+        <div class="calc__grid">
+          <div class="calc__f">
+            <label for="c-aov">Your average order value</label>
+            <span class="unit"><i aria-hidden="true">&#8377;</i><input class="inp inp--pad" type="number" id="c-aov" value="60000" min="0" step="1000" inputmode="numeric"></span>
+          </div>
+          <div class="calc__f">
+            <label for="c-margin">Your gross margin</label>
+            <span class="unit"><input class="inp inp--padr" type="number" id="c-margin" value="35" min="1" max="99" step="1" inputmode="numeric"><u aria-hidden="true">%</u></span>
+          </div>
+          <div class="calc__f">
+            <label for="c-visits">Extra visits you&rsquo;d expect a month</label>
+            <span class="unit"><input class="inp" type="number" id="c-visits" value="40" min="0" step="1" inputmode="numeric"></span>
+          </div>
+          <div class="calc__f">
+            <label for="c-close">Your close rate on a visit</label>
+            <span class="unit"><input class="inp inp--padr" type="number" id="c-close" value="25" min="1" max="100" step="1" inputmode="numeric"><u aria-hidden="true">%</u></span>
+          </div>
+          <div class="calc__f">
+            <label for="c-ads">Monthly ad budget you would run</label>
+            <span class="unit"><i aria-hidden="true">&#8377;</i><input class="inp inp--pad" type="number" id="c-ads" value="60000" min="0" step="5000" inputmode="numeric"></span>
+          </div>
+        </div>
+        <div class="calc__seg">
+          <span>Which plan are you costing?</span>
+          <div class="seg" id="c-seg">
+            <button type="button" data-fee="45000" aria-pressed="false">Agency Plan<small>&#8377;45,000 / month</small></button>
+            <button type="button" data-fee="75000" aria-pressed="true">Digital Partner<small>&#8377;75,000 / month</small></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc__out">
+        <span class="calc__out__aura" aria-hidden="true"></span>
+        <p class="calc__head">Your break-even</p>
+        <div class="calc__big">
+          <b id="c-be">7</b>
+          <span id="c-be-l">extra orders a month cover the fee and the whole ad budget.</span>
+          <u id="c-be-wk">That is about 2 a week.</u>
+        </div>
+        <ul class="calc__rows">
+          <li>Gross profit per order <b id="c-per">&#8377;21,000</b></li>
+          <li>Fee plus ad budget <b id="c-cost">&#8377;1,35,000</b></li>
+          <li>Extra sales needed a month <b id="c-need">&#8377;3,85,714</b></li>
+        </ul>
+        <p class="calc__wif">If you got <span id="c-wif-v">40</span> extra visits and closed <span id="c-wif-c">25</span>%</p>
+        <ul class="calc__rows">
+          <li>Extra orders a month <b id="c-orders">10</b></li>
+          <li>Extra sales a month <b id="c-sales">&#8377;6,00,000</b></li>
+          <li class="is-net" id="c-net-row">Ahead by, every month <b id="c-net">+&#8377;75,000</b></li>
+        </ul>
+        <p class="calc__disc">The break-even is arithmetic on your own order value and margin, and that part is certain. The visits below are your estimate, not our forecast: what actually happens depends on your product, your prices, your showroom and your market.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band band--tint" id="compare" aria-labelledby="cmp-h">
+  <div class="wrap">
+    <p class="eyebrow">Side by side</p>
+    <h2 class="h2" id="cmp-h">The full comparison.</h2>
+    <p class="lead" style="margin-top:12px">The same table we put on the table in the meeting. Nothing hidden behind a &ldquo;custom quote&rdquo;.</p>
+
+    <div class="cmp rv">
+      <p class="cmp__hint"><span aria-hidden="true">&#8596;</span> Swipe the table sideways to compare</p>
+      <div class="cmp__scroll" tabindex="0" role="region" aria-label="Package comparison table, scrollable">
+        <table>
+          <caption>BrandSure growth marketing plans compared</caption>
+          <thead>
+            <tr><th scope="col">&nbsp;</th><th scope="col">Agency Plan</th><th scope="col">Digital Partner</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">In one line</th><td class="is-soft">We bring enquiries. You sell.</td><td class="is-soft">We bring, call, follow up and book. You sell.</td></tr>
+            <tr><th scope="row">What you pay us</th><td class="is-price">&#8377;45,000<small>per month</small></td><td class="is-price">&#8377;75,000<small>per month + &#8377;25,000 one-time setup</small></td></tr>
+            <tr><th scope="row">Who pays the ad money</th><td class="is-you">You</td><td class="is-you">You</td></tr>
+            <tr><th scope="row">Minimum period</th><td class="is-you">3 months</td><td class="is-you">3 months</td></tr>
+            <tr><th scope="row">Google + Meta ads</th><td><span class="cmp__tick">Included</span></td><td><span class="cmp__tick">Included</span></td></tr>
+            <tr><th scope="row">Ad creatives and designs</th><td><span class="cmp__tick">Included</span></td><td><span class="cmp__tick">Included</span></td></tr>
+            <tr><th scope="row">Market coverage</th><td class="is-soft">Campaign scope agreed upfront</td><td class="is-soft">1 city included. Extra city +&#8377;20,000 / month</td></tr>
+            <tr><th scope="row">CRM and lead system</th><td class="is-you">Your own</td><td><span class="cmp__tick">Included</span></td></tr>
+            <tr><th scope="row">Best-Seller PDF</th><td class="is-none" aria-label="Not included">&mdash;</td><td><span class="cmp__tick">Up to 50 products</span></td></tr>
+            <tr><th scope="row">Calling and appointment booking</th><td class="is-you">Your team</td><td><span class="cmp__tick">Included</span></td></tr>
+            <tr><th scope="row">WhatsApp follow-up</th><td class="is-you">Your team</td><td class="is-soft">Included for active leads. Drip marketing as an add-on</td></tr>
+            <tr><th scope="row">Lead handling capacity</th><td class="is-you">No calling</td><td>Up to 300 new leads / month</td></tr>
+            <tr><th scope="row">Reporting and visibility</th><td class="is-soft">Campaign reporting</td><td class="is-soft">Weekly Excel and appointment summary until the CRM is live, then live lead, call and chat visibility</td></tr>
+            <tr><th scope="row">Website and product catalogue</th><td class="is-none" aria-label="Not included">&mdash;</td><td class="is-soft">Add-on. Website &#8377;90,000. Catalogue from &#8377;800 per product</td></tr>
+            <tr><th scope="row">SEO, social, content</th><td class="is-none" aria-label="Not included">&mdash;</td><td class="is-soft">Optional paid modules based on need</td></tr>
+            <tr><th scope="row">Closing the order</th><td class="is-you">You</td><td class="is-you">You</td></tr>
+            <tr><th scope="row">What you get out of it</th><td class="is-soft">More enquiries</td><td class="is-soft">A 180-day digital plan and more qualified showroom visits</td></tr>
+            <tr><th scope="row">Choose this if you are thinking&hellip;</th><td class="is-think">&ldquo;My sales team is good. I just need more enquiries.&rdquo;</td><td class="is-think">&ldquo;Enquiries come, but nobody calls and follows up properly.&rdquo;</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band band--tint" id="partnership" aria-labelledby="partnership-h">
+  <div class="wrap">
+    <p class="eyebrow">Beyond marketing</p>
+    <h2 class="h2" id="partnership-h">Need more than marketing?</h2>
+    <p class="lead" style="margin-top:12px">The two plans above are standalone marketing services. This is a different kind of working relationship, not a larger version of them.</p>
+
+    <div class="pcta rv" style="margin-top:26px">
+      <span class="pcta__aura" aria-hidden="true"></span>
+      <div class="pcta__in">
+        <div>
+          <h3 class="h3">BrandSure Growth Partnership</h3>
+          <p>For selected furniture manufacturers that want BrandSure involved across growth, product, sales systems and business development.</p>
+          <p><b>It is not an upgrade to the &#8377;45,000 or &#8377;75,000 plans.</b> Those buy marketing work each month. A partnership means BrandSure works inside the business over a longer period, so we look at the business before either side commits.</p>
+        </div>
+        <div class="pcta__box">
+          <span>How it is priced</span>
+          <p>Partnership structure explained after business review.</p>
+          <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20want%20to%20check%20if%20my%20business%20is%20suitable%20for%20the%20Growth%20Partnership." target="_blank" rel="noopener" data-cta="partnership-suitable">Check If My Business Is Suitable</a>
+          <small>Selected manufacturers only. We say no when a business is not ready.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band" aria-labelledby="adds-h">
+  <div class="wrap">
+    <p class="eyebrow">Add-ons, priced in the open</p>
+    <h2 class="h2" id="adds-h">The things that usually appear later, listed now.</h2>
+    <p class="lead" style="margin-top:12px">All optional. None of it is required to start, and none of it reaches an invoice you have not approved.</p>
+
+    <div class="adds">
+      <div class="addc rv">
+        <b>More reach</b>
+        <ul>
+          <li>Each extra city, Digital Partner <b>&#8377;20,000 / mo</b></li>
+          <li>+100 new leads a month <b>&#8377;10,000 / mo</b></li>
+          <li>+250 new leads a month <b>&#8377;20,000 / mo</b></li>
+          <li>+1,000 new leads a month <b>&#8377;65,000 / mo</b></li>
+        </ul>
+        <span>A &ldquo;lead&rdquo; means one new lead record. A single lead may need several calls and follow-ups.</span>
+      </div>
+      <div class="addc rv">
+        <b>Website and catalogue</b>
+        <ul>
+          <li>Website, one-time <b>&#8377;90,000</b></li>
+          <li>Catalogue level 1, per product <b>&#8377;800</b></li>
+          <li>Catalogue level 2, per product <b>&#8377;1,500</b></li>
+          <li>Catalogue level 3, per product <b>&#8377;8,000</b></li>
+        </ul>
+        <span>Products on an existing website transfer as-is. If there is no website, the first 15 products are included. Two consolidated revisions and six months of basic maintenance are included.</span>
+      </div>
+      <div class="addc rv">
+        <b>Wider digital</b>
+        <ul>
+          <li>WhatsApp drip marketing <b>Add-on</b></li>
+          <li>SEO modules <b>On need</b></li>
+          <li>Social and content <b>On need</b></li>
+        </ul>
+        <span>Priced only when there is a reason to run them, and only after you approve the quote.</span>
+      </div>
+    </div>
+    <p class="adds__note rv"><i aria-hidden="true">&#10003;</i> Every add-on is quoted and approved by you before any work starts.</p>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band band--tint" aria-labelledby="wk-h">
+  <div class="wrap">
+    <p class="eyebrow">Your first 30 days</p>
+    <h2 class="h2" id="wk-h">What happens after you say yes.</h2>
+    <p class="lead" style="margin-top:12px">So the money and the waiting are not a mystery. This is the Digital Partner sequence; on Agency Plan your team takes over from week three.</p>
+
+    <div class="wks rv">
+      <div class="wk">
+        <i>Week 1</i>
+        <div>
+          <b>We take the account, and you keep the keys.</b>
+          <p>Access to your ad accounts and WhatsApp number, tracking installed, campaign scope and territory <b>agreed in writing</b>, and a best-seller list built from what your showroom already sells rather than what looks good in a brochure.</p>
+        </div>
+      </div>
+      <div class="wk">
+        <i>Week 2</i>
+        <div>
+          <b>Ads go live on your real products.</b>
+          <p>Google and Meta campaigns built around those best sellers, using photos from your showroom, factory and completed installations. Enquiries start arriving in a place you can see them.</p>
+        </div>
+      </div>
+      <div class="wk">
+        <i>Week 3</i>
+        <div>
+          <b>Every enquiry gets called.</b>
+          <p>Our desk calls, qualifies and follows up on WhatsApp, and books showroom visits into your calendar. You will see the appointment before the customer arrives. CRM setup runs alongside this and can take up to 45 days; until it is live you get a weekly Excel and appointment summary.</p>
+        </div>
+      </div>
+      <div class="wk">
+        <i>Week 4</i>
+        <div>
+          <b>The first honest review.</b>
+          <p>Leads, calls, appointments, walk-ins and orders, on real numbers, with what we are changing next month and why. <b>If it is not working, you will hear it from us before you have to ask.</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band" aria-labelledby="faq-h">
+  <div class="wrap">
+    <p class="eyebrow">Straight answers</p>
+    <h2 class="h2" id="faq-h">The questions owners actually ask us.</h2>
+
+    <div class="faq">
+      <details>
+        <summary>Another agency quoted me &#8377;25,000 a month. Why is yours higher?</summary>
+        <p>Because you are buying different things. A &#8377;25,000 retainer usually buys campaign management, shared across a dozen unrelated industries. <b>Agency Plan at &#8377;45,000</b> buys a team that works only on Indian furniture and sofa businesses, so the ads speak to a sofa buyer, not to a generic &ldquo;home decor&rdquo; audience. <b>Digital Partner at &#8377;75,000</b> buys the part where most furniture businesses are quietly losing money: somebody calling every enquiry quickly, chasing it on WhatsApp and booking the visit. Compare that against a telecaller, a marketing executive, a designer and a CRM on your own payroll.</p>
+      </details>
+      <details>
+        <summary>What if it does not work in three months?</summary>
+        <p>Agency Plan and Digital Partner carry a three-month minimum and then run month to month. Three months is the shortest honest window to launch, collect real data and fix what the data shows. One month is guessing. But you are not waiting three months to find out: you get a review on real numbers at the end of month one, and again every month after.</p>
+      </details>
+                  <details>
+        <summary>Will you work with my competitor in the same city?</summary>
+        <p>Territory and selling locations are <b>agreed in writing before any work starts</b>. Digital Partner includes one city, with each additional city at &#8377;20,000 a month. Ask us about your specific city and product category before you sign, and we will tell you exactly what we can commit to.</p>
+      </details>
+      <details>
+        <summary>Do I need a website before we start?</summary>
+        <p>No. Google and Meta campaigns run to a landing page and to WhatsApp, so you can start without one. A website is an add-on at &#8377;90,000 whenever you want it. Do not let a missing website delay the enquiries.</p>
+      </details>
+      <details>
+        <summary>My son already runs our Instagram. Where does that fit?</summary>
+        <p>It stays with him. Organic social is the brand&rsquo;s voice and it is better in the family&rsquo;s hands. What we run is paid Google and Meta: the part that needs daily budget decisions, audience testing and a person watching the cost per enquiry. The two work better side by side than merged.</p>
+      </details>
+      <details>
+        <summary>Who owns the leads and the CRM data?</summary>
+        <p>You do. The enquiries are your customers, the CRM records are your records, and you have visibility into leads, calls and chats once setup is complete. If we stop working together, the data does not walk out with us.</p>
+      </details>
+      <details>
+        <summary>What do you need from me?</summary>
+        <p>Three things. Access to your ad accounts and WhatsApp number. Your product and price list, so the calling desk quotes nothing you have not approved. And a steady flow of <b>fresh photos and videos</b> from the showroom, factory, installations and finished work. Ads built on your real work consistently beat ads built on stock images, and this is the one input we cannot produce for you.</p>
+      </details>
+      <details>
+        <summary>Can I start small and move up later?</summary>
+        <p>Yes, and most owners should. Start on Agency Plan, see whether the enquiries arrive, and move to Digital Partner when the bottleneck shifts to follow-up, which it usually does. Those two are the only growth marketing plans; the Growth Partnership is a separate conversation.</p>
+      </details>
+      <details>
+        <summary>Is there a way to work with BrandSure beyond marketing?</summary>
+        <p>Yes. Selected furniture manufacturers work with BrandSure under a longer-term <b>Growth Partnership</b> covering growth, product, sales systems and business development. It is a different business relationship rather than a more expensive marketing plan, so it is not sold as an upgrade to the two plans above.</p>
+        <p>It is qualification-led: we look at the business first and the partnership structure is explained after that review. If you want to know whether your business is suitable, ask us.</p>
+      </details>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band band--tint" aria-labelledby="fine-h">
+  <div class="wrap">
+    <p class="eyebrow">The fine print, said plainly</p>
+    <h2 class="h2" id="fine-h">The asterisks, in full.</h2>
+    <div class="fine rv">
+      <dl>
+        <dt>Digital Partner lead capacity</dt>
+        <dd>Up to 300 new leads a month is included. Add-ons: +100 leads &#8377;10,000 / month, +250 leads &#8377;20,000 / month, +1,000 leads &#8377;65,000 / month. &ldquo;Leads&rdquo; means new lead records; each one may need several follow-ups before it becomes an appointment.</dd>
+        <dt>Digital Partner setup and reporting</dt>
+        <dd>Mandatory setup includes the CRM and a Best-Seller PDF of up to 50 products, at a one-time &#8377;25,000. Until the CRM is live you receive a weekly Excel and appointment summary; real-time lead, call and chat visibility follows setup, which can take up to 45 days.</dd>
+        <dt>Website add-on</dt>
+        <dd>&#8377;90,000 one-time. Products on an existing website transfer as-is; if there is no existing website, the first 15 products are included. Two consolidated revisions and six months of basic maintenance are included. Catalogue work is priced per product at level 1 &#8377;800, level 2 &#8377;1,500 and level 3 &#8377;8,000.</dd>
+        <dt>What we need from you</dt>
+        <dd>Fresh showroom, factory, installation and completed-work photos and videos, supplied regularly for use in ads.</dd>
+        <dt>Taxes and terms</dt>
+        <dd>All prices are exclusive of applicable taxes. Prices shown here are current at the date of this page and may be revised for new agreements; whatever you sign is what applies to you.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="band" aria-labelledby="unsure-h">
+  <div class="wrap">
+    <div class="pcta rv">
+      <span class="pcta__aura" aria-hidden="true"></span>
+      <div class="pcta__in">
+        <div>
+          <h2 class="h2" id="unsure-h">Still not sure which one?</h2>
+          <p>Then don&rsquo;t choose yet. Send us four numbers: enquiries last month, ad spend, showroom walk-ins and orders. Then we will tell you where your growth is actually leaking and which plan fits.</p>
+          <p><b>Including when the honest answer is the smallest plan, or none of them.</b> We would rather say that in 15 minutes than three months into a wrong package.</p>
+        </div>
+        <div class="pcta__box">
+          <span>Start here</span>
+          <p>WhatsApp us a plan name: Agency Plan or Digital Partner. Or just send &ldquo;not sure&rdquo;.</p>
+          <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20am%20not%20sure%20which%20plan%20fits%20my%20business." target="_blank" rel="noopener" data-cta="pricing-final">Send &ldquo;not sure&rdquo; on WhatsApp</a>
+          <small>Replies from the team, not a bot.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<footer class="ft" id="ft">
+  <div class="wrap">
+    <div class="ft__top">
+      <div class="ft__b">
+        <b>BrandSure Consultancy Pvt. Ltd.</b>
+        <span class="tag">Furniture Growth Systems. Built in India.</span>
+        <p>Bengaluru, Karnataka, India<br>
+          <a href="tel:+918884446668">+91 8884 446 668</a><br>
+          <a href="mailto:info@brandsure.in">info@brandsure.in</a></p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <nav class="ft__links" aria-label="Footer">
+          <a href="/how-it-works/">How It Works</a>
+          <a href="/about/">About the Founder</a>
+          <a href="/services/">Services</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <nav class="ft__links" aria-label="Services">
+          <a href="/furniture-labour-hiring-india/">Labour Hiring Help</a>
+          <a href="/furniture-growth-marketing-india/">Growth &amp; Marketing</a>
+          <a href="/furniture-business-consulting-india/">Business Consulting</a>
+          <a href="/furniture-product-design-services-india/">Product Design</a>
+        </nav>
+      </div>
+    </div>
+    <div class="ft__bar">
+      <span>CIN: U73100KA2025PTC199105</span>
+      <span class="sep">&copy; 2026 BrandSure Consultancy Pvt. Ltd. All rights reserved.</span>
+    </div>
+    <nav class="ft__legal" aria-label="Legal">
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/cookie-policy/">Cookie Policy</a>
+      <a href="/disclaimer/">Disclaimer</a>
+    </nav>
+  </div>
+</footer>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<a class="wapill" id="wapill" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20want%20to%20discuss%20my%20business." target="_blank" rel="noopener" data-cta="sticky" aria-label="Chat with BrandSure on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 004.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm0 18.13h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.16 8.16 0 01-1.25-4.35c0-4.53 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.17 8.17 0 012.41 5.82c0 4.54-3.7 8.21-8.24 8.21z"/></svg>
+  WhatsApp
+</a>
+<!-- /wp:html -->

@@ -1,0 +1,104 @@
+{
+  "_comment": "Digital Partner. PUBLIC-FULL: this is the velocity product and transparency converts, so it shows the fee, the setup, month-one cash, capacity, the 45 days and the break-even. All from Numbers Sheet A2 via fact keys. Video 3 is permitted public (Architecture v3 §5) because it contains no partnership economics. Deliberately NOT included: the 300 → 90 → 35 → 9 breakdown from Video 3 S10. Architecture v3 lists what this page may show and that is not on it, and an unfootnoted conversion claim on a public page needs qualification the video's narration would otherwise carry. The six leak points from Video 3 S2 belong to /how-it-works/ and are not repeated here.",
+
+  "slug": "digital-partner",
+  "title": "Digital Partner — we bring, call and book. You close.",
+  "meta_description": "BrandSure runs the ads, calls every enquiry, follows up on WhatsApp and books the showroom visit. You close the sale. For Indian furniture businesses.",
+
+  "sections": [
+    {
+      "type": "hero",
+      "tone": "light",
+      "eyebrow": "Where most businesses start",
+      "headline": "We bring, call, follow up and book. You close.",
+      "body": "You already pay for every enquiry that comes in. This is the plan that makes sure none of them goes cold before anyone calls back.",
+      "primary": { "label": "Start with Digital Partner", "url": "/start/?plan=Digital%20Partner" },
+      "secondary": { "label": "Compare the plans", "url": "/plans/" }
+    },
+
+    {
+      "type": "timeline",
+      "tone": "light",
+      "headline": "One enquiry, handled the way you would handle it yourself.",
+      "body": "This is a normal Tuesday morning on Digital Partner.",
+      "stops": [
+        { "time": "9:04", "icon": "enquiry",  "title": "The enquiry comes in from your ad" },
+        { "time": "9:11", "icon": "phone",    "title": "We call. Seven minutes, not seven hours." },
+        { "time": "9:25", "icon": "whatsapp", "title": "Photos and prices sent on WhatsApp" },
+        { "time": "9:40", "icon": "calendar", "title": "Showroom visit booked into your diary" },
+        { "time": "Saturday", "icon": "showroom", "title": "He walks in, and your salesperson closes" }
+      ],
+      "note": "If he does not answer, we keep trying. If he does not come, we call again the next week."
+    },
+
+    {
+      "type": "video-block",
+      "tone": "tint",
+      "video": "video3",
+      "headline": "See it working on one customer.",
+      "body": "Fourteen minutes on what happens between the ad and the order.",
+      "fallback_headline": "Want to see it on your own numbers?"
+    },
+
+    {
+      "type": "lanes",
+      "tone": "light",
+      "headline": "Who does what, written down before we start.",
+      "ours": {
+        "title": "BrandSure does",
+        "items": [
+          { "icon": "ad",       "label": "Runs the ads" },
+          { "icon": "phone",    "label": "Calls every enquiry" },
+          { "icon": "whatsapp", "label": "Follows up on WhatsApp" },
+          { "icon": "calendar", "label": "Books the showroom visit" },
+          { "icon": "written",  "label": "Writes every enquiry down" }
+        ]
+      },
+      "yours": {
+        "title": "You do",
+        "items": [
+          { "icon": "showroom", "label": "The showroom" },
+          { "icon": "sofa",     "label": "The product and the price" },
+          { "icon": "worker",   "label": "The close" },
+          { "icon": "factory",  "label": "Production" },
+          { "icon": "truck",    "label": "Delivery" }
+        ]
+      },
+      "note": "You set the price, you quote, you own the customer. None of that moves."
+    },
+
+    {
+      "type": "figures",
+      "tone": "tint",
+      "headline": "Simple, honest numbers.",
+      "items": [
+        { "fact": "digital_partner_month_one",     "label": "Month one, to BrandSure" },
+        { "fact": "digital_partner_monthly_fee",   "label": "Every month after" },
+        { "fact": "digital_partner_capacity",      "label": "What that covers",
+          "qualifier_fact": "capacity_qualifier" },
+        { "fact": "digital_partner_setup_days",    "label": "Everything running within" },
+        { "fact": "minimum_term",                  "label": "Minimum term" }
+      ],
+      "note": "Month one is the fee plus the one-time setup — that is fees, not an advertising budget and not everything month one will cost you. The advertising money is separate, it never comes to us, and there is no standard amount: it stays in your account, you pay Google and Meta yourself, and how much is right depends on your city, your product, the enquiry volume you want and how many of them your team can call. We agree it with you."
+    },
+
+    {
+      "type": "icon-count",
+      "tone": "light",
+      "headline": "What is one extra order worth to you?",
+      "fact": "digital_partner_breakeven",
+      "icon": "sofa",
+      "body": "Five orders a month covers the monthly fee.",
+      "note": "An illustration, not your break-even. It covers the ₹75,000 monthly fee only, at an assumed profit of ₹15,000 an order. It leaves out the setup, the advertising, GST and everything else your business pays. Use your own margin — you know it better than we do."
+    },
+
+    {
+      "type": "cta",
+      "tone": "dark",
+      "headline": "Start with Digital Partner.",
+      "body": "Send four numbers about your business. If Digital Partner is not the right fit, we will tell you which one is.",
+      "label": "Send the four numbers",
+      "url": "/start/?plan=Digital%20Partner"
+    }
+  ]
+}

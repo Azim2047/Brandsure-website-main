@@ -1,0 +1,119 @@
+{
+  "name": "WF-02 Validate Token",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "validate-token",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://go.brandsure.in"
+        }
+      },
+      "id": "1d428043-6256-45d5-8136-b68795417299",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "430f0321-6414-42b5-8658-d379bf1e24ed"
+    },
+    {
+      "parameters": {
+        "operation": "verify",
+        "token": "={{ $json.body.token }}",
+        "options": {}
+      },
+      "id": "ad589626-9114-4cb9-b136-0da9632567c1",
+      "name": "Verify JWT",
+      "type": "n8n-nodes-base.jwt",
+      "typeVersion": 1,
+      "position": [220, 0],
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "jwtAuth": {
+          "id": "REPLACE_JWT",
+          "name": "BrandSure JWT"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT l.lead_id, l.first_name, l.business_name, l.city, l.route, l.language,\n       l.diagnosis_text, l.resume_position, l.video5_unlocked, l.renewals_left,\n       t.expires_at AS tok_exp, t.revoked\nFROM landing_tokens t JOIN leads l ON l.lead_id = t.lead_id\nWHERE t.token = $1;",
+        "options": {
+          "queryReplacement": "={{ $('Webhook').first().json.body.token }}"
+        }
+      },
+      "id": "d4f9fdb0-81e4-4671-a18f-dfd3b9bbd981",
+      "name": "Load Lead",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [440, 0],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_PG",
+          "name": "Supabase Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT key, value FROM commercial_facts;",
+        "options": {}
+      },
+      "id": "53b5aa3b-aa83-4f1b-af7e-30cbefb313c6",
+      "name": "Load Facts",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [660, 0],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_PG",
+          "name": "Supabase Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Assemble the /validate-token response from JWT check + DB rows.\nconst v = $('Verify JWT').first().json || {};\nconst claims = v.payload && typeof v.payload === 'object' ? v.payload : v;\nconst rows = $('Load Lead').all().map(i => i.json).filter(r => r && r.lead_id);\n\n// Fail closed. Requiring a lead_id claim that MATCHES the row means a JWT\n// node that errored (and passed through under continueRegularOutput) can\n// never be mistaken for a successful verification.\nif (v.error || !claims.lead_id || rows.length === 0 || claims.lead_id !== rows[0].lead_id) {\n  return [{ json: { status: 'invalid' } }];\n}\n\nconst r = rows[0];\nconst expired = r.revoked === true || new Date(r.tok_exp).getTime() < Date.now();\nif (expired) {\n  return [{ json: {\n    status: 'expired',\n    lead_id: r.lead_id,\n    renewals_left: r.renewals_left ?? 0,\n    language: r.language || 'en'\n  }}];\n}\n\nconst facts = {};\nfor (const i of $('Load Facts').all()) {\n  if (i.json && i.json.key) facts[i.json.key] = i.json.value;\n}\n\nreturn [{ json: {\n  status: 'valid',\n  lead_id: r.lead_id,\n  first_name: r.first_name,\n  business_name: r.business_name,\n  city: r.city,\n  route: r.route,\n  language: r.language || 'en',\n  diagnosis_text: r.diagnosis_text,\n  expires_at: r.tok_exp,\n  renewals_left: r.renewals_left ?? 0,\n  resume_position: r.resume_position || 0,\n  video5_unlocked: !!r.video5_unlocked,\n  facts\n}}];"
+      },
+      "id": "335acaf5-f5f4-48c6-af4f-33b04a4bce5c",
+      "name": "Assemble Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [880, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              { "name": "Content-Type", "value": "application/json" },
+              { "name": "Cache-Control", "value": "no-store" }
+            ]
+          }
+        }
+      },
+      "id": "614bbcdc-6e15-4caa-817c-93bc692c4089",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1100, 0]
+    }
+  ],
+  "connections": {
+    "Webhook": { "main": [[{ "node": "Verify JWT", "type": "main", "index": 0 }]] },
+    "Verify JWT": { "main": [[{ "node": "Load Lead", "type": "main", "index": 0 }]] },
+    "Load Lead": { "main": [[{ "node": "Load Facts", "type": "main", "index": 0 }]] },
+    "Load Facts": { "main": [[{ "node": "Assemble Response", "type": "main", "index": 0 }]] },
+    "Assemble Response": { "main": [[{ "node": "Respond", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}

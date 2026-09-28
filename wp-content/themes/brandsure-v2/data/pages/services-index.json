@@ -1,0 +1,52 @@
+{
+  "_comment": "Other Services. PUBLIC-NEUTRAL and deliberately thin — this page exists to route, not to sell. Architecture v3 §5 gives the on-page title as 'Other Services' and one line positioning these as standalone help, with a small link back to the plans for anyone who wants the whole growth side. Footer-linked only; it is never in the primary navigation.",
+
+  "slug": "services",
+  "title": "Other Services — standalone help for one problem",
+  "meta_description": "Marketing, business consulting, product design and factory labour hiring for Indian furniture businesses. Standalone help for one problem.",
+
+  "sections": [
+    {
+      "type": "hero",
+      "tone": "light",
+      "eyebrow": "Standalone help",
+      "headline": "Other Services",
+      "body": "Help with one specific problem. If you want the whole growth side handled instead, start with the plans."
+    },
+
+    {
+      "type": "link-cards",
+      "tone": "light",
+      "items": [
+        {
+          "title": "Furniture Growth & Marketing",
+          "body": "Google and Meta advertising built for furniture, and the follow-up that turns an enquiry into a showroom visit.",
+          "url": "/furniture-growth-marketing-india/"
+        },
+        {
+          "title": "Furniture Business Consulting",
+          "body": "Pricing, showroom, production and profit — the problems advertising on its own cannot fix.",
+          "url": "/furniture-business-consulting-india/"
+        },
+        {
+          "title": "Furniture Product Design",
+          "body": "From a reference photo to something your factory can actually build, and sell at a sensible price.",
+          "url": "/furniture-product-design-services-india/"
+        },
+        {
+          "title": "Furniture Labour Hiring",
+          "body": "Help finding sofa carpenters, upholsterers, tailors and polishers when production is short-handed.",
+          "url": "/furniture-labour-hiring-india/"
+        }
+      ]
+    },
+
+    {
+      "type": "callout",
+      "tone": "tint",
+      "headline": "Want the whole growth side handled?",
+      "body": "Most furniture businesses do not need one of these on its own. They need the customers coming in and somebody answering every enquiry.",
+      "action": { "label": "See the three plans", "url": "/plans/" }
+    }
+  ]
+}

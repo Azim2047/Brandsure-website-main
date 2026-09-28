@@ -1,0 +1,60 @@
+{
+  "_comment": "Proof. Credibility-first landing for warm contacts and email-signature traffic. PUBLIC-FULL for the credentials and the one client result WITH its mandatory footnote; no plan pricing anywhere. The client-sites section is absent while data/proof.json has no clients (OPEN-ITEMS item 8) — the page reads correctly without it.",
+  "slug": "proof",
+  "title": "Proof — we have run furniture factories, not just campaigns",
+  "meta_description": "A 50,000 sq.ft manufacturing floor, three factories operated, ₹87 Cr+ of annual sales handled. What BrandSure has actually done.",
+  "sections": [
+    {
+      "type": "hero",
+      "tone": "light",
+      "eyebrow": "Why us",
+      "headline": "We learned this by running furniture businesses.",
+      "body": "Not by reading about them. Every agency you have spoken to can run an ad. Very few of them have had to make the sofa, sell it and deliver it.",
+      "primary": {
+        "label": "Send us four numbers",
+        "url": "/start/"
+      }
+    },
+    {
+      "type": "figures",
+      "tone": "light",
+      "headline": "What we have actually done.",
+      "items": [
+        {
+          "fact": "credential_facility",
+          "label": "Manufacturing floor"
+        },
+        {
+          "fact": "credential_factories",
+          "label": "Factories"
+        },
+        {
+          "fact": "credential_sales_handled",
+          "label": "Annual sales"
+        }
+      ]
+    },
+    {
+      "type": "case-result",
+      "tone": "tint",
+      "headline": "One business, five months.",
+      "context": "A furniture business in its twenty-sixth year, with a factory and a showroom already working."
+    },
+    {
+      "type": "prose-block",
+      "tone": "light",
+      "headline": "Why there is only one number on this page.",
+      "paragraphs": [
+        "Because there is only one result we can stand behind completely, and we would rather show you that than a wall of logos.",
+        "When there are more, they will appear here with the same caveat attached. Anything we cannot show you honestly, we will tell you about in the conversation instead."
+      ]
+    },
+    {
+      "type": "cta",
+      "tone": "dark",
+      "headline": "See whether it would work for you.",
+      "body": "Send four numbers about your business and we will tell you honestly, before either of us spends any time on it.",
+      "label": "Send the four numbers"
+    }
+  ]
+}

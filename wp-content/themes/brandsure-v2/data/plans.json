@@ -1,0 +1,62 @@
+{
+  "_comment": "The three approved plan names (SOURCE-OF-TRUTH §4) and what may be shown publicly about each. Prices are fact keys into commercial.json — never literals — so the Numbers Sheet stays the one source. The Growth Partnership entry deliberately has NO fee_fact and NO setup_fact: there is no public price for it, and its disclosure:masked setting makes components/plan-cards.php refuse to render one even if a key were added later.",
+
+  "plans": [
+    {
+      "name": "Agency",
+      "slug": "agency",
+      "route": "agency",
+      "disclosure": "full",
+      "featured": false,
+      "fee_fact": "agency_monthly_fee",
+      "setup_fact": "agency_setup_fee",
+      "promise": "We bring the enquiries. You sell.",
+      "chain_active": 2,
+      "chain_label": "BrandSure runs the ad and brings the enquiry. Everything after that is yours.",
+      "includes": [
+        "Google and Meta ads, run and tuned every week",
+        "Ad creatives made for furniture",
+        "A monthly report you can actually read",
+        "You pay Google and Meta directly"
+      ]
+    },
+    {
+      "name": "Digital Partner",
+      "slug": "digital-partner",
+      "route": "digital_partner",
+      "disclosure": "full",
+      "featured": true,
+      "badge": "Most start here",
+      "fee_fact": "digital_partner_monthly_fee",
+      "setup_fact": "digital_partner_setup_fee",
+      "promise": "We bring, call, follow up and book. You close.",
+      "chain_active": 4,
+      "chain_label": "BrandSure runs the ad, the enquiry, the call and the appointment. You close the sale.",
+      "includes": [
+        "Everything in Agency",
+        "Every enquiry called, not just collected",
+        "WhatsApp follow-up until they answer",
+        "Showroom visits booked into your diary",
+        "One place where every enquiry is written down"
+      ]
+    },
+    {
+      "name": "Growth Partnership",
+      "slug": "growth-partnership",
+      "route": "growth_partnership",
+      "disclosure": "masked",
+      "featured": false,
+      "badge": "For selected businesses",
+      "commercial_note": "Commercials explained after a business review",
+      "promise": "We invest in the growth side with you.",
+      "chain_active": 8,
+      "chain_label": "BrandSure runs the whole growth side, from the ad to the delivery.",
+      "includes": [
+        "Everything in Digital Partner",
+        "BrandSure funds the agreed Google and Meta advertising",
+        "Product, pricing and catalogue built in stages",
+        "Offered to a small number of businesses after a review"
+      ]
+    }
+  ]
+}

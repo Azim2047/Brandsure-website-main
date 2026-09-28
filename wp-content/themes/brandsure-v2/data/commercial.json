@@ -1,0 +1,155 @@
+{
+  "_comment": "PUBLIC commercial facts only. Every value traces to BrandSure_Master_Numbers_and_Language_Sheet.md via the 'source' key. Private facts (docs/SOURCE-OF-TRUTH.md §5.2) are absent by design and must never be added. Mirrors Supabase commercial_facts; guard rule 5 compares them once the Standard/Expert rename lands (docs/OPEN-ITEMS.md item 4).",
+  "_schema": "each fact: { value, note, source, public }",
+
+  "agency_monthly_fee": {
+    "value": "₹45,000 + GST",
+    "note": "Agency monthly fee",
+    "source": "A1",
+    "public": true
+  },
+  "agency_setup_fee": {
+    "value": "₹25,000 + GST, one-time",
+    "note": "Mandatory. Layer 4 v4 §6 fixes the scope and, just as importantly, the exclusions.",
+    "source": "numbers.v2.js AG_SETUP; Layer 4 v4 §6",
+    "public": true
+  },
+  "agency_setup_scope": {
+    "value": "advertising account setup, conversion tracking, audience and campaign structure, and the initial creative set",
+    "note": "Verbatim AG_SETUP_SCOPE.",
+    "source": "numbers.v2.js AG_SETUP_SCOPE",
+    "public": true
+  },
+  "agency_setup_excludes": {
+    "value": "no customer follow-up system, no product catalogue",
+    "note": "Verbatim AG_SETUP_EXCLUDES. Agency setup does NOT include these; showing the scope without the exclusion is how Agency gets mistaken for Digital Partner.",
+    "source": "numbers.v2.js AG_SETUP_EXCLUDES",
+    "public": true
+  },
+  "digital_partner_monthly_fee": {
+    "value": "₹75,000 + GST",
+    "note": "Digital Partner monthly fee",
+    "source": "A2",
+    "public": true
+  },
+  "digital_partner_setup_fee": {
+    "value": "₹25,000 + GST, one-time",
+    "note": "Mandatory. Same fee as Agency, wider scope.",
+    "source": "numbers.v2.js DP_SETUP; Layer 4 v4 §6",
+    "public": true
+  },
+  "digital_partner_setup_scope": {
+    "value": "everything in the Agency setup, plus the foundation of the customer follow-up system and a basic best-seller catalogue built from information you already have, up to 50 products",
+    "note": "Layer 4 v4 §6. The 50-product cap and 'from existing information' are both part of the scope — leaving either out oversells it. Say 'customer follow-up system'; the three-letter English acronym for it is developer language and Layer 4 v4 \u00a73 keeps it out of client copy.",
+    "source": "Layer 4 v4 §6",
+    "public": true
+  },
+  "digital_partner_month_one": {
+    "value": "₹1,00,000 + GST",
+    "note": "Month-1 cash to BrandSure. Ad money is separate and stays in the client's account",
+    "source": "A2",
+    "public": true
+  },
+  "advertising_separate": {
+    "value": "Paid separately by your business. The amount is agreed together — there is no standard budget.",
+    "note": "REPLACES agency_adspend_range (₹50,000–₹2,00,000) and digital_partner_adspend_start (₹1,00,000/month), both removed in Chat 15. numbers.v2.js v2 removed DP_AD_START as a 'forbidden universal ₹1,00,000 advertising budget' and Layer 4 v4 §6 states there is no fixed advertising budget. A figure here is a build error, not a helpful hint — including a range, and including one labelled 'suggested'.",
+    "source": "numbers.v2.js DP_AD_NOTE; Layer 4 v4 §6",
+    "public": true
+  },
+  "advertising_factors": {
+    "value": "city, product category, the products being promoted, the enquiry volume you want, the calling capacity available, and how ready the business is",
+    "note": "What the advertising amount is agreed against. Verbatim DP_AD_FACTORS.",
+    "source": "numbers.v2.js DP_AD_FACTORS",
+    "public": true
+  },
+  "digital_partner_capacity": {
+    "value": "1 city · handling capacity for up to 300 new enquiry records a month",
+    "note": "Layer 4 v4 §6: this is a HANDLING capacity, not a promise of 300 enquiries. It is not 300 enquiries generated, 300 qualified customers, 300 appointments, 300 showroom visits or 300 orders (DP_CAPACITY_NOT). Repeated calls or messages from one customer stay one record. Always rendered with capacity_qualifier.",
+    "source": "A2",
+    "public": true
+  },
+  "capacity_qualifier": {
+    "value": "That is how many new enquiry records we can handle for you — not a promise of 300 enquiries, visits or orders.",
+    "note": "MUST be rendered wherever digital_partner_capacity appears. Derived from DP_CAPACITY_NOT.",
+    "source": "numbers.v2.js DP_CAPACITY_NOT; Layer 4 v4 §6",
+    "public": true
+  },
+  "digital_partner_setup_days": {
+    "value": "up to 45 days",
+    "note": "Full system live",
+    "source": "A2",
+    "public": true
+  },
+  "digital_partner_breakeven": {
+    "value": "5 orders / month",
+    "note": "MUST be rendered with breakeven_qualifier. Layer 4 v4 §6: this covers the recurring ₹75,000 fee only, at an ASSUMED ₹15,000 contribution per order. It excludes setup, advertising, GST effects and every other cost. Label it an illustration; never call it business break-even.",
+    "source": "numbers.v2.js DP_BREAKEVEN_ORDERS, DP_PROFIT_PER_ORDER; Layer 4 v4 §6",
+    "public": true
+  },
+  "breakeven_qualifier": {
+    "value": "An illustration of the monthly fee only, at an assumed profit of ₹15,000 an order. It leaves out setup, advertising, GST and your other costs, so it is not your business break-even.",
+    "note": "MANDATORY alongside digital_partner_breakeven. components/figures.php and the count component enforce it.",
+    "source": "Layer 4 v4 §6",
+    "public": true
+  },
+  "digital_partner_profit_per_order": {
+    "value": "₹15,000",
+    "note": "The profit-per-order figure the break-even example is built on. Illustrative, and stated as such wherever it appears — it is the owner's own margin, not a BrandSure number.",
+    "source": "A2",
+    "public": true
+  },
+  "minimum_term": {
+    "value": "3 months",
+    "note": "Agency and Digital Partner. Then month to month",
+    "source": "A1, A2",
+    "public": true
+  },
+  "growth_partnership_ads": {
+    "value": "BrandSure funds the agreed Google and Meta advertising under the Growth Partnership.",
+    "note": "APPROVED PUBLIC WORDING (Override 1). The only commercial sentence permitted about Growth Partnership. No percentage, no term, no fee, no deposit.",
+    "source": "Override 1",
+    "public": true
+  },
+  "growth_partnership_disclosure": {
+    "value": "The complete commercial structure is explained with your business numbers after a business review.",
+    "note": "APPROVED PUBLIC WORDING (Override 1).",
+    "source": "Override 1",
+    "public": true
+  },
+  "growth_partnership_progression": {
+    "value": "Product, pricing, showroom and business systems are introduced progressively, as your business becomes ready for each one.",
+    "note": "REPLACES growth_partnership_stages, the public five-stage list (Foundation · Stability · Profit per Order · Scale · Stable at Scale), removed in Chat 15. Layer 4 v4 §4 retires it twice over: the public five-stage diagram is withdrawn, AND the five stages themselves were replaced by four private ones (Foundation · Optimisation · Scale · Stability) in numbers.v2.js. The public site therefore names no stages at all — a stage list invites the next question, which is how long each takes, and that is private.",
+    "source": "Layer 4 v4 §4 approved public wording",
+    "public": true
+  },
+  "credential_facility": {
+    "value": "50,000 sq.ft own manufacturing facility",
+    "note": "",
+    "source": "A4",
+    "public": true
+  },
+  "credential_factories": {
+    "value": "3 factories operated",
+    "note": "",
+    "source": "A4",
+    "public": true
+  },
+  "credential_sales_handled": {
+    "value": "₹87 Cr+ annual sales handled",
+    "note": "",
+    "source": "A4",
+    "public": true
+  },
+  "client_result": {
+    "value": "A 26-year-old furniture business moved from about ₹45 lakh a month to ₹87 lakh+ a month in about 5 months.",
+    "note": "MUST always be rendered together with client_result_footnote. The component enforces this; it is not optional.",
+    "source": "A4",
+    "public": true
+  },
+  "client_result_footnote": {
+    "value": "One client result. Outcomes depend on product, city, budget and execution.",
+    "note": "Mandatory footnote wherever client_result appears",
+    "source": "A4",
+    "public": true
+  }
+}

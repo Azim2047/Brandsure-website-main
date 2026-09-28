@@ -1,0 +1,2682 @@
+/* ==========================================================================
+   BrandSure v2 — component styles
+
+   Built entirely on the custom properties in tokens.css. There is no hex
+   value, no font stack and no radius in this file: if you need one that is
+   not here, it is added to tokens.css first.
+
+   Designed at 390px. Every media query is min-width — desktop is the
+   expanded version of the phone layout, never the other way round.
+
+   Sections 1-8 are the shell: reset, type, buttons, cards, header, footer,
+   sticky bar. 9-15 Home; 16-17 the gate; 18-22 plans; 23-26 Digital Partner;
+   27-30 Growth Partnership; 31-32 How It Works; 33 services; 34 the blog. Later
+   pages add their own here
+   rather than shipping stylesheets of their own.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Reset and base
+   -------------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--bs-font);
+  font-size: var(--bs-fs-body-lg);
+  font-weight: var(--bs-fw-regular);
+  line-height: var(--bs-lh-body);
+  color: var(--bs-body);
+  background: var(--bs-bg);
+  -webkit-font-smoothing: antialiased;
+
+  /* Clear the sticky bar so the last line of every page stays readable. */
+  padding-bottom: calc(var(--bs-sticky-bar-h) + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 48rem) {
+  body { padding-bottom: 0; }
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 var(--bs-space-3);
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-bold);
+  line-height: var(--bs-lh-tight);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--bs-fs-header); }
+h2 { font-size: calc(var(--bs-fs-header) * 0.7); }
+h3 { font-size: var(--bs-fs-subheader); font-weight: var(--bs-fw-semibold); line-height: var(--bs-lh-snug); }
+
+p { margin: 0 0 var(--bs-space-4); text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--bs-blue); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--bs-blue-hover); }
+
+img, svg, video { max-width: 100%; height: auto; }
+
+ul, ol { margin: 0 0 var(--bs-space-4); padding-left: var(--bs-space-5); }
+
+small, .bs-fine { font-size: var(--bs-fs-body); color: var(--bs-subtle); }
+
+/* Visible focus, always. The reader may well be navigating with a keyboard on
+   a shared office machine, and a focus ring nobody can see is not a style
+   choice, it is a bug. */
+:focus-visible {
+  outline: 2px solid var(--bs-blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.bs-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: var(--bs-space-3) var(--bs-space-4);
+  background: var(--bs-bg);
+  color: var(--bs-blue);
+  font-weight: var(--bs-fw-semibold);
+  border-radius: 0 0 var(--bs-radius-button) 0;
+}
+.bs-skip-link:focus { left: 0; }
+
+.bs-visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   2. Layout
+   -------------------------------------------------------------------------- */
+
+.bs-container {
+  width: 100%;
+  max-width: var(--bs-container);
+  margin-inline: auto;
+  padding-inline: var(--bs-gutter);
+}
+
+.bs-container--prose { max-width: var(--bs-prose); }
+
+.bs-section { padding-block: var(--bs-space-7); }
+
+@media (min-width: 48rem) {
+  .bs-section { padding-block: var(--bs-space-8); }
+}
+
+.bs-section--light { background: var(--bs-bg); }
+.bs-section--tint  { background: var(--bs-border-light); }
+
+.bs-section--dark {
+  background: var(--bs-bg-footer);
+  color: var(--bs-on-dark-muted);
+}
+.bs-section--dark h1,
+.bs-section--dark h2,
+.bs-section--dark h3 { color: var(--bs-on-dark); }
+
+/* Body text inherits the muted-on-dark token rather than the light-background
+   body colour, which would be close to unreadable at 4.5:1 on #17232B. */
+.bs-section--dark p,
+.bs-section--dark li { color: var(--bs-on-dark-muted); }
+
+.bs-main { display: block; }
+
+/* --------------------------------------------------------------------------
+   3. Icons
+   -------------------------------------------------------------------------- */
+
+.bs-icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+  vertical-align: middle;
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons
+   -------------------------------------------------------------------------- */
+
+.bs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bs-space-2);
+  min-height: var(--bs-tap);        /* 48px — a real thumb target */
+  padding: var(--bs-space-3) var(--bs-space-5);
+  border: 1px solid transparent;
+  border-radius: var(--bs-radius-button);
+  font-family: inherit;
+  font-size: var(--bs-fs-button);
+  font-weight: var(--bs-fw-semibold);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--bs-transition),
+              border-color var(--bs-transition),
+              color var(--bs-transition);
+}
+
+.bs-btn--primary {
+  background: var(--bs-blue);
+  color: var(--bs-on-dark);
+}
+.bs-btn--primary:hover,
+.bs-btn--primary:focus-visible {
+  background: var(--bs-blue-hover);
+  color: var(--bs-on-dark);
+}
+
+.bs-btn--secondary {
+  background: var(--bs-bg);
+  border-color: var(--bs-border-secondary-btn);
+  color: var(--bs-blue);
+}
+.bs-btn--secondary:hover,
+.bs-btn--secondary:focus-visible {
+  background: var(--bs-secondary-btn-hover-bg);
+  border-color: var(--bs-aqua);
+  color: var(--bs-blue);
+}
+
+.bs-btn--link {
+  min-height: 0;
+  padding: 0;
+  background: none;
+  color: var(--bs-body);
+  text-decoration: underline;
+}
+.bs-btn--link:hover { color: var(--bs-blue); }
+
+/* A block button is the page's main action on a phone. The theme's button
+   size (14px) is correct for compact controls sitting among other things; it
+   is the wrong size for the one thing the reader is being asked to press.
+   Body size, and only when the button is full width. */
+.bs-btn--block {
+  display: flex;
+  width: 100%;
+  font-size: var(--bs-fs-body-lg);
+}
+
+/* --------------------------------------------------------------------------
+   5. Cards and tags
+   -------------------------------------------------------------------------- */
+
+.bs-card {
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+  transition: box-shadow var(--bs-transition),
+              border-color var(--bs-transition),
+              transform var(--bs-transition);
+}
+
+.bs-card--interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--bs-aqua);
+  box-shadow: var(--bs-shadow-card-hover);
+}
+
+.bs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bs-space-1);
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--bs-radius-pill);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+  line-height: 1.2;
+}
+
+.bs-tag--success {
+  background: var(--bs-green-verified);
+  border-color: var(--bs-green-verified-border);
+  color: var(--bs-headline);
+}
+
+.bs-tag--pending {
+  background: var(--bs-tag-pending-bg);
+  border-color: var(--bs-tag-pending-border);
+  color: var(--bs-subtle);
+}
+
+.bs-tag--warning {
+  background: var(--bs-yellow-bg);
+  border-color: var(--bs-yellow-border);
+  color: var(--bs-yellow-text);
+}
+
+/* --------------------------------------------------------------------------
+   6. Header
+   -------------------------------------------------------------------------- */
+
+.bs-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--bs-bg);
+  border-bottom: 1px solid var(--bs-border);
+}
+
+.bs-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--bs-space-4);
+  min-height: var(--bs-header-h);
+}
+
+/* The logo is 34px tall and is the control people tap to get back to the
+   home page. min-height brings the hit area to the 48px floor without moving
+   the logo, which sits centred in it. (Chat 12 QA; floor raised in Chat 15.) */
+.bs-header__brand { display: inline-flex; align-items: center; min-height: var(--bs-tap); }
+.bs-header__logo  { display: block; width: 128px; height: 34px; }
+
+.bs-header__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bs-space-2);
+  /* Square, not just tall. This was 34px wide — the narrowest control on
+     every page, and the one that opens the whole menu. */
+  min-width: var(--bs-tap);
+  min-height: var(--bs-tap);
+  /* Pull the extra width back out of the layout so the header does not grow;
+     the hit area extends past the glyph rather than displacing it. */
+  margin-right: calc(var(--bs-space-2) * -1);
+  padding: var(--bs-space-2);
+  background: none;
+  border: 0;
+  color: var(--bs-headline);
+  font-family: inherit;
+  font-size: var(--bs-fs-button);
+  font-weight: var(--bs-fw-semibold);
+  cursor: pointer;
+}
+
+.bs-header__toggle-label { display: none; }
+.bs-header__toggle-close { display: none; }
+.bs-header__toggle[aria-expanded="true"] .bs-header__toggle-open  { display: none; }
+.bs-header__toggle[aria-expanded="true"] .bs-header__toggle-close { display: block; }
+
+/* Progressive enhancement, and the order matters.
+   
+   By DEFAULT the nav is an ordinary list sitting in the flow under the
+   header: with JavaScript off it is simply visible, and the page below it
+   still reads correctly. Only once brandsure.js has added .is-enhanced does
+   it become a collapsible overlay panel. Doing it the other way round — an
+   absolutely positioned panel that JS collapses — leaves no-JS visitors with
+   a menu covering the hero, which is exactly what it did before this fix. */
+.bs-header__nav {
+  padding: var(--bs-space-3) 0 var(--bs-space-4);
+  border-top: 1px solid var(--bs-border-light);
+}
+
+.bs-header.is-enhanced .bs-header__inner { flex-wrap: wrap; }
+
+.bs-header.is-enhanced .bs-header__nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  padding: var(--bs-space-3) var(--bs-gutter) var(--bs-space-5);
+  background: var(--bs-bg);
+  border-top: 0;
+  border-bottom: 1px solid var(--bs-border);
+  box-shadow: var(--bs-shadow-card);
+}
+
+/* Hidden with the attribute rather than a class, so the panel leaves the tab
+   order and the accessibility tree too, not just the screen. */
+.bs-header__nav[hidden] { display: none; }
+
+/* The toggle is meaningless without the script that drives it. */
+.bs-header__toggle { display: none; }
+.bs-header.is-enhanced .bs-header__toggle { display: inline-flex; }
+
+.bs-header__list {
+  margin: 0 0 var(--bs-space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.bs-header__link {
+  display: block;
+  padding: var(--bs-space-3) 0;
+  color: var(--bs-body);
+  font-weight: var(--bs-fw-semibold);
+  text-decoration: none;
+}
+
+.bs-header__link:hover,
+.bs-header__link.is-current { color: var(--bs-headline); }
+
+.bs-header__cta { width: 100%; }
+
+@media (min-width: 56rem) {                 /* 896px — five items plus a button fit */
+  .bs-header__toggle,
+  .bs-header.is-enhanced .bs-header__toggle { display: none; }
+
+  .bs-header__nav,
+  .bs-header__nav[hidden],
+  .bs-header.is-enhanced .bs-header__nav {
+    display: flex;
+    position: static;
+    align-items: center;
+    gap: var(--bs-space-6);
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .bs-header__list {
+    display: flex;
+    align-items: center;
+    gap: var(--bs-space-5);
+    margin: 0;
+  }
+
+  .bs-header__link { padding: 0; }
+
+  .bs-header__link.is-current { text-decoration: underline; text-underline-offset: 6px; }
+
+  .bs-header__cta { width: auto; }
+}
+
+/* --------------------------------------------------------------------------
+   7. Footer
+   -------------------------------------------------------------------------- */
+
+.bs-footer {
+  background: var(--bs-bg-footer);
+  color: var(--bs-on-dark-muted);
+  font-size: var(--bs-fs-body);
+}
+
+.bs-footer__inner {
+  display: grid;
+  gap: var(--bs-space-6);
+  padding-block: var(--bs-space-7);
+}
+
+@media (min-width: 48rem) {
+  .bs-footer__inner { grid-template-columns: 1.4fr repeat(3, 1fr); }
+}
+
+.bs-footer__logo {
+  /* No filter. The supplied asset is already the light-on-dark lockup — the
+     wordmark is white — so inverting it turned the white text dark against
+     the dark footer. The header uses the derived dark-text variant instead. */
+  opacity: 0.95;
+}
+.bs-footer__line { margin: var(--bs-space-3) 0 0; }
+
+.bs-footer__heading {
+  margin: 0 0 var(--bs-space-3);
+  color: var(--bs-on-dark);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.bs-footer__list { margin: 0; padding: 0; list-style: none; }
+
+/* The footer is the site's second navigation — Other Services lives here and
+   nowhere else — and until Chat 15 every link in it was a 16px-tall text run
+   with 8px between. Thirteen targets a thumb could not reliably hit, on all
+   21 pages. On a phone each one now fills a 48px row; above the breakpoint,
+   where a pointer does the aiming, the list goes back to being compact. */
+.bs-footer__link {
+  display: flex;
+  align-items: center;
+  min-height: var(--bs-tap);
+  color: var(--bs-on-dark-muted);
+  text-decoration: none;
+}
+.bs-footer__link:hover { color: var(--bs-on-dark); text-decoration: underline; }
+
+@media (min-width: 48rem) {
+  .bs-footer__list li + li { margin-top: var(--bs-space-2); }
+  .bs-footer__link { display: inline; min-height: 0; }
+}
+
+.bs-footer__base {
+  padding-block: var(--bs-space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --bs-on-dark-muted, not --bs-subtle: this line sits on the dark footer, and
+   the subtle token is a light-surface colour. It read acceptably by accident
+   while that token was lighter; correcting the token for light surfaces made
+   the accident visible. (Chat 12 QA.) */
+.bs-footer__fine { margin: 0; color: var(--bs-on-dark-muted); }
+
+/* --------------------------------------------------------------------------
+   8. Sticky WhatsApp + Call bar
+   -------------------------------------------------------------------------- */
+
+.bs-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 45;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  background: var(--bs-bg);
+  border-top: 1px solid var(--bs-border);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bs-sticky__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bs-space-2);
+  min-height: var(--bs-sticky-bar-h);
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-button);
+  font-weight: var(--bs-fw-semibold);
+  text-decoration: none;
+}
+
+.bs-sticky__action + .bs-sticky__action { border-left: 1px solid var(--bs-border); }
+.bs-sticky__action--whatsapp { color: var(--bs-blue); }
+
+@media (min-width: 48rem) {
+  .bs-sticky { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   9. Hero
+   -------------------------------------------------------------------------- */
+
+.bs-hero { position: relative; overflow: hidden; }
+
+/* LIGHT, as of Chat 15. Every hero was a dark #17232B panel, and with a dark
+   closing CTA on the same page that made two full dark sections per page —
+   "repeated dark sections", which Layer 4 v4 §8 says to replace. The website
+   adaptation it asks for is "light surfaces with restrained navy callouts",
+   and it is explicit that "a navy payoff card is a component, not a reason
+   for a dark page". So the payoff card at the foot of each page keeps its
+   navy; the hero gives it up. One dark block per page, and it is the one
+   asking for the decision. */
+
+/* The signature gradient as a decorative glow behind the hero, not a fill.
+   It carries the brand on a white surface now that the navy has gone, so it
+   is a little stronger than it was on dark — still a glow, never a fill. */
+.bs-hero::after {
+  content: "";
+  position: absolute;
+  inset: -45% -25% auto auto;
+  width: 34rem;
+  aspect-ratio: 1;
+  background: var(--bs-gradient-signature);
+  opacity: 0.22;
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.bs-hero__inner { position: relative; max-width: 46rem; }
+
+.bs-hero__eyebrow {
+  margin: 0 0 var(--bs-space-3);
+  /* Aqua reads as a pale wash on white — 1.9:1. The blue is the brand colour
+     that survives the surface change, at 4.9:1. */
+  color: var(--bs-blue);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* THE FIRST SCREEN. On a 390x844 phone the old hero ran about 1350px, so the
+   headline filled the screen and both buttons were below the fold — the
+   reader saw who it was for but never what to do next. The brief asks for
+   the opposite: no excessively tall hero, and the first screen carrying who,
+   what and the next step.
+   
+   The headline is the only thing that had to give. 40px over five lines is a
+   poster; clamped against the viewport width it sets at roughly 30-34px on a
+   phone and still reads as the largest thing on the page, while the primary
+   button comes up onto the first screen. Above 64rem the token takes over
+   again unchanged. */
+.bs-hero__headline {
+  margin-bottom: var(--bs-space-4);
+  font-size: clamp(1.875rem, 7.2vw, var(--bs-fs-header));
+}
+
+.bs-hero__body {
+  margin-bottom: var(--bs-space-5);
+  font-size: var(--bs-fs-body-lg);
+  color: var(--bs-body);
+}
+
+.bs-hero__actions { display: grid; gap: var(--bs-space-3); }
+
+@media (min-width: 40rem) {
+  .bs-hero__actions { grid-auto-flow: column; justify-content: start; }
+  .bs-hero__actions .bs-btn--block { width: auto; min-width: 13rem; }
+}
+
+/* --------------------------------------------------------------------------
+   10. Trust strip
+   -------------------------------------------------------------------------- */
+
+.bs-trust { padding-block: var(--bs-space-5); border-bottom: 1px solid var(--bs-border); }
+
+.bs-trust__list {
+  display: grid;
+  gap: var(--bs-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bs-trust__item {
+  display: flex;
+  align-items: center;
+  gap: var(--bs-space-2);
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+}
+
+.bs-trust__item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--bs-green-dot);
+}
+
+@media (min-width: 48rem) {
+  .bs-trust__list { grid-auto-flow: column; justify-content: space-between; }
+}
+
+/* --------------------------------------------------------------------------
+   11. Two halves
+   -------------------------------------------------------------------------- */
+
+.bs-halves__headline { margin-bottom: var(--bs-space-6); }
+
+.bs-halves__grid { display: grid; gap: var(--bs-space-4); }
+
+@media (min-width: 40rem) {
+  .bs-halves__grid { grid-template-columns: 1fr 1fr; gap: var(--bs-space-5); }
+}
+
+.bs-halves__col {
+  padding: var(--bs-space-5);
+  border-radius: var(--bs-radius-card);
+}
+
+/* Solid because that half exists. */
+.bs-halves__col--built {
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  box-shadow: var(--bs-shadow-card);
+}
+
+/* Dashed because that half does not. The picture makes the argument before
+   the words do. */
+.bs-halves__col--unbuilt {
+  background: transparent;
+  border: 2px dashed var(--bs-border-secondary-btn);
+}
+
+.bs-halves__title {
+  margin-bottom: var(--bs-space-4);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bs-subtle);
+}
+
+.bs-halves__items { margin: 0; padding: 0; list-style: none; }
+
+.bs-halves__item {
+  display: flex;
+  align-items: center;
+  gap: var(--bs-space-3);
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-semibold);
+}
+
+.bs-halves__item + .bs-halves__item { margin-top: var(--bs-space-4); }
+
+.bs-halves__item .bs-icon { width: 1.75rem; height: 1.75rem; }
+
+.bs-halves__col--built .bs-icon   { color: var(--bs-blue); }
+.bs-halves__col--unbuilt .bs-icon { color: var(--bs-subtle); }
+.bs-halves__col--unbuilt .bs-halves__item { color: var(--bs-body); }
+
+.bs-halves__note { margin-top: var(--bs-space-5); color: var(--bs-body); }
+
+/* --------------------------------------------------------------------------
+   12. Video block
+   -------------------------------------------------------------------------- */
+
+.bs-video__headline { margin-bottom: var(--bs-space-3); }
+.bs-video__body { margin-bottom: var(--bs-space-5); }
+
+.bs-video__player { position: relative; }
+
+.bs-video__poster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bs-space-3);
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: var(--bs-space-5);
+  background-color: var(--bs-bg-footer);
+  background-size: cover;
+  background-position: center;
+  border: 0;
+  border-radius: var(--bs-radius-card);
+  color: var(--bs-on-dark);
+  font-family: inherit;
+  font-size: var(--bs-fs-button);
+  font-weight: var(--bs-fw-semibold);
+  cursor: pointer;
+}
+
+.bs-video__play {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--bs-blue);
+  transition: background-color var(--bs-transition), transform var(--bs-transition);
+}
+
+.bs-video__play .bs-icon { width: 1.75rem; height: 1.75rem; margin-left: 3px; }
+
+.bs-video__poster:hover .bs-video__play { background: var(--bs-blue-hover); transform: scale(1.05); }
+
+.bs-video__frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--bs-radius-card);
+}
+
+/* --------------------------------------------------------------------------
+   13. Gate card
+   -------------------------------------------------------------------------- */
+
+.bs-gate {
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+}
+
+.bs-gate__headline { font-size: var(--bs-fs-subheader); }
+
+.bs-gate__list {
+  margin: 0 0 var(--bs-space-5);
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.bs-gate__item {
+  display: flex;
+  align-items: center;
+  gap: var(--bs-space-3);
+  padding: var(--bs-space-3) 0;
+  border-bottom: 1px solid var(--bs-border-light);
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-semibold);
+}
+
+.bs-gate__num {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--bs-border-light);
+  color: var(--bs-blue);
+  font-size: var(--bs-fs-body);
+}
+
+.bs-gate__note { margin-top: var(--bs-space-3); font-size: var(--bs-fs-note); color: var(--bs-subtle); }
+
+/* --------------------------------------------------------------------------
+   14. Fit check
+   -------------------------------------------------------------------------- */
+
+.bs-fit__headline { margin-bottom: var(--bs-space-6); }
+
+.bs-fit__grid { display: grid; gap: var(--bs-space-5); }
+
+@media (min-width: 40rem) {
+  .bs-fit__grid { grid-template-columns: 1fr 1fr; gap: var(--bs-space-6); }
+}
+
+.bs-fit__title {
+  margin-bottom: var(--bs-space-4);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bs-subtle);
+}
+
+.bs-fit__list { margin: 0; padding: 0; list-style: none; }
+
+.bs-fit__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--bs-space-3);
+  color: var(--bs-headline);
+}
+
+.bs-fit__item + .bs-fit__item { margin-top: var(--bs-space-3); }
+
+.bs-fit__mark {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  margin-top: 2px;
+  border-radius: 50%;
+}
+
+.bs-fit__mark .bs-icon { width: 0.875rem; height: 0.875rem; }
+
+.bs-fit__mark--yes { background: var(--bs-green-verification); color: var(--bs-headline); }
+
+/* The "not a fit" list uses the warning tokens, never a red. This is honest
+   qualification, not a rejection, and it should not read as an error state. */
+.bs-fit__mark--no { background: var(--bs-yellow-bg); color: var(--bs-yellow-text); }
+.bs-fit__col--no .bs-fit__item { color: var(--bs-body); }
+
+/* --------------------------------------------------------------------------
+   15. Case result
+   -------------------------------------------------------------------------- */
+
+.bs-case__headline { margin-bottom: var(--bs-space-5); }
+
+.bs-case__figure {
+  margin: 0;
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-left: 4px solid var(--bs-aqua);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+}
+
+.bs-case__context { font-size: var(--bs-fs-note); color: var(--bs-subtle); }
+
+.bs-case__result { margin: 0 0 var(--bs-space-4); }
+
+.bs-case__result p {
+  margin: 0;
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-subheader);
+  font-weight: var(--bs-fw-semibold);
+  line-height: var(--bs-lh-snug);
+}
+
+/* The footnote is part of the claim, never a detail to be styled away. */
+.bs-case__footnote {
+  padding-top: var(--bs-space-3);
+  border-top: 1px solid var(--bs-border-light);
+  font-size: var(--bs-fs-body);
+  /* Body colour, not the subtle token: this footnote is a required
+     qualification on a performance claim, and 3.1:1 grey is not good enough
+     for something a reader is entitled to be able to read. */
+  color: var(--bs-body);
+}
+
+/* --------------------------------------------------------------------------
+   16. The gate
+   -------------------------------------------------------------------------- */
+
+.bs-gateform__box {
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+}
+
+.bs-gateform__headline { font-size: var(--bs-fs-subheader); }
+.bs-gateform__body { margin-bottom: var(--bs-space-5); }
+
+.bs-gateform__fields { display: grid; gap: var(--bs-space-5); margin-bottom: var(--bs-space-5); }
+
+.bs-gateform__label {
+  display: flex;
+  align-items: center;
+  gap: var(--bs-space-3);
+  margin-bottom: var(--bs-space-2);
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-semibold);
+}
+
+.bs-gateform__num {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--bs-border-light);
+  color: var(--bs-blue);
+  font-size: var(--bs-fs-body);
+}
+
+.bs-gateform__input {
+  width: 100%;
+  /* 16px minimum. Anything smaller makes iOS Safari zoom the page on focus,
+     which on a 390px screen throws the layout sideways mid-typing. */
+  min-height: 3rem;
+  padding: var(--bs-space-3) var(--bs-space-4);
+  border: 1px solid var(--bs-border-secondary-btn);
+  border-radius: var(--bs-radius-button);
+  background: var(--bs-bg);
+  color: var(--bs-headline);
+  font-family: inherit;
+  font-size: var(--bs-fs-body-lg);
+  transition: border-color var(--bs-transition), box-shadow var(--bs-transition);
+}
+
+.bs-gateform__input::placeholder { color: var(--bs-subtle); }
+
+.bs-gateform__input:focus {
+  outline: none;
+  border-color: var(--bs-blue);
+  box-shadow: 0 0 0 3px rgba(17, 110, 152, 0.14);
+}
+
+.bs-gateform__hint {
+  margin: var(--bs-space-2) 0 0;
+  font-size: var(--bs-fs-note);
+  color: var(--bs-body);
+}
+
+.bs-gateform__send { min-height: 3.25rem; font-size: var(--bs-fs-body-lg); }
+
+.bs-gateform__note {
+  margin-top: var(--bs-space-3);
+  font-size: var(--bs-fs-note);
+  color: var(--bs-body);
+  text-align: center;
+}
+
+/* Visible only to signed-in editors, when no contact route is configured. */
+.bs-gateform__admin {
+  padding: var(--bs-space-3) var(--bs-space-4);
+  background: var(--bs-yellow-bg);
+  border: 1px solid var(--bs-yellow-border);
+  border-radius: var(--bs-radius-button);
+  color: var(--bs-yellow-text);
+  font-size: var(--bs-fs-body);
+}
+
+/* --------------------------------------------------------------------------
+   17. Steps
+   -------------------------------------------------------------------------- */
+
+.bs-steps__headline { margin-bottom: var(--bs-space-6); }
+
+.bs-steps__list { margin: 0; padding: 0; list-style: none; }
+
+.bs-steps__item { display: flex; gap: var(--bs-space-4); }
+.bs-steps__item + .bs-steps__item { margin-top: var(--bs-space-5); }
+
+.bs-steps__num {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--bs-blue);
+  color: var(--bs-on-dark);
+  font-weight: var(--bs-fw-bold);
+}
+
+.bs-steps__title { margin-bottom: var(--bs-space-1); font-size: var(--bs-fs-body-lg); }
+.bs-steps__body { margin: 0; }
+
+/* --------------------------------------------------------------------------
+   18. The chain
+   -------------------------------------------------------------------------- */
+
+.bs-chain__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--bs-space-3) var(--bs-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 48rem) {
+  /* One row once there is width for it. On a phone eight nodes in a row
+     would be 40px each — too small to read and too small to mean anything. */
+  .bs-chain__list { grid-template-columns: repeat(8, 1fr); }
+}
+
+.bs-chain__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--bs-space-2);
+  text-align: center;
+}
+
+.bs-chain__tile {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-button);
+  background: var(--bs-bg);
+  color: var(--bs-subtle);
+}
+
+/* Blue means BrandSure runs this step. The same rule on every chain, on every
+   page, so the owner reads the picture without a legend. */
+.bs-chain__node.is-active .bs-chain__tile {
+  background: var(--bs-blue);
+  border-color: var(--bs-blue);
+  color: var(--bs-on-dark);
+}
+
+.bs-chain__label {
+  font-size: var(--bs-fs-body);
+  line-height: var(--bs-lh-snug);
+  color: var(--bs-body);
+}
+
+.bs-chain__node.is-active .bs-chain__label {
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-semibold);
+}
+
+.bs-chain--compact .bs-chain__list {
+  grid-template-columns: repeat(8, 1fr);
+  gap: var(--bs-space-1);
+}
+
+.bs-chain--compact .bs-chain__tile {
+  width: 100%;
+  height: 1.75rem;
+  border-radius: 6px;
+}
+
+.bs-chain--compact .bs-icon { width: 0.875rem; height: 0.875rem; }
+
+/* --------------------------------------------------------------------------
+   19. Gauge
+   -------------------------------------------------------------------------- */
+
+.bs-gauge__headline { margin-bottom: var(--bs-space-6); }
+
+/* Phone: a vertical rail. The two end labels sit above and below the three
+   stops, so the scale still reads top-to-bottom. display:contents lifts the
+   two spans out of their wrapper into the column so they can be ordered
+   around the list. Stacking the horizontal version instead — a bar with
+   three items under it — loses the one thing the diagram is for, which is
+   showing that the plans are points on a single scale. */
+.bs-gauge__body { display: flex; flex-direction: column; }
+.bs-gauge__ends { display: contents; }
+
+.bs-gauge__end {
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bs-subtle);
+}
+
+.bs-gauge__end--low  { order: 1; margin-bottom: var(--bs-space-3); }
+.bs-gauge__markers   { order: 2; }
+.bs-gauge__end--high { order: 3; margin-top: var(--bs-space-3); }
+
+.bs-gauge__track { display: none; }
+
+.bs-gauge__markers {
+  position: relative;
+  display: grid;
+  gap: var(--bs-space-5);
+  margin: 0;
+  padding: 0 0 0 var(--bs-space-6);
+  list-style: none;
+}
+
+.bs-gauge__markers::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 3px;
+  border-radius: var(--bs-radius-pill);
+  background: var(--bs-gradient-aqua);
+}
+
+.bs-gauge__marker { position: relative; display: grid; gap: 2px; }
+
+.bs-gauge__dot {
+  position: absolute;
+  left: calc(var(--bs-space-6) * -1);
+  top: 0.35rem;
+  width: 15px;
+  height: 15px;
+  border: 3px solid var(--bs-bg);
+  border-radius: 50%;
+  background: var(--bs-blue);
+}
+
+.bs-gauge__name { color: var(--bs-headline); font-weight: var(--bs-fw-semibold); }
+.bs-gauge__note { font-size: var(--bs-fs-body); color: var(--bs-body); }
+
+/* From 40rem there is room for the real thing: one track, three stops. */
+@media (min-width: 40rem) {
+  .bs-gauge__ends {
+    display: flex;
+    order: 0;
+    justify-content: space-between;
+    margin-bottom: var(--bs-space-2);
+  }
+
+  .bs-gauge__end--low,
+  .bs-gauge__end--high { order: 0; margin: 0; }
+
+  .bs-gauge__track {
+    display: block;
+    order: 0;
+    height: 6px;
+    border-radius: var(--bs-radius-pill);
+    background: var(--bs-gradient-aqua);
+  }
+
+  .bs-gauge__markers {
+    order: 0;
+    grid-template-columns: repeat(var(--bs-gauge-count, 3), 1fr);
+    gap: var(--bs-space-4);
+    padding: var(--bs-space-3) 0 0;
+  }
+
+  .bs-gauge__markers::before { content: none; }
+
+  .bs-gauge__marker { justify-items: center; text-align: center; }
+  .bs-gauge__marker:first-child { justify-items: start; text-align: left; }
+  .bs-gauge__marker:last-child  { justify-items: end;   text-align: right; }
+
+  .bs-gauge__dot {
+    position: static;
+    width: 14px;
+    height: 14px;
+    margin-top: -1.55rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   20. Plan cards
+   -------------------------------------------------------------------------- */
+
+.bs-plans__grid { display: grid; gap: var(--bs-space-5); }
+
+@media (min-width: 60rem) {
+  .bs-plans__grid { grid-template-columns: repeat(3, 1fr); align-items: start; }
+}
+
+.bs-plan {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bs-space-4);
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+}
+
+.bs-plan--featured {
+  border-color: var(--bs-aqua);
+  box-shadow: var(--bs-shadow-card-hover);
+}
+
+.bs-plan__badge {
+  align-self: start;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: var(--bs-radius-pill);
+  background: var(--bs-green-verification);
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+}
+
+.bs-plan__name { margin: 0; }
+
+.bs-plan__price { margin: 0; }
+.bs-plan__fee {
+  margin: 0;
+  color: var(--bs-headline);
+  /* Not --bs-fs-header. At 40px "₹45,000 + GST" wraps after the plus sign on
+     a 390px card, which reads as a broken number. This fits on one line and
+     is still the loudest thing in the card. */
+  font-size: 1.75rem;
+  font-weight: var(--bs-fw-bold);
+  line-height: var(--bs-lh-tight);
+  text-wrap: nowrap;
+}
+.bs-plan__setup { margin: var(--bs-space-1) 0 0; font-size: var(--bs-fs-body); color: var(--bs-body); }
+
+/* Growth Partnership. Set in the same slot and at the same visual weight as a
+   price, so the card reads as complete rather than as one with a gap in it. */
+.bs-plan__masked {
+  margin: 0;
+  padding: var(--bs-space-3) var(--bs-space-4);
+  background: var(--bs-border-light);
+  border-radius: var(--bs-radius-button);
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-body-lg);
+  font-weight: var(--bs-fw-semibold);
+  line-height: var(--bs-lh-snug);
+}
+
+.bs-plan__promise { margin: 0; color: var(--bs-headline); font-weight: var(--bs-fw-semibold); }
+
+.bs-plan__includes { margin: 0; padding: 0; list-style: none; }
+
+.bs-plan__includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--bs-space-2);
+  font-size: var(--bs-fs-body);
+}
+
+.bs-plan__includes li + li { margin-top: var(--bs-space-2); }
+
+/* The quiet second control on a plan card: read the detail page instead of
+   messaging now. Deliberately a text link rather than a second button — the
+   card has one action, and this is the way out for someone not ready to take
+   it. Centred under the button, 48px tall for a thumb. */
+.bs-plan__detail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bs-space-2);
+  min-height: var(--bs-tap);
+  margin-top: calc(var(--bs-space-4) * -1);
+  color: var(--bs-blue);
+  font-size: var(--bs-fs-button);
+  font-weight: var(--bs-fw-semibold);
+  text-decoration: none;
+}
+
+.bs-plan__detail:hover { text-decoration: underline; }
+.bs-plan__detail .bs-icon { width: 1rem; height: 1rem; }
+.bs-plan__includes .bs-icon { width: 1rem; height: 1rem; margin-top: 4px; color: var(--bs-green-dot); }
+
+/* Push the button to the bottom so three cards of different lengths still
+   line their actions up. */
+.bs-plan .bs-btn { margin-top: auto; }
+
+/* --------------------------------------------------------------------------
+   21. Compare table
+   -------------------------------------------------------------------------- */
+
+.bs-compare__headline { margin-bottom: var(--bs-space-5); }
+
+/* MOBILE FIRST, and this is the mobile layout: not a table at all.
+   
+   Each row is a small card — the row label as its heading, then one labelled
+   line per plan. All three plans are on screen at once, in the reading order
+   Agency → Digital Partner → Growth Partnership, with nothing behind a swipe.
+   The table element and its semantics are untouched; only the boxes change,
+   so the row and column headers a screen reader announces are the same ones
+   as on desktop. */
+
+.bs-compare__scroll { background: var(--bs-bg); }
+
+.bs-compare__table { width: 100%; border-collapse: collapse; }
+
+/* The header row has no place in a stacked layout — each cell carries its own
+   column name — but it must stay in the accessibility tree, so it is moved
+   off-screen rather than display:none'd. */
+.bs-compare__table thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.bs-compare__table tr {
+  display: block;
+  padding: var(--bs-space-4) var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+}
+
+.bs-compare__table tr + tr { margin-top: var(--bs-space-3); }
+
+.bs-compare__table th,
+.bs-compare__table td { display: block; padding: 0; text-align: left; }
+
+.bs-compare__table .bs-compare__rowhead {
+  margin-bottom: var(--bs-space-3);
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-body-lg);
+  font-weight: var(--bs-fw-semibold);
+  white-space: normal;
+}
+
+/* Two columns: plan name on the left, answer on the right. Both LEFT-aligned
+   within their column — the first attempt right-aligned the answer, which
+   looks tidy while every value is short and turns "Explained after a business
+   review" into three ragged right-edged lines the moment one is not. A fixed
+   grid keeps the plan names in a column the eye can run down, and keeps every
+   answer starting at the same x. */
+.bs-compare__table td {
+  display: grid;
+  grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr);
+  gap: var(--bs-space-3);
+  padding: var(--bs-space-3) 0;
+  border-top: 1px solid var(--bs-border-light);
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-semibold);
+  text-align: left;
+}
+
+.bs-compare__table td::before {
+  content: attr(data-label);
+  color: var(--bs-body);
+  font-weight: var(--bs-fw-regular);
+}
+
+@media (min-width: 44rem) {
+  /* Enough room for the real thing. Above here it is the dense, screenshot-
+     friendly table the Master Build Architecture asks for. */
+  .bs-compare__scroll {
+    overflow-x: auto;
+    border: 1px solid var(--bs-border);
+    border-radius: var(--bs-radius-card);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bs-compare__table {
+    min-width: 40rem;
+    font-size: var(--bs-fs-body);
+  }
+
+  .bs-compare__table thead {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+  }
+
+  .bs-compare__table tr {
+    display: table-row;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .bs-compare__table tr + tr { margin-top: 0; }
+
+  .bs-compare__table th,
+  .bs-compare__table td {
+    display: table-cell;
+    padding: var(--bs-space-3) var(--bs-space-4);
+    text-align: left;
+    vertical-align: top;
+    border-top: 0;
+    border-bottom: 1px solid var(--bs-border-light);
+    font-weight: var(--bs-fw-regular);
+  }
+
+  .bs-compare__table td::before { content: none; }
+
+  .bs-compare__table thead th {
+    position: sticky;
+    top: 0;
+    background: var(--bs-bg);
+    color: var(--bs-headline);
+    font-weight: var(--bs-fw-bold);
+    border-bottom: 1px solid var(--bs-border);
+  }
+
+  .bs-compare__table .bs-compare__rowhead {
+    margin-bottom: 0;
+    color: var(--bs-headline);
+    font-size: inherit;
+    font-weight: var(--bs-fw-semibold);
+    white-space: nowrap;
+  }
+
+  .bs-compare__table tbody tr:last-child th,
+  .bs-compare__table tbody tr:last-child td { border-bottom: 0; }
+}
+
+.bs-compare__note { margin-top: var(--bs-space-4); font-size: var(--bs-fs-note); color: var(--bs-body); }
+
+/* --------------------------------------------------------------------------
+   22. Callout
+   -------------------------------------------------------------------------- */
+
+.bs-callout__box {
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-left: 4px solid var(--bs-aqua);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+}
+
+.bs-callout__headline { font-size: var(--bs-fs-subheader); }
+.bs-callout__body { margin-bottom: var(--bs-space-5); }
+
+/* --------------------------------------------------------------------------
+   23. Timeline
+   -------------------------------------------------------------------------- */
+
+.bs-timeline__headline { margin-bottom: var(--bs-space-3); }
+.bs-timeline__body { margin-bottom: var(--bs-space-6); }
+
+.bs-timeline__list {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 var(--bs-space-7);
+  list-style: none;
+}
+
+/* The rail runs between the first and last marker, not past them. */
+.bs-timeline__list::before {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  top: 1.1rem;
+  bottom: 1.1rem;
+  width: 2px;
+  background: var(--bs-border);
+}
+
+.bs-timeline__stop { position: relative; display: grid; gap: 2px; }
+.bs-timeline__stop + .bs-timeline__stop { margin-top: var(--bs-space-5); }
+
+.bs-timeline__marker {
+  position: absolute;
+  left: calc(var(--bs-space-7) * -1);
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--bs-border-light);
+  color: var(--bs-blue);
+}
+
+.bs-timeline__marker .bs-icon { width: 1.125rem; height: 1.125rem; }
+
+.bs-timeline__time {
+  color: var(--bs-blue);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.bs-timeline__title { color: var(--bs-headline); font-weight: var(--bs-fw-semibold); }
+
+.bs-timeline__note { margin-top: var(--bs-space-5); font-size: var(--bs-fs-note); }
+
+/* --------------------------------------------------------------------------
+   24. Lanes
+   -------------------------------------------------------------------------- */
+
+.bs-lanes__headline { margin-bottom: var(--bs-space-6); }
+
+.bs-lanes__grid { display: grid; gap: var(--bs-space-4); }
+
+@media (min-width: 40rem) {
+  .bs-lanes__grid { grid-template-columns: 1fr 1fr; gap: var(--bs-space-5); }
+}
+
+.bs-lanes__lane {
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+}
+
+/* Ours is filled, yours is outlined — the same reading as the chain, where
+   blue means BrandSure runs it. One colour rule across every diagram. */
+.bs-lanes__lane--ours { border-color: var(--bs-blue); }
+.bs-lanes__lane--ours .bs-lanes__title { color: var(--bs-blue); }
+.bs-lanes__lane--ours .bs-icon { color: var(--bs-blue); }
+.bs-lanes__lane--yours .bs-icon { color: var(--bs-subtle); }
+
+.bs-lanes__title {
+  margin-bottom: var(--bs-space-4);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bs-subtle);
+}
+
+.bs-lanes__items { margin: 0; padding: 0; list-style: none; }
+
+.bs-lanes__item {
+  display: flex;
+  align-items: center;
+  gap: var(--bs-space-3);
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-semibold);
+}
+
+.bs-lanes__item + .bs-lanes__item { margin-top: var(--bs-space-3); }
+.bs-lanes__item .bs-icon { width: 1.375rem; height: 1.375rem; }
+
+.bs-lanes__note { margin-top: var(--bs-space-5); }
+
+/* --------------------------------------------------------------------------
+   25. Figures
+   -------------------------------------------------------------------------- */
+
+.bs-figures__headline { margin-bottom: var(--bs-space-3); }
+.bs-figures__body { margin-bottom: var(--bs-space-5); }
+
+.bs-figures__grid {
+  display: grid;
+  gap: var(--bs-space-3);
+  margin: 0;
+}
+
+@media (min-width: 40rem) { .bs-figures__grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 60rem) { .bs-figures__grid { grid-template-columns: repeat(3, 1fr); } }
+
+.bs-figure {
+  padding: var(--bs-space-4);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+}
+
+.bs-figure__label {
+  margin: 0 0 var(--bs-space-1);
+  font-size: var(--bs-fs-body);
+  color: var(--bs-body);
+}
+
+.bs-figure__value {
+  margin: 0;
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-subheader);
+  font-weight: var(--bs-fw-bold);
+  line-height: var(--bs-lh-snug);
+}
+
+/* The caveat that belongs to one figure, inside that figure's tile rather
+   than in the shared footnote below the grid. Same size as the note token —
+   see tokens.css for why a qualifier is not small print. */
+.bs-figure__qualifier {
+  margin: var(--bs-space-2) 0 0;
+  color: var(--bs-body);
+  font-size: var(--bs-fs-note);
+  font-weight: var(--bs-fw-regular);
+  line-height: var(--bs-lh-body);
+}
+
+.bs-figures__note { margin-top: var(--bs-space-5); font-size: var(--bs-fs-note); }
+
+/* --------------------------------------------------------------------------
+   26. Icon count
+   -------------------------------------------------------------------------- */
+
+.bs-count { text-align: center; }
+.bs-count__headline { margin-bottom: var(--bs-space-5); }
+
+.bs-count__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--bs-space-3);
+  margin: 0 0 var(--bs-space-5);
+}
+
+.bs-count__row .bs-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--bs-blue);
+}
+
+.bs-count__body {
+  margin: 0;
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-subheader);
+  font-weight: var(--bs-fw-semibold);
+}
+
+.bs-count__note {
+  margin: var(--bs-space-3) auto 0;
+  max-width: 34rem;
+  font-size: var(--bs-fs-note);
+}
+
+/* --------------------------------------------------------------------------
+   27. Nested boxes
+   -------------------------------------------------------------------------- */
+
+.bs-nested__headline { margin-bottom: var(--bs-space-6); }
+
+/* The outer box is the layer BrandSure builds; the inner one is the business
+   that does not change hands. Dashed outside, solid inside — the outer thing
+   is added around something that was already there and stays there. */
+.bs-nested__outer {
+  padding: var(--bs-space-5) var(--bs-space-4);
+  border: 2px dashed var(--bs-aqua);
+  border-radius: var(--bs-radius-card);
+  background: var(--bs-bg);
+}
+
+@media (min-width: 40rem) {
+  .bs-nested__outer { padding: var(--bs-space-6); }
+}
+
+.bs-nested__inner {
+  padding: var(--bs-space-5) var(--bs-space-4);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+  background: var(--bs-border-light);
+  box-shadow: var(--bs-shadow-card);
+}
+
+@media (min-width: 40rem) {
+  .bs-nested__inner { padding: var(--bs-space-5); }
+}
+
+.bs-nested__title {
+  margin: 0 0 var(--bs-space-4);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.bs-nested__title--outer { color: var(--bs-blue); }
+.bs-nested__title--inner { color: var(--bs-subtle); }
+
+.bs-nested__items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--bs-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40rem) {
+  .bs-nested__items { grid-template-columns: repeat(4, 1fr); }
+}
+
+.bs-nested__items--outer { margin-bottom: var(--bs-space-5); }
+
+.bs-nested__item {
+  display: flex;
+  align-items: center;
+  gap: var(--bs-space-2);
+  font-size: var(--bs-fs-body);
+  font-weight: var(--bs-fw-semibold);
+  color: var(--bs-headline);
+}
+
+.bs-nested__items--outer .bs-icon { color: var(--bs-blue); }
+.bs-nested__items--inner .bs-icon { color: var(--bs-subtle); }
+
+.bs-nested__note { margin-top: var(--bs-space-5); }
+
+/* --------------------------------------------------------------------------
+   28. Icon grid
+   -------------------------------------------------------------------------- */
+
+.bs-grid__headline { margin-bottom: var(--bs-space-3); }
+.bs-grid__body { margin-bottom: var(--bs-space-5); }
+
+.bs-grid__list {
+  display: grid;
+  gap: var(--bs-space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40rem) { .bs-grid__list { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 60rem) { .bs-grid__list { grid-template-columns: repeat(3, 1fr); } }
+
+.bs-grid__item { display: grid; gap: var(--bs-space-2); justify-items: start; }
+
+.bs-grid__tile {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--bs-radius-button);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  color: var(--bs-blue);
+}
+
+.bs-grid__tile .bs-icon { width: 1.375rem; height: 1.375rem; }
+
+.bs-grid__label { color: var(--bs-headline); font-weight: var(--bs-fw-semibold); }
+.bs-grid__note { font-size: var(--bs-fs-body); color: var(--bs-body); }
+.bs-grid__foot { margin-top: var(--bs-space-5); }
+
+/* --------------------------------------------------------------------------
+   29. Tick list
+   -------------------------------------------------------------------------- */
+
+.bs-ticks__headline { margin-bottom: var(--bs-space-5); }
+
+.bs-ticks__list {
+  display: grid;
+  gap: var(--bs-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40rem) { .bs-ticks__list { grid-template-columns: 1fr 1fr; } }
+
+.bs-ticks__item {
+  display: flex;
+  align-items: center;
+  gap: var(--bs-space-3);
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-semibold);
+}
+
+.bs-ticks__mark {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--bs-green-verification);
+  color: var(--bs-headline);
+}
+
+.bs-ticks__mark .bs-icon { width: 0.875rem; height: 0.875rem; }
+
+.bs-ticks__note { margin-top: var(--bs-space-5); }
+
+/* --------------------------------------------------------------------------
+   30. Prose block
+   -------------------------------------------------------------------------- */
+
+.bs-prose-block__headline { margin-bottom: var(--bs-space-4); }
+
+/* The first paragraph is the approved commercial sentence. It is set larger
+   than body copy because it is the answer to the question the reader has been
+   holding since the hero, and it should not look like a footnote. */
+.bs-prose-block__p:first-of-type {
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-subheader);
+  font-weight: var(--bs-fw-semibold);
+  line-height: var(--bs-lh-snug);
+}
+
+/* --------------------------------------------------------------------------
+   31. Chain block and leaks
+   -------------------------------------------------------------------------- */
+
+.bs-chainblock__headline { margin-bottom: var(--bs-space-3); }
+.bs-chainblock__body { margin-bottom: var(--bs-space-6); max-width: var(--bs-prose); }
+.bs-chainblock__note { margin-top: var(--bs-space-6); max-width: var(--bs-prose); }
+
+/* A chain carrying leaks needs room under each node, and the nodes stop
+   being equal-height once some have labels hanging off them. */
+.bs-chain--leaks .bs-chain__list { gap: var(--bs-space-5) var(--bs-space-2); }
+.bs-chain--leaks .bs-chain__node { align-content: start; }
+
+.bs-chain__leaks {
+  margin: var(--bs-space-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bs-chain__leak {
+  position: relative;
+  margin-top: var(--bs-space-2);
+  padding-top: var(--bs-space-2);
+  font-size: var(--bs-fs-body);
+  line-height: var(--bs-lh-snug);
+  color: var(--bs-yellow-text);
+}
+
+/* The drip. Warning amber, never a red: this is where money escapes, not an
+   error state, and the deck's terracotta is not a website colour. */
+.bs-chain__leak::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background: var(--bs-yellow);
+}
+
+.bs-chain__node.has-leak .bs-chain__tile {
+  border-color: var(--bs-yellow);
+  background: var(--bs-yellow-bg);
+  color: var(--bs-yellow-text);
+}
+
+/* --------------------------------------------------------------------------
+   32. FAQ
+   -------------------------------------------------------------------------- */
+
+.bs-faq__headline { margin-bottom: var(--bs-space-3); }
+.bs-faq__body { margin-bottom: var(--bs-space-5); }
+
+.bs-faq__list {
+  border-top: 1px solid var(--bs-border);
+}
+
+.bs-faq__item { border-bottom: 1px solid var(--bs-border); }
+
+.bs-faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--bs-space-4);
+  padding: var(--bs-space-4) 0;
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-semibold);
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Safari draws its own triangle without this. */
+.bs-faq__q::-webkit-details-marker { display: none; }
+
+.bs-faq__q:hover { color: var(--bs-blue); }
+
+.bs-faq__chevron {
+  position: relative;
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: none;
+  border-right: 2px solid var(--bs-blue);
+  border-bottom: 2px solid var(--bs-blue);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform var(--bs-transition);
+}
+
+.bs-faq__item[open] .bs-faq__chevron { transform: rotate(-135deg) translate(-3px, -3px); }
+
+.bs-faq__a { padding: 0 0 var(--bs-space-5); max-width: 42rem; }
+.bs-faq__a p { margin: 0; }
+
+/* --------------------------------------------------------------------------
+   33. Service enquiry, bridge, link cards
+   -------------------------------------------------------------------------- */
+
+.bs-enquiry__box {
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+}
+
+.bs-enquiry__headline { font-size: var(--bs-fs-subheader); }
+.bs-enquiry__body { margin-bottom: var(--bs-space-5); }
+
+/* Quieter than the enquiry above it, on purpose. A reader who came for one
+   service should finish the page thinking about that service; the bridge is
+   there for the minority who want more, and it must not outshout the ask. */
+.bs-bridge__box {
+  padding: var(--bs-space-5);
+  border: 1px dashed var(--bs-border-secondary-btn);
+  border-radius: var(--bs-radius-card);
+}
+
+.bs-bridge__headline { font-size: var(--bs-fs-body-lg); }
+.bs-bridge__body { margin-bottom: var(--bs-space-4); font-size: var(--bs-fs-note); }
+
+.bs-cards__headline { margin-bottom: var(--bs-space-5); }
+.bs-cards__body { margin-bottom: var(--bs-space-5); max-width: var(--bs-prose); }
+
+.bs-cards__grid {
+  display: grid;
+  gap: var(--bs-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 48rem) { .bs-cards__grid { grid-template-columns: 1fr 1fr; } }
+
+.bs-cards__card {
+  display: grid;
+  gap: var(--bs-space-2);
+  height: 100%;
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+  text-decoration: none;
+  transition: transform var(--bs-transition),
+              border-color var(--bs-transition),
+              box-shadow var(--bs-transition);
+}
+
+.bs-cards__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--bs-aqua);
+  box-shadow: var(--bs-shadow-card-hover);
+}
+
+.bs-cards__title {
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-subheader);
+  font-weight: var(--bs-fw-semibold);
+  line-height: var(--bs-lh-snug);
+}
+
+.bs-cards__text { color: var(--bs-body); font-size: var(--bs-fs-body); }
+.bs-cards__go { color: var(--bs-blue); }
+
+/* The authorship line carried over from the old service pages. Real E-E-A-T
+   value, so it stays — set quietly, at the end, as a signature rather than
+   as body copy. */
+.bs-byline {
+  margin-top: var(--bs-space-6);
+  padding-top: var(--bs-space-4);
+  border-top: 1px solid var(--bs-border);
+  font-size: var(--bs-fs-body);
+  color: var(--bs-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   34. Blog
+   -------------------------------------------------------------------------- */
+
+.bs-page__intro {
+  max-width: var(--bs-prose);
+  margin-bottom: var(--bs-space-7);
+  font-size: var(--bs-fs-body-lg);
+}
+
+.bs-posts { display: grid; gap: var(--bs-space-5); }
+
+@media (min-width: 48rem) { .bs-posts { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 70rem) { .bs-posts { grid-template-columns: repeat(3, 1fr); } }
+
+.bs-postcard {
+  /* Positioning context for the stretched title link below. */
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--bs-space-2);
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+  transition: border-color var(--bs-transition), box-shadow var(--bs-transition);
+}
+
+.bs-postcard:hover { border-color: var(--bs-aqua); box-shadow: var(--bs-shadow-card-hover); }
+
+/* The title link covers the whole card. On a phone the card is what a thumb
+   aims at, not the two lines of text inside it — and a 46px-tall text run in
+   the middle of a much taller card is a small target surrounded by dead
+   space. .bs-postcard__more is lifted above the overlay so its own click
+   still registers on the element that carries the tracking. */
+.bs-postcard__link { text-decoration: none; }
+
+.bs-postcard__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.bs-postcard__more { position: relative; z-index: 1; }
+.bs-postcard__title { margin: 0; font-size: var(--bs-fs-subheader); }
+.bs-postcard__meta { margin: 0; font-size: var(--bs-fs-body); color: var(--bs-subtle); }
+.bs-postcard__excerpt { margin: var(--bs-space-2) 0 0; font-size: var(--bs-fs-note); }
+
+.bs-postcard__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bs-space-2);
+  margin-top: var(--bs-space-2);
+  min-height: var(--bs-tap);
+  color: var(--bs-blue);
+  font-size: var(--bs-fs-button);
+  font-weight: var(--bs-fw-semibold);
+  text-decoration: none;
+}
+
+.bs-postcard__more .bs-icon { width: 1rem; height: 1rem; }
+
+.wp-block-query-pagination,
+.navigation.pagination {
+  display: flex;
+  gap: var(--bs-space-3);
+  margin-top: var(--bs-space-7);
+}
+
+.navigation.pagination .page-numbers {
+  display: grid;
+  place-items: center;
+  min-width: var(--bs-tap);
+  min-height: var(--bs-tap);
+  padding: 0 var(--bs-space-3);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-button);
+  color: var(--bs-body);
+  text-decoration: none;
+}
+
+.navigation.pagination .page-numbers.current {
+  background: var(--bs-blue);
+  border-color: var(--bs-blue);
+  color: var(--bs-on-dark);
+}
+
+/* --------------------------------------------------------------------------
+   35. Prose — WordPress-editable content
+   -------------------------------------------------------------------------- */
+
+/* Everything a backend editor can produce has to look right without them
+   choosing anything. There are no colour or size controls in the editor by
+   design, so these rules are the whole of the styling for About, the service
+   pages, blog posts and the legal pages. */
+
+.bs-page__title { margin-bottom: var(--bs-space-5); }
+
+/* About. The one page where a person is speaking, so the opening line is set
+   larger and the measure stays narrow — this is the only place on the site
+   somebody reads several paragraphs in a row. */
+.bs-lede {
+  color: var(--bs-headline);
+  font-size: var(--bs-fs-subheader);
+  font-weight: var(--bs-fw-semibold);
+  line-height: var(--bs-lh-snug);
+}
+
+/* The common-questions blocks on the service pages are core Details blocks,
+   which an editor adds without choosing anything. They are made to read like
+   the theme's own FAQ accordion rather than like a browser default — a
+   reader should not be able to tell which questions the theme drew and which
+   an editor typed. The chevron is drawn on the summary itself here, because
+   an editor cannot add the extra span the theme's own markup uses. */
+.bs-prose .wp-block-details {
+  border-bottom: 1px solid var(--bs-border);
+}
+
+.bs-prose .wp-block-details:first-of-type {
+  border-top: 1px solid var(--bs-border);
+}
+
+.bs-prose .wp-block-details > summary {
+  position: relative;
+  padding: var(--bs-space-4) var(--bs-space-6) var(--bs-space-4) 0;
+  color: var(--bs-headline);
+  font-weight: var(--bs-fw-semibold);
+  cursor: pointer;
+  list-style: none;
+}
+
+.bs-prose .wp-block-details > summary::-webkit-details-marker { display: none; }
+.bs-prose .wp-block-details > summary:hover { color: var(--bs-blue); }
+
+.bs-prose .wp-block-details > summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0.25rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-right: 2px solid var(--bs-blue);
+  border-bottom: 2px solid var(--bs-blue);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform var(--bs-transition);
+}
+
+.bs-prose .wp-block-details[open] > summary::after {
+  transform: translateY(-25%) rotate(-135deg);
+}
+
+.bs-prose .wp-block-details > :not(summary):last-child { padding-bottom: var(--bs-space-5); }
+
+/* Editors add the team photo and the Instagram gallery as ordinary blocks, so
+   these rules have to make core block output look right with nobody choosing
+   anything. */
+.bs-prose .wp-block-image img { border-radius: var(--bs-radius-card); }
+
+.bs-prose .wp-block-image figcaption {
+  margin-top: var(--bs-space-2);
+  font-size: var(--bs-fs-body);
+  color: var(--bs-body);
+  text-align: left;
+}
+
+.bs-prose .wp-block-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--bs-space-3);
+}
+
+@media (min-width: 40rem) {
+  .bs-prose .wp-block-gallery { grid-template-columns: repeat(3, 1fr); }
+}
+
+.bs-prose .wp-block-gallery .wp-block-image { margin: 0; }
+
+.bs-prose .wp-block-gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--bs-radius-button);
+  transition: opacity var(--bs-transition);
+}
+
+.bs-prose .wp-block-gallery a:hover img { opacity: 0.85; }
+
+.bs-prose > * + * { margin-top: var(--bs-space-4); }
+
+.bs-prose h2 { margin-top: var(--bs-space-7); }
+.bs-prose h3 { margin-top: var(--bs-space-6); }
+
+.bs-prose ul, .bs-prose ol { padding-left: var(--bs-space-5); }
+.bs-prose li + li { margin-top: var(--bs-space-2); }
+
+.bs-prose img { border-radius: var(--bs-radius-card); }
+
+.bs-prose blockquote {
+  margin: var(--bs-space-5) 0;
+  padding-left: var(--bs-space-4);
+  border-left: 3px solid var(--bs-aqua);
+  color: var(--bs-headline);
+}
+
+.bs-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--bs-fs-body);
+}
+
+.bs-prose th, .bs-prose td {
+  padding: var(--bs-space-3);
+  border-bottom: 1px solid var(--bs-border);
+  text-align: left;
+}
+
+.bs-prose th { color: var(--bs-headline); font-weight: var(--bs-fw-semibold); }
+
+/* A wide table must scroll inside itself. The page body never scrolls
+   sideways on a phone. */
+.bs-prose .wp-block-table { overflow-x: auto; }
+
+/* --------------------------------------------------------------------------
+   36. Page-foot CTA
+   -------------------------------------------------------------------------- */
+
+.bs-cta { text-align: center; }
+.bs-cta__headline { font-size: calc(var(--bs-fs-header) * 0.8); }
+.bs-cta__body { margin-inline: auto; }
+.bs-cta__actions { margin-top: var(--bs-space-5); }
+
+@media (min-width: 40rem) {
+  .bs-cta__actions .bs-btn--block { display: inline-flex; width: auto; min-width: 16rem; }
+}
+
+/* hidden means hidden. Any author rule that sets display would otherwise beat
+   the UA stylesheet's [hidden] { display: none }, which is how an invisible
+   scrim came to intercept every tap on the page. One rule, once. */
+[hidden] { display: none !important; }
+
+/* --------------------------------------------------------------------------
+   36. The WhatsApp panel
+   
+   A bottom sheet on phones, a corner panel on desktop, one piece of markup.
+   
+   The default here is the NO-SCRIPT state: an ordinary block at the end of
+   the page, fully readable, every option a working link. Everything that
+   turns it into a dialog hangs off .is-enhanced, which brandsure.js adds.
+   Written the other way round, a visitor without script would get a fixed
+   panel sitting over the footer with no way to close it.
+   -------------------------------------------------------------------------- */
+
+.bs-wa {
+  margin-top: var(--bs-space-7);
+  padding: 0 var(--bs-gutter);
+}
+
+.bs-wa__fab,
+.bs-wa__invite,
+.bs-wa__scrim,
+.bs-wa__grip,
+.bs-wa__close,
+.bs-wa__back { display: none; }
+
+.bs-wa__panel {
+  max-width: var(--bs-prose);
+  margin-inline: auto;
+  padding: var(--bs-space-5);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-card);
+}
+
+/* Both steps are simply visible without script, so "Ask about another
+   service" has nothing to reveal and its own list is already on the page. */
+.bs-wa:not(.is-enhanced) [data-bs-wa-step] { display: block; }
+.bs-wa:not(.is-enhanced) [data-bs-wa-step-to] { display: none; }
+
+.bs-wa__heading { margin: 0 0 var(--bs-space-2); font-size: var(--bs-fs-subheader); }
+.bs-wa__intro   { margin: 0 0 var(--bs-space-4); color: var(--bs-body); }
+
+.bs-wa__options { margin: 0; padding: 0; list-style: none; }
+.bs-wa__option + .bs-wa__option { margin-top: var(--bs-space-3); }
+
+.bs-wa__choice {
+  display: flex;
+  align-items: center;
+  gap: var(--bs-space-4);
+  width: 100%;
+  min-height: var(--bs-tap);
+  padding: var(--bs-space-4);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border-secondary-btn);
+  border-radius: var(--bs-radius-button);
+  color: var(--bs-headline);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--bs-transition),
+              background-color var(--bs-transition),
+              transform var(--bs-transition);
+}
+
+.bs-wa__choice:hover,
+.bs-wa__choice:focus-visible {
+  background: var(--bs-secondary-btn-hover-bg);
+  border-color: var(--bs-aqua);
+}
+
+/* The press state matters more than the hover state: on a phone there is no
+   hover, and without this a tap gives no feedback at all before WhatsApp
+   takes over the screen. */
+.bs-wa__choice:active { transform: scale(0.985); }
+
+.bs-wa__choice > .bs-icon { width: 1.5rem; height: 1.5rem; color: var(--bs-blue); }
+
+.bs-wa__choice-text  { display: grid; gap: 2px; flex: 1 1 auto; min-width: 0; }
+.bs-wa__choice-label { font-weight: var(--bs-fw-semibold); }
+.bs-wa__choice-hint  { font-size: var(--bs-fs-body); color: var(--bs-subtle); }
+
+.bs-wa__chevron {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+  color: var(--bs-subtle);
+  transition: transform var(--bs-transition);
+}
+.bs-wa__choice:hover .bs-wa__chevron { transform: translateX(3px); }
+
+.bs-wa__step-heading { margin: var(--bs-space-5) 0 var(--bs-space-3); font-size: var(--bs-fs-body-lg); }
+
+.bs-wa__footnote {
+  margin: var(--bs-space-4) 0 0;
+  color: var(--bs-subtle);
+  font-size: var(--bs-fs-body);
+}
+
+/* ---- Enhanced: the sheet ------------------------------------------------ */
+
+.bs-wa.is-enhanced {
+  margin: 0;
+  padding: 0;
+}
+
+/* :not([hidden]) is load-bearing, not tidiness. The UA stylesheet gives
+   [hidden] display:none at almost no specificity, so this class chain beat it
+   and the scrim — a fixed, full-viewport, opacity:0 element — sat over the
+   whole page swallowing every tap while supposedly closed. Nothing on the
+   site was clickable. Caught by driving the page in a browser; it is
+   invisible in the markup and invisible on screen. */
+.bs-wa.is-enhanced .bs-wa__scrim:not([hidden]) {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(8, 30, 46, 0.45);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+.bs-wa.is-enhanced.is-open .bs-wa__scrim { opacity: 1; }
+
+.bs-wa.is-enhanced .bs-wa__panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 61;
+  max-width: none;
+  margin: 0;
+  padding: var(--bs-space-3) var(--bs-gutter)
+           calc(var(--bs-space-5) + env(safe-area-inset-bottom));
+  border: 0;
+  border-radius: var(--bs-radius-card) var(--bs-radius-card) 0 0;
+  box-shadow: 0 -8px 40px rgba(8, 30, 46, 0.18);
+
+  /* The sheet must never be taller than the screen, and its own list must be
+     what scrolls — not the page behind it. */
+  max-height: min(86vh, 40rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  transform: translateY(100%);
+  transition: transform 260ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+.bs-wa.is-enhanced.is-open .bs-wa__panel { transform: translateY(0); }
+
+.bs-wa.is-enhanced .bs-wa__grip {
+  display: block;
+  width: 2.25rem;
+  height: 4px;
+  margin: 0 auto var(--bs-space-3);
+  border-radius: var(--bs-radius-pill);
+  background: var(--bs-meter-track);
+}
+
+.bs-wa.is-enhanced .bs-wa__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--bs-space-4);
+  margin-bottom: var(--bs-space-4);
+}
+
+.bs-wa__logo { display: block; width: 104px; height: 28px; }
+
+.bs-wa.is-enhanced .bs-wa__close,
+.bs-wa.is-enhanced .bs-wa__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bs-space-2);
+  min-width: var(--bs-tap);
+  min-height: var(--bs-tap);
+  padding: var(--bs-space-2);
+  background: none;
+  border: 0;
+  color: var(--bs-body);
+  font: inherit;
+  font-weight: var(--bs-fw-semibold);
+  cursor: pointer;
+}
+.bs-wa.is-enhanced .bs-wa__close:hover { color: var(--bs-headline); }
+
+.bs-wa.is-enhanced .bs-wa__back { justify-content: flex-start; margin-bottom: var(--bs-space-2); }
+.bs-wa__back-icon { width: 1rem; height: 1rem; transform: rotate(180deg); }
+
+/* Steps become pages of the sheet only once script can move between them. */
+.bs-wa.is-enhanced [data-bs-wa-step][hidden] { display: none; }
+
+/* The page behind a sheet is pinned, and the offset is restored on close.
+   position:fixed rather than overflow:hidden because iOS Safari scrolls the
+   body under overflow:hidden regardless. */
+body.bs-scroll-locked {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ---- Enhanced: desktop -------------------------------------------------- */
+
+@media (min-width: 48rem) {
+  /* The sticky bar is gone at this width, so the floating button becomes the
+     launcher. Below this width it stays hidden: one control, one action. */
+  .bs-wa.is-enhanced .bs-wa__fab {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--bs-space-2);
+    position: fixed;
+    right: var(--bs-space-5);
+    bottom: var(--bs-space-5);
+    z-index: 55;
+    min-height: var(--bs-tap);
+    padding: var(--bs-space-3) var(--bs-space-5);
+    border-radius: var(--bs-radius-pill);
+    background: var(--bs-blue);
+    color: var(--bs-on-dark);
+    font-weight: var(--bs-fw-semibold);
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(17, 110, 152, 0.28);
+    transition: background-color var(--bs-transition), transform var(--bs-transition);
+  }
+
+  .bs-wa.is-enhanced .bs-wa__fab:hover { background: var(--bs-blue-hover); }
+  .bs-wa.is-enhanced .bs-wa__fab:active { transform: scale(0.97); }
+  .bs-wa.is-enhanced .bs-wa__fab .bs-icon { width: 1.25rem; height: 1.25rem; }
+
+  /* Once the panel is open the launcher has nothing left to do, and leaving
+     it floating over the scrim looks like a second way out that is not. */
+  .bs-wa.is-enhanced.is-open .bs-wa__fab { opacity: 0; pointer-events: none; }
+
+  .bs-wa.is-enhanced .bs-wa__panel {
+    left: auto;
+    right: var(--bs-space-5);
+    bottom: var(--bs-space-5);
+    width: 23rem;
+    max-height: min(80vh, 36rem);
+    padding: var(--bs-space-4) var(--bs-space-5) var(--bs-space-5);
+    border-radius: var(--bs-radius-card);
+    transform: translateY(12px) scale(0.98);
+    opacity: 0;
+    transition: transform 220ms ease, opacity 180ms ease;
+  }
+
+  .bs-wa.is-enhanced.is-open .bs-wa__panel {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  .bs-wa.is-enhanced .bs-wa__grip { display: none; }
+
+  /* A corner panel is not modal in the way a full-screen sheet is; dimming
+     the whole page for it is heavier than the interaction deserves. */
+  .bs-wa.is-enhanced .bs-wa__scrim { background: rgba(8, 30, 46, 0.25); }
+}
+
+/* ---- The one-time invitation -------------------------------------------- */
+
+.bs-wa.is-enhanced .bs-wa__invite {
+  display: block;
+  position: fixed;
+  right: var(--bs-gutter);
+  bottom: calc(var(--bs-sticky-bar-h) + env(safe-area-inset-bottom) + var(--bs-space-3));
+  z-index: 50;
+  max-width: 15rem;
+  padding: var(--bs-space-4);
+  background: var(--bs-bg);
+  border: 1px solid var(--bs-border-secondary-btn);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card-hover);
+  animation: bs-invite-in 260ms ease both;
+}
+
+@media (min-width: 48rem) {
+  /* Above the sticky bar's breakpoint it sits above the floating button. */
+  .bs-wa.is-enhanced .bs-wa__invite { bottom: calc(var(--bs-space-5) + 3.5rem); right: var(--bs-space-5); }
+}
+
+.bs-wa__invite-text { margin: 0 0 var(--bs-space-3); font-weight: var(--bs-fw-semibold); color: var(--bs-headline); }
+.bs-wa__invite-actions { display: flex; gap: var(--bs-space-2); }
+
+.bs-wa__invite-yes,
+.bs-wa__invite-no {
+  min-height: var(--bs-tap);
+  padding: var(--bs-space-2) var(--bs-space-4);
+  border-radius: var(--bs-radius-button);
+  font: inherit;
+  font-size: var(--bs-fs-button);
+  font-weight: var(--bs-fw-semibold);
+  cursor: pointer;
+}
+
+.bs-wa__invite-yes { flex: 1 1 auto; background: var(--bs-blue); border: 1px solid var(--bs-blue); color: var(--bs-on-dark); }
+.bs-wa__invite-yes:hover { background: var(--bs-blue-hover); }
+.bs-wa__invite-no  { background: none; border: 1px solid var(--bs-border-secondary-btn); color: var(--bs-body); }
+
+@keyframes bs-invite-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* --------------------------------------------------------------------------
+   37. Motion
+   
+   Three rules govern everything below.
+   
+   1. CONTENT FIRST. Every animated state starts from the finished state. The
+      "before" state only exists inside .bs-motion, a class brandsure.js puts
+      on <html> — so if the script never runs, never loads, or throws, the
+      page is simply the finished page. Nothing here can hide content.
+   
+   2. ONCE. A reveal fires the first time a section enters the viewport and
+      never again. Elements that re-animate every time you scroll past are
+      the single most irritating thing on a long page, and this is a long
+      page read on a phone.
+   
+   3. OPACITY AND TRANSFORM ONLY. Both are composited; neither triggers
+      layout. Nothing here animates height, width, top or margin, so nothing
+      here can cause a layout shift as it plays.
+   
+   Durations follow the brief: 150–300ms for something the reader did,
+   300–500ms for a section arriving. No figure is ever counted up — a number
+   that animates through ₹12,000 on its way to ₹45,000 has displayed a price
+   that is not real, and on this site that is a commercial problem, not a
+   visual one.
+   -------------------------------------------------------------------------- */
+
+.bs-motion [data-bs-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 380ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bs-motion [data-bs-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* The hero is above the fold, so it does not wait for a scroll — it plays on
+   load, in reading order: headline, then the sentence under it, then the
+   buttons. Short, and once. */
+.bs-motion .bs-hero [data-bs-hero] {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: bs-rise 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.bs-motion .bs-hero [data-bs-hero]:nth-child(1) { animation-delay: 40ms; }
+.bs-motion .bs-hero [data-bs-hero]:nth-child(2) { animation-delay: 130ms; }
+.bs-motion .bs-hero [data-bs-hero]:nth-child(3) { animation-delay: 220ms; }
+.bs-motion .bs-hero [data-bs-hero]:nth-child(4) { animation-delay: 300ms; }
+
+@keyframes bs-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* The chain — ad → enquiry → call → appointment → showroom visit → order →
+   production → delivery — is the one diagram on the site that is genuinely
+   about sequence. Lighting the tiles left to right says "this is an order of
+   events" in a way a static row of eight icons does not. 70ms apart: fast
+   enough to read as one movement, slow enough to see the direction. */
+.bs-motion .bs-chain__list[data-bs-reveal] .bs-chain__node {
+  opacity: 0;
+  transform: translateY(8px) scale(0.96);
+  transition: opacity 260ms ease, transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bs-motion .bs-chain__list[data-bs-reveal].is-revealed .bs-chain__node {
+  opacity: 1;
+  transform: none;
+}
+
+.bs-motion .bs-chain__list.is-revealed .bs-chain__node:nth-child(1) { transition-delay:   0ms; }
+.bs-motion .bs-chain__list.is-revealed .bs-chain__node:nth-child(2) { transition-delay:  70ms; }
+.bs-motion .bs-chain__list.is-revealed .bs-chain__node:nth-child(3) { transition-delay: 140ms; }
+.bs-motion .bs-chain__list.is-revealed .bs-chain__node:nth-child(4) { transition-delay: 210ms; }
+.bs-motion .bs-chain__list.is-revealed .bs-chain__node:nth-child(5) { transition-delay: 280ms; }
+.bs-motion .bs-chain__list.is-revealed .bs-chain__node:nth-child(6) { transition-delay: 350ms; }
+.bs-motion .bs-chain__list.is-revealed .bs-chain__node:nth-child(7) { transition-delay: 420ms; }
+.bs-motion .bs-chain__list.is-revealed .bs-chain__node:nth-child(8) { transition-delay: 490ms; }
+
+/* Plan cards arrive in the order they should be read, with Digital Partner —
+   the recommended start — in the middle where it already sits. */
+.bs-motion .bs-plans__grid[data-bs-reveal].is-revealed .bs-plan:nth-child(2) { transition-delay:  80ms; }
+.bs-motion .bs-plans__grid[data-bs-reveal].is-revealed .bs-plan:nth-child(3) { transition-delay: 160ms; }
+
+/* ---- Press states --------------------------------------------------------
+   
+   A phone has no hover. Without a press state the only feedback for a tap is
+   the next page loading, which on mobile data can be a second and a half of
+   apparent nothing. Every control the reader can press gets one.
+   ------------------------------------------------------------------------ */
+
+.bs-btn:active,
+.bs-plan__detail:active,
+.bs-postcard__more:active,
+.bs-sticky__action:active { transform: scale(0.97); }
+
+.bs-btn { transition: background-color var(--bs-transition),
+                      border-color var(--bs-transition),
+                      color var(--bs-transition),
+                      transform 120ms ease; }
+
+.bs-sticky__action { transition: background-color var(--bs-transition), transform 120ms ease; }
+.bs-sticky__action:active { background: var(--bs-secondary-btn-hover-bg); }
+
+/* Plan selection feedback. The tap leaves the page, so the card marks itself
+   chosen for the moment before it does — otherwise the reader is left
+   wondering whether the tap registered at all. */
+.bs-plan { transition: border-color var(--bs-transition), box-shadow var(--bs-transition); }
+
+.bs-plan.is-choosing {
+  border-color: var(--bs-blue);
+  box-shadow: 0 0 0 2px rgba(17, 110, 152, 0.16), var(--bs-shadow-card-hover);
+}
+
+/* ---- FAQ expansion -------------------------------------------------------
+   
+   The answer fades and rises as the details element opens. Deliberately not
+   a height animation: the height of an answer is not known until it is open,
+   measuring it costs a layout, and getting it wrong makes the whole page
+   below jump. This reads as smooth and cannot shift anything.
+   ------------------------------------------------------------------------ */
+
+.bs-motion .bs-prose .wp-block-details[open] > :not(summary) {
+  animation: bs-answer-in 240ms ease both;
+}
+
+@keyframes bs-answer-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.bs-prose .wp-block-details > summary { transition: color var(--bs-transition); }
+
+/* ---- The sticky header ---------------------------------------------------
+   
+   At the top of the page the header sits flat on the hero with only its hairline
+   border. Once the page has moved it lifts: a real shadow, so it reads as a
+   layer over the content rather than part of it, and the reader can tell at a
+   glance that they have scrolled.
+   ------------------------------------------------------------------------ */
+
+.bs-header {
+  transition: box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.bs-header.is-stuck {
+  border-bottom-color: transparent;
+  box-shadow: 0 2px 16px rgba(8, 30, 46, 0.10);
+}
+
+/* ---- Reduced motion ------------------------------------------------------
+   
+   Not "faster" — off. Someone who has asked their operating system for less
+   motion has asked for a reason, and a 40ms version of an animation is still
+   an animation. Everything lands in its finished state instantly, which is
+   the same state a visitor with no JavaScript sees.
+   ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .bs-motion [data-bs-reveal],
+  .bs-motion .bs-chain__list[data-bs-reveal] .bs-chain__node,
+  .bs-motion .bs-hero [data-bs-hero] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+    transition-delay: 0ms;
+  }
+
+  .bs-motion .bs-prose .wp-block-details[open] > :not(summary) { animation: none; }
+
+  .bs-btn:active,
+  .bs-plan__detail:active,
+  .bs-postcard__more:active,
+  .bs-sticky__action:active,
+  .bs-wa__choice:active { transform: none; }
+
+  .bs-wa.is-enhanced .bs-wa__panel,
+  .bs-wa.is-enhanced .bs-wa__scrim { transition-duration: 0ms; }
+  .bs-wa.is-enhanced .bs-wa__invite { animation: none; }
+}

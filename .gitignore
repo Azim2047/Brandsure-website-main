@@ -1,0 +1,15 @@
+# Node's own
+node_modules/
+
+# Generated preview and any build output. Nothing here is ever committed or
+# deployed — see docs/NODE-TOOLCHAIN.md. If something in the shipped site ever
+# needs a file from here, the build/run boundary has broken.
+build/
+
+# Editor and OS noise
+.DS_Store
+*.swp
+
+# Local archives and documentation
+*.zip
+*.docx

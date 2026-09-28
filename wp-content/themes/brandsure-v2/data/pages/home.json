@@ -1,0 +1,100 @@
+{
+  "_comment": "Home. PUBLIC-NEUTRAL: no prices, no plan names, no commercial mechanism. Its job is five seconds of recognition, then the gate. Positioning from Architecture v3 §1-§3 and Video 1 S1/S5/S6/S7; credentials and the case are fact keys into data/commercial.json, never literals. Old homepage positioning is deliberately not carried over.",
+
+  "slug": "home",
+  "title": "BrandSure — the other half of a furniture business",
+  "meta_description": "We have run furniture factories. Now we build the half of the business that brings customers in — ads, enquiries, calls and appointments.",
+
+  "sections": [
+    {
+      "type": "hero",
+      "tone": "light",
+      "eyebrow": "Furniture only. Nothing else.",
+      "headline": "You built one half of the business. We build the other half.",
+      "body": "The factory, the showroom, the product — that half is yours and it works. The half that brings customers in and follows them up until they buy is the half most furniture businesses never got round to building.",
+      "primary": { "label": "See if we can help", "url": "/start/" },
+      "secondary": { "label": "How it works", "url": "/how-it-works/" }
+    },
+
+    {
+      "type": "trust-strip",
+      "facts": [
+        "credential_facility",
+        "credential_factories",
+        "credential_sales_handled"
+      ]
+    },
+
+    {
+      "type": "two-halves",
+      "headline": "One half is built. The other half is not.",
+      "built": {
+        "title": "You built this",
+        "items": [
+          { "icon": "factory", "label": "Your factory" },
+          { "icon": "showroom", "label": "Your showroom" },
+          { "icon": "sofa", "label": "Your product" },
+          { "icon": "worker", "label": "Your workers" }
+        ]
+      },
+      "unbuilt": {
+        "title": "This is still to build",
+        "items": [
+          { "icon": "ad", "label": "Ads that bring customers" },
+          { "icon": "enquiry", "label": "Every enquiry answered" },
+          { "icon": "calendar", "label": "Showroom visits booked" },
+          { "icon": "written", "label": "Everything written down" }
+        ]
+      },
+      "note": "Both halves have to be built just as strongly. Most owners are still carrying the second one themselves."
+    },
+
+    {
+      "type": "video-block",
+      "tone": "tint",
+      "video": "video1",
+      "headline": "Nine minutes, and you will know if this is your problem.",
+      "body": "No pitch and no prices. Just how furniture sales actually leak between the ad and the showroom.",
+      "fallback_headline": "Tell us where your business is today."
+    },
+
+    {
+      "type": "fit-check",
+      "tone": "light",
+      "headline": "Is BrandSure right for your business?",
+      "fit": {
+        "title": "This works when",
+        "items": [
+          "You have been in business three years or more",
+          "You make what you sell, or control who makes it",
+          "You have at least one showroom",
+          "You are already selling offline",
+          "You want the business to depend less on you"
+        ]
+      },
+      "not_fit": {
+        "title": "This will not work when",
+        "items": [
+          "You only have an idea so far",
+          "You want the cheapest possible enquiries",
+          "You cannot deliver what you already sell",
+          "You expect ads to fix a showroom problem"
+        ]
+      }
+    },
+
+    {
+      "type": "case-result",
+      "tone": "tint",
+      "headline": "It has worked once, properly.",
+      "context": "A furniture business much like yours, in its twenty-sixth year."
+    },
+
+    {
+      "type": "cta",
+      "tone": "dark",
+      "headline": "Send us four numbers.",
+      "body": "Your monthly sales, what you spend on ads now, how many showrooms you have, and how much you can produce in a month. We will tell you honestly whether we can help."
+    }
+  ]
+}

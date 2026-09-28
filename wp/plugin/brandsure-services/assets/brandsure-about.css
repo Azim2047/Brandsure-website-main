@@ -1,0 +1,79 @@
+/* BrandSure — About page components: the Instagram gallery and the team photo.
+   Additive only. Every value comes from tokens the page already defines
+   (--blue, --aqua, --border, --r, --shadow, --ease…), so this introduces no
+   second visual system and no new colours, radii or type scale.
+   Mobile-first: 2 columns, 3 from 640px, 6 from 1000px. CSS Grid throughout —
+   no carousel, no JS. */
+
+.igrid{
+  list-style:none;margin:clamp(26px,3.5vw,40px) 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+}
+.igrid__i{
+  margin:0;border-radius:14px;overflow:hidden;
+  border:1px solid var(--border);background:var(--border-2);
+  box-shadow:var(--shadow);
+}
+.igrid__i a{display:block;position:relative}
+/* aspect-ratio reserves the box before the image loads, so the gallery
+   cannot shift the page as it fills in */
+.igrid__i img{
+  width:100%;height:auto;aspect-ratio:1;object-fit:cover;display:block;
+  transition:transform .45s var(--ease);
+}
+.igrid__i a::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(8,30,46,.28));
+  opacity:0;transition:opacity .3s var(--ease);
+}
+.igrid__i a:hover img{transform:scale(1.04)}
+.igrid__i a:hover::after{opacity:1}
+
+.iglink{margin-top:22px}
+.iglink a{
+  display:inline-flex;align-items:center;gap:9px;
+  color:var(--blue);font-weight:600;font-size:15.5px;
+}
+.iglink a:hover{text-decoration:underline;text-underline-offset:4px}
+.iglink .arw{transition:transform .2s var(--ease)}
+.iglink a:hover .arw{transform:translateX(3px)}
+
+/* admin-only hint when nothing is configured yet */
+.ignote{
+  margin-top:18px;font-size:13.5px;color:var(--subtle);
+  border:1px dashed var(--btn-border);border-radius:var(--rb);padding:12px 14px;
+}
+
+/* ---- team photograph ---- */
+.teamfig{
+  margin:clamp(26px,3.5vw,40px) 0 0;
+  border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--border);background:var(--border-2);
+  box-shadow:var(--shadow);
+}
+.teamfig img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+.teamfig figcaption{
+  padding:16px clamp(18px,2.5vw,26px);
+  font-size:14.5px;color:var(--body);background:#fff;
+  border-top:1px solid var(--border);
+}
+.teamfig--empty{
+  aspect-ratio:16/9;display:grid;place-items:center;position:relative;
+  background:radial-gradient(circle at 70% 20%,rgba(125,209,201,.28),transparent 55%),
+    linear-gradient(160deg,var(--dark),#17232B);
+}
+.teamfig--empty::after{
+  content:"";position:absolute;inset:16px;border-radius:14px;
+  border:1px dashed rgba(125,209,201,.35);
+}
+.teamfig--empty span{
+  position:relative;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);font-weight:600;text-align:center;padding:0 20px;
+}
+
+@media (min-width:640px){
+  .igrid{grid-template-columns:repeat(3,1fr);gap:12px}
+}
+@media (min-width:1000px){
+  .igrid{grid-template-columns:repeat(6,1fr);gap:12px}
+}

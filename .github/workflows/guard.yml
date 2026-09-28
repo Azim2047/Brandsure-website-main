@@ -1,0 +1,50 @@
+name: Guard
+
+# The disclosure guard, on every push and pull request.
+#
+# This is the check that stops the Growth Partnership commercial mechanism
+# reaching the public site. It has to run automatically, because a rule that
+# depends on everyone remembering it on every edit for the life of the site is
+# not a rule, it is a hope.
+#
+# It needs no WordPress, no database and no secrets, and finishes in about a
+# second.
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  guard:
+    name: Disclosure, language and integrity checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Lint PHP
+        run: |
+          find wp-content/themes/brandsure-v2 -name '*.php' -print0 \
+            | xargs -0 -n1 php -l
+
+      - name: Validate JSON data files
+        run: |
+          for f in wp-content/themes/brandsure-v2/data/*.json \
+                   wp-content/themes/brandsure-v2/data/pages/*.json; do
+            [ -e "$f" ] || continue
+            php -r 'json_decode(file_get_contents($argv[1]), true);
+                    if (json_last_error()) {
+                      fwrite(STDERR, $argv[1] . ": " . json_last_error_msg() . "\n");
+                      exit(1);
+                    }' "$f"
+          done
+
+      - name: Run the guard
+        run: php wp-content/themes/brandsure-v2/tools/guard.php

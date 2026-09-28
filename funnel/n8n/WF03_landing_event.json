@@ -1,0 +1,124 @@
+{
+  "name": "WF-03 Landing Event Receiver",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "landing-event",
+        "responseMode": "onReceived",
+        "options": {
+          "allowedOrigins": "https://go.brandsure.in"
+        }
+      },
+      "id": "6e4c1d0d-a80c-4fa7-9025-40a051538dfe",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "4d73c216-f590-4090-8375-3c638d138f29"
+    },
+    {
+      "parameters": {
+        "operation": "verify",
+        "token": "={{ $json.body.token }}",
+        "options": {}
+      },
+      "id": "b1f0a2c4-1111-4a10-9d55-3ac1f0e91001",
+      "name": "Verify JWT",
+      "type": "n8n-nodes-base.jwt",
+      "typeVersion": 1,
+      "position": [
+        220,
+        0
+      ],
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "jwtAuth": {
+          "id": "REPLACE_JWT",
+          "name": "BrandSure JWT"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize + whitelist a landing event; compute all derived updates.\n//\n// SECURITY: lead_id comes from the VERIFIED JWT, never from the request body.\n// An unauthenticated body-supplied lead_id would let anyone POST\n// video_90/video5_unlocked for any lead (ids are sequential: BS-00001...),\n// defeating the \"Video-5 lock cannot be bypassed\" requirement and poisoning\n// every intent score in the funnel.\nconst v = $('Verify JWT').first().json || {};\nconst claims = v.payload && typeof v.payload === 'object' ? v.payload : v;\nconst leadId = claims.lead_id;\nif (v.error || !leadId) return []; // fail closed, drop silently\n\nlet b = $('Webhook').first().json.body;\nif (typeof b === 'string') { try { b = JSON.parse(b); } catch (e) { b = null; } }\nif (!b || !b.event) return [];\n\nconst VALID = new Set(['page_opened','video_started','video_25','video_50','video_75',\n  'video_90','video_completed','video5_unlocked','terms_viewed','cta_clicked',\n  'question_clicked','page_resumed','heartbeat','expiry_page_shown','renew_requested']);\nif (!VALID.has(b.event)) return [];\n\nconst SCORE = { page_opened:2, video_75:5, video_completed:4, cta_clicked:3 };\n\n// When the scheduler should next look at this lead (Sequences C/D/E timing).\nconst NEXT_H = { page_opened:3, page_resumed:3, video_started:3, video_25:3,\n                 video_50:3, video_75:3, video_90:3, video_completed:0.25,\n                 cta_clicked:2, question_clicked:6 };\nconst SEQ  = { page_opened:'C', page_resumed:'C', video_completed:'D', cta_clicked:'E' };\nconst CAPI = { page_opened:'page_opened', video_90:'video_watched' };\n\nconst num = (x) => (x == null ? null : (Number(x) || 0));\nconst str = (x, max) => (x == null || x === '' ? null : String(x).slice(0, max || 64));\n\nconst watched = Number(b.watched_seconds || b.position_seconds || 0) || 0;\nconst video   = Number(b.video || 0);\n\nconst payload = {\n  lead_id:          String(leadId).slice(0, 20),\n  event:            b.event,\n  video:            video > 0 ? video : null,\n  watched_seconds:  num(b.watched_seconds),\n  position_seconds: num(b.position_seconds),\n  route:            str(claims.route, 20),   // from the JWT, not the body\n  client_ts:        str(b.ts, 40),\n  session_id:       str(b.session_id, 24),\n  score:            SCORE[b.event] || 0,\n  resume:           b.event.startsWith('video') ? watched : 0,\n  next_action_at:   NEXT_H[b.event] != null\n                      ? new Date(Date.now() + NEXT_H[b.event] * 3600 * 1000).toISOString()\n                      : null,\n  capi_stage:       CAPI[b.event] || null,\n  seq:              SEQ[b.event]  || null\n};\n\n// ONE base64 parameter, not thirteen. The Postgres node splits its Query\n// Parameters on commas AND DROPS EMPTY VALUES, so any multi-parameter form\n// silently misaligns the moment one value is empty - which is most events.\n// Base64 contains no commas, so nothing can be split, and JSON null survives\n// the round trip as a real SQL NULL.\nreturn [{ json: { p: Buffer.from(JSON.stringify(payload)).toString('base64') } }];"
+      },
+      "id": "3d51c054-edbe-4817-8431-91c2ee50a17c",
+      "name": "Normalize Event",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "WITH e AS (\n  SELECT convert_from(decode($1,'base64'),'UTF8')::jsonb AS j\n), ins AS (\n  INSERT INTO lead_events (lead_id, source, event, video, payload, session_id)\n  SELECT j->>'lead_id', 'landing', j->>'event', (j->>'video')::int,\n         jsonb_build_object('watched_seconds',  (j->>'watched_seconds')::numeric,\n                            'position_seconds', (j->>'position_seconds')::numeric,\n                            'route',            j->>'route',\n                            'client_ts',        j->>'client_ts'),\n         j->>'session_id'\n  FROM e WHERE j->>'event' <> 'heartbeat'\n  ON CONFLICT DO NOTHING\n  RETURNING 1\n), hb AS (\n  INSERT INTO lead_heartbeats (lead_id, session_id)\n  SELECT j->>'lead_id', COALESCE(j->>'session_id','unknown')\n  FROM e WHERE j->>'event' = 'heartbeat'\n  RETURNING 1\n), upd AS (\n  UPDATE leads SET\n    score_intent    = LEAST(20, score_intent + CASE WHEN EXISTS(SELECT 1 FROM ins)\n                                                    THEN COALESCE((SELECT (j->>'score')::int FROM e),0)\n                                                    ELSE 0 END),\n    resume_position = GREATEST(resume_position, COALESCE((SELECT (j->>'resume')::int FROM e),0)),\n    -- Derived server-side from the recorded milestone, never taken from the\n    -- client. The middle term covers the video_90 arriving in THIS statement,\n    -- which the EXISTS below cannot see (CTEs read the pre-statement snapshot).\n    video5_unlocked = video5_unlocked\n                      OR COALESCE((SELECT j->>'event'='video_90' AND (j->>'video')::int=4 FROM e), false)\n                      OR EXISTS (SELECT 1 FROM lead_events x\n                                 WHERE x.lead_id=(SELECT j->>'lead_id' FROM e)\n                                   AND x.event='video_90' AND x.video=4),\n    next_action_at  = COALESCE((SELECT (j->>'next_action_at')::timestamptz FROM e), next_action_at),\n    followup_step   = CASE WHEN (SELECT j->>'seq' FROM e) IS NOT NULL\n                            AND followup_sequence IS DISTINCT FROM (SELECT j->>'seq' FROM e)\n                           THEN 0 ELSE followup_step END,\n    followup_sequence = COALESCE((SELECT j->>'seq' FROM e), followup_sequence)\n  WHERE lead_id = (SELECT j->>'lead_id' FROM e)\n  RETURNING 1\n), capi AS (\n  INSERT INTO capi_queue (lead_id, stage)\n  SELECT j->>'lead_id', j->>'capi_stage' FROM e\n  WHERE j->>'capi_stage' IS NOT NULL AND EXISTS(SELECT 1 FROM ins)\n  RETURNING 1\n)\nSELECT (SELECT count(*) FROM ins)  AS inserted,\n       (SELECT count(*) FROM hb)   AS heartbeats,\n       (SELECT count(*) FROM upd)  AS lead_updated,\n       (SELECT count(*) FROM capi) AS capi_queued;",
+        "options": {
+          "queryReplacement": "={{ $json.p }}"
+        }
+      },
+      "id": "7faf357b-3d71-4e2f-b4b5-dc14980b91d1",
+      "name": "Apply Event",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        660,
+        0
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_PG",
+          "name": "Supabase Postgres"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Verify JWT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify JWT": {
+      "main": [
+        [
+          {
+            "node": "Normalize Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Event": {
+      "main": [
+        [
+          {
+            "node": "Apply Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

@@ -1,0 +1,72 @@
+{
+  "_comment": "The gate. PUBLIC-NEUTRAL: no prices, no plan names, no commercial mechanism. The four fields are exactly the AI's qualification fields (Video 1 S9), so nothing is asked twice once the conversation moves to WhatsApp. This page has no page-foot CTA and no sticky bar — the gate is the only action on it.",
+
+  "slug": "start",
+  "title": "Start — send us four numbers",
+  "meta_description": "Send four numbers about your furniture business and we will tell you honestly whether we can help, and which plan fits.",
+
+  "sections": [
+    {
+      "type": "hero",
+      "tone": "light",
+      "eyebrow": "No form. No sales call.",
+      "headline": "Send us four numbers.",
+      "body": "We will read them, tell you honestly whether we can help, and show you which plan fits. If we do not think it will work for you, we will say so."
+    },
+
+    {
+      "type": "gate-form",
+      "tone": "light",
+      "headline": "Your four numbers",
+      "body": "Rough figures are fine. Nobody is checking, and nothing here is stored — the numbers go straight into your own WhatsApp message.",
+      "fields": [
+        {
+          "key": "sales",
+          "label": "Your monthly sales",
+          "example": "8 lakh",
+          "hint": "Roughly what the business bills in a normal month."
+        },
+        {
+          "key": "adspend",
+          "label": "What you spend on ads now",
+          "example": "20,000 or nothing",
+          "hint": "Google, Facebook, Instagram, anything. Nothing is a fine answer."
+        },
+        {
+          "key": "showrooms",
+          "label": "How many showrooms you have",
+          "example": "1",
+          "hint": "Count only places a customer can walk into and sit on a sofa."
+        },
+        {
+          "key": "production",
+          "label": "How much you can produce in a month",
+          "example": "40 sofas",
+          "hint": "What the factory can finish comfortably, not the record month."
+        }
+      ],
+      "cta": "Send on WhatsApp",
+      "note": "This opens WhatsApp with the message already written. You can read it and change it before you send."
+    },
+
+    {
+      "type": "steps",
+      "tone": "tint",
+      "headline": "What happens after you send",
+      "items": [
+        {
+          "title": "We read your numbers",
+          "body": "A real look at your business, not an automatic reply."
+        },
+        {
+          "title": "We ask two or three things",
+          "body": "City, what you make, and how the enquiries reach you today."
+        },
+        {
+          "title": "We tell you where you stand",
+          "body": "Which plan fits, what it would cost, and whether we think it will work. If it will not, we say so."
+        }
+      ]
+    }
+  ]
+}

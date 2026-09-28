@@ -1,0 +1,72 @@
+{
+  "_comment": "How It Works. PUBLIC-NEUTRAL — diagnosis before offer, no prices and no plan pitch. The landing page for problem-intent search ('more furniture enquiries'). It uses the one chain twice: once whole, once with the leaks marked on it. Language Sheet B1 allows exactly one journey diagram on the site, so the leaks hang off that same chain rather than getting a picture of their own. Leak points are Video 3 S2, which the Digital Partner page deliberately does not repeat.",
+
+  "_who_does_what_note": "Architecture v3 lists 'who does what' for this page. It is answered in the FAQ rather than as a third copy of the lanes diagram, because the honest answer is 'it depends on the plan' and the per-plan version already exists on /plans/ and /digital-partner/. A generic lanes diagram here would be a fourth place the same boundary is drawn, and the first one that could go out of date.",
+
+  "slug": "how-it-works",
+  "title": "How it works — where furniture sales actually leak",
+  "meta_description": "The journey from an ad to a delivered sofa, and the six places a furniture sale quietly leaks on the way. No pitch, no prices.",
+
+  "sections": [
+    {
+      "type": "hero",
+      "tone": "light",
+      "eyebrow": "Before any of the plans",
+      "headline": "It is not that you do not get enquiries.",
+      "body": "They go cold before anyone calls back. Here is the whole journey from the ad to the delivery, and the places it quietly leaks.",
+      "primary": { "label": "Send us four numbers", "url": "/start/" }
+    },
+
+    {
+      "type": "chain-block",
+      "tone": "light",
+      "headline": "Every sale takes the same journey.",
+      "body": "Eight steps, in this order, every time. It does not matter whether the customer found you on Google or walked past the showroom.",
+      "active": 0
+    },
+
+    {
+      "type": "chain-block",
+      "tone": "tint",
+      "headline": "And here is where it leaks.",
+      "body": "Six of them, all between the ad and the showroom visit — the part most furniture businesses have never built.",
+      "active": 0,
+      "leaks": [
+        { "node": 0, "label": "The same ads every month" },
+        { "node": 1, "label": "It sits for hours before anyone sees it" },
+        { "node": 2, "label": "One call, then silence" },
+        { "node": 2, "label": "Photos and prices come too late" },
+        { "node": 3, "label": "No reminder, so he forgets" },
+        { "node": 4, "label": "Nobody writes down what happened" }
+      ],
+      "note": "You already paid for every one of those enquiries. The money is not lost at the ad — it is lost in the four steps after it."
+    },
+
+    {
+      "type": "steps",
+      "tone": "light",
+      "headline": "What closing those leaks looks like.",
+      "items": [
+        { "title": "The enquiry is answered in minutes", "body": "Not hours, and not by whoever happens to be free." },
+        { "title": "Somebody keeps following up", "body": "On WhatsApp, until the customer actually replies." },
+        { "title": "A real appointment is made", "body": "A day and a time, with a reminder before it." },
+        { "title": "Every enquiry is written down", "body": "So you can look at 9 pm without calling anyone." }
+      ]
+    },
+
+    {
+      "type": "accordion",
+      "tone": "tint",
+      "key": "how-it-works",
+      "headline": "The questions owners actually ask."
+    },
+
+    {
+      "type": "cta",
+      "tone": "dark",
+      "headline": "Where is your business leaking?",
+      "body": "Send four numbers and we will tell you honestly which part of the chain is costing you the most.",
+      "label": "Send the four numbers"
+    }
+  ]
+}

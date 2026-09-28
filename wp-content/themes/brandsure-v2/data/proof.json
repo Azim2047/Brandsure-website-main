@@ -1,0 +1,19 @@
+{
+  "_comment": "Credentials and evidence. The credentials and the client result themselves live in commercial.json (they are Numbers Sheet A4 facts and are quoted in more than one place); this file holds the page's framing and the client-site list.",
+  "_clients_note": "EMPTY BY DESIGN — docs/OPEN-ITEMS.md item 8. No client names, slugs, logos, URLs or permissions appear in any supplied file, and the one verified result is deliberately anonymous. Naming a client publicly needs their written permission, so nothing is invented here. /proof/ omits its client-sites section while this is empty, and /built-by-brandsure/ falls back to its generic version. Adding clients later is a data edit to this array and nothing else.",
+  "clients": [],
+  "credentials": [
+    {
+      "fact": "credential_facility",
+      "label": "Manufacturing floor"
+    },
+    {
+      "fact": "credential_factories",
+      "label": "Factories"
+    },
+    {
+      "fact": "credential_sales_handled",
+      "label": "Annual sales"
+    }
+  ]
+}

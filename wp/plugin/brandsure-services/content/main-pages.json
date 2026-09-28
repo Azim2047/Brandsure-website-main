@@ -1,0 +1,287 @@
+{
+  "start": {
+    "title": "BrandSure — More Furniture Orders for Sofa & Furniture Manufacturers",
+    "description": "Want more furniture orders? You make the furniture. We bring customers and build the selling side of your business. Furniture-only growth specialists: marketing, sales systems and business growth under one roof.",
+    "robots": null,
+    "canonical": "https://brandsure.in/",
+    "og_title": "Want more furniture orders?",
+    "og_description": "You make the furniture. We bring customers and build the selling side of your business. For sofa & furniture manufacturers in India.",
+    "og_url": "https://brandsure.in/",
+    "og_image": "https://brandsure.in/og-cover.jpg",
+    "twitter_title": null,
+    "twitter_description": null,
+    "slug": "start",
+    "h1": "Want more furniture orders?",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://brandsure.in/#organization",
+            "name": "BrandSure Consultancy Pvt. Ltd.",
+            "url": "https://brandsure.in/",
+            "description": "A Bengaluru-based, furniture-only growth partner for Indian furniture manufacturers and showroom-led furniture businesses.",
+            "email": "info@brandsure.in",
+            "telephone": "+91-8884446668",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "addressCountry": "IN"
+            },
+            "identifier": "U73100KA2025PTC199105",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://brandsure.in/#website",
+            "url": "https://brandsure.in/",
+            "name": "BrandSure",
+            "publisher": {
+              "@id": "https://brandsure.in/#organization"
+            },
+            "inLanguage": "en-IN"
+          }
+        ]
+      }
+    ],
+    "sections": 10
+  },
+  "services": {
+    "title": "Services for Furniture Manufacturers | BrandSure",
+    "description": "Labour hiring assistance, growth and marketing, business consulting and product design — four ways BrandSure helps Indian furniture manufacturers, each useful alone, all connected.",
+    "robots": null,
+    "canonical": "https://brandsure.in/services/",
+    "og_title": "Services for Furniture Manufacturers | BrandSure",
+    "og_description": "Labour hiring assistance, growth and marketing, business consulting and product design — four ways BrandSure helps Indian furniture manufacturers, each useful alone, all connected.",
+    "og_url": "https://brandsure.in/services/",
+    "og_image": null,
+    "twitter_title": null,
+    "twitter_description": null,
+    "slug": "services",
+    "h1": "Start with one problem.Or hand us the whole growth side.",
+    "jsonld": [],
+    "sections": 2
+  },
+  "how-it-works": {
+    "title": "How BrandSure Works — For Furniture Manufacturers",
+    "description": "What changes when BrandSure works on the selling side of your furniture business, the proof behind it, and what happens after you WhatsApp us.",
+    "robots": null,
+    "canonical": "https://brandsure.in/how-it-works/",
+    "og_title": "How BrandSure Works — For Furniture Manufacturers",
+    "og_description": "What changes when BrandSure works on the selling side of your furniture business, the proof behind it, and what happens after you WhatsApp us.",
+    "og_url": "https://brandsure.in/how-it-works/",
+    "og_image": null,
+    "twitter_title": null,
+    "twitter_description": null,
+    "slug": "how-it-works",
+    "h1": "The problem is not your furniture.It's that everything needs you.",
+    "jsonld": [],
+    "sections": 7
+  },
+  "pricing": {
+    "title": "Pricing: Agency Plan &#8377;45,000 &amp; Digital Partner &#8377;75,000 | BrandSure",
+    "description": "BrandSure growth marketing pricing for Indian furniture manufacturers and showrooms. Two plans: Agency Plan &#8377;45,000/month and Digital Partner &#8377;75,000/month. Side-by-side comparison, add-on prices and fine print on the page.",
+    "robots": null,
+    "canonical": "https://brandsure.in/pricing/",
+    "og_title": "Pricing: Agency Plan &#8377;45,000 &amp; Digital Partner &#8377;75,000 | BrandSure",
+    "og_description": "Two growth marketing plans for furniture businesses. The difference is who calls the enquiry and books the showroom visit. Prices on the page, not in a quote.",
+    "og_url": "https://brandsure.in/pricing/",
+    "og_image": null,
+    "twitter_title": null,
+    "twitter_description": null,
+    "slug": "pricing",
+    "h1": "Two growth marketing plans. The difference is who calls the enquiry.",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://brandsure.in/#organization",
+            "name": "BrandSure Consultancy Pvt. Ltd.",
+            "url": "https://brandsure.in/",
+            "email": "info@brandsure.in",
+            "telephone": "+91-8884446668",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "addressCountry": "IN"
+            },
+            "identifier": "U73100KA2025PTC199105",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://brandsure.in/#website",
+            "url": "https://brandsure.in/",
+            "name": "BrandSure",
+            "publisher": {
+              "@id": "https://brandsure.in/#organization"
+            },
+            "inLanguage": "en-IN"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://brandsure.in/pricing/#webpage",
+            "url": "https://brandsure.in/pricing/",
+            "name": "Pricing — Agency Plan & Digital Partner | BrandSure",
+            "description": "BrandSure growth marketing pricing for Indian furniture manufacturers and showrooms: Agency Plan and Digital Partner, compared side by side.",
+            "isPartOf": {
+              "@id": "https://brandsure.in/#website"
+            },
+            "about": {
+              "@id": "https://brandsure.in/#organization"
+            },
+            "inLanguage": "en-IN",
+            "dateModified": "2026-09-02",
+            "breadcrumb": {
+              "@id": "https://brandsure.in/pricing/#breadcrumb"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://brandsure.in/pricing/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://brandsure.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Pricing",
+                "item": "https://brandsure.in/pricing/"
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "@id": "https://brandsure.in/pricing/#packages",
+            "name": "BrandSure Growth Marketing Plans",
+            "provider": {
+              "@id": "https://brandsure.in/#organization"
+            },
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Agency Plan",
+                "description": "BrandSure runs Google and Meta ads with creatives included and reports on the campaign. Your team keeps its own CRM, calling and follow-up. Ad budget paid by the client. Minimum three months.",
+                "price": "45000",
+                "priceCurrency": "INR",
+                "eligibleCustomerType": "Business",
+                "areaServed": {
+                  "@type": "Country",
+                  "name": "India"
+                },
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "45000",
+                  "priceCurrency": "INR",
+                  "unitText": "MONTH",
+                  "billingDuration": 1,
+                  "billingIncrement": 1
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "Digital Partner",
+                "description": "BrandSure runs the ads, sets up the CRM and lead system, calls and qualifies every new enquiry, follows up on WhatsApp and books showroom visits. Up to 300 new leads a month, one city included. Ad budget paid by the client. One-time setup fee of INR 25,000. Minimum three months.",
+                "price": "75000",
+                "priceCurrency": "INR",
+                "eligibleCustomerType": "Business",
+                "areaServed": {
+                  "@type": "Country",
+                  "name": "India"
+                },
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "75000",
+                  "priceCurrency": "INR",
+                  "unitText": "MONTH",
+                  "billingDuration": 1,
+                  "billingIncrement": 1
+                }
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://brandsure.in/pricing/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Another agency quoted me ₹25,000 a month. Why is BrandSure higher?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A ₹25,000 retainer usually buys campaign management only, shared across many industries. Agency Plan at ₹45,000 buys a team that works only on Indian furniture and sofa businesses. Digital Partner at ₹75,000 buys the part most furniture businesses are actually losing money on — somebody calling every enquiry, following up on WhatsApp and booking the showroom visit. Compare it to what a telecaller, a marketing executive, a designer and a CRM would cost you in-house."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What happens if it does not work in three months?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Agency Plan and Digital Partner carry a three-month minimum and then continue month to month. Three months is the shortest honest window to run campaigns, gather data and fix what the data shows. You get a review on real numbers at the end of month one, so you are never waiting three months to find out."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you work with my competitor in the same city?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Territory and selling locations are agreed in writing before work starts. Digital Partner includes one city, with additional cities at ₹20,000 per month each. Ask about your specific city and category before you sign."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What do you need from me?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Access to your ad accounts and WhatsApp number, your product and price list, and a regular flow of fresh photos and videos from the showroom, factory, installations and completed work. Ads built on real work outperform ads built on stock images, and this is the one input BrandSure cannot produce for you."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is there a way to work with BrandSure beyond marketing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Selected furniture manufacturers can work with BrandSure under a longer-term Growth Partnership covering growth, product, sales systems and business development. It is a different business relationship rather than a larger marketing package, it is qualification-led, and the partnership structure is explained after a business review."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Service",
+            "@id": "https://brandsure.in/pricing/#growth-partnership",
+            "name": "BrandSure Growth Partnership",
+            "serviceType": "Long-term growth partnership for furniture manufacturers",
+            "description": "For selected furniture manufacturers that want BrandSure involved across growth, product, sales systems and business development. Qualification-led; the partnership structure is explained after a business review.",
+            "provider": {
+              "@id": "https://brandsure.in/#organization"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "audience": {
+              "@type": "BusinessAudience",
+              "audienceType": "Furniture manufacturers and showroom-led furniture businesses in India"
+            }
+          }
+        ]
+      }
+    ],
+    "sections": 13
+  }
+}

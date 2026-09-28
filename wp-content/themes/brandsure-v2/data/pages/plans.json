@@ -1,0 +1,95 @@
+{
+  "_comment": "The plans page. PUBLIC-FULL for Agency and Digital Partner; PUBLIC-MASKED for Growth Partnership. The compare table's Growth Partnership column says 'Commercials explained after a business review' — Override 1 beats Architecture v3 §5, which had specified a wording that names the mechanism (SOURCE-OF-TRUTH §3 conflict 1). No Video 2 embed: Video 2 is gated, so the page routes to the gate instead. Cells beginning 'fact:' are looked up in commercial.json.",
+
+  "slug": "plans",
+  "title": "Plans — three ways to build the other half",
+  "meta_description": "Agency, Digital Partner or Growth Partnership — three ways to build the side of a furniture business that brings the customers in.",
+
+  "sections": [
+    {
+      "type": "hero",
+      "tone": "light",
+      "eyebrow": "Three ways in",
+      "headline": "Three ways to build the other half of your business.",
+      "body": "The difference between them is simple: how much of the work you keep doing yourself, and how much we take on.",
+      "primary": { "label": "Help me choose", "url": "/start/" }
+    },
+
+    {
+      "type": "gauge",
+      "tone": "light",
+      "headline": "How much of it do you want to keep doing yourself?",
+      "low": "You do more",
+      "high": "We do more",
+      "markers": [
+        { "name": "Agency", "note": "We bring the enquiries" },
+        { "name": "Digital Partner", "note": "We bring, call and book" },
+        { "name": "Growth Partnership", "note": "We run the growth side" }
+      ]
+    },
+
+    { "type": "plan-cards", "tone": "tint" },
+
+    {
+      "type": "compare-table",
+      "tone": "light",
+      "headline": "The same three plans, side by side.",
+      "columns": ["", "Agency", "Digital Partner", "Growth Partnership"],
+      "rows": [
+        {
+          "label": "Monthly fee",
+          "cells": ["fact:agency_monthly_fee", "fact:digital_partner_monthly_fee", "Explained after a business review"]
+        },
+        {
+          "label": "One-time setup",
+          "cells": ["fact:agency_setup_fee", "fact:digital_partner_setup_fee", "Explained after a business review"]
+        },
+        {
+          "_note": "Chat 15: an 'Ad budget you pay' row sat further down carrying ₹50,000–₹2,00,000 for Agency and ₹1,00,000/month for Digital Partner. Both figures are withdrawn — Layer 4 v4 §6 says there is no fixed advertising budget and numbers.v2.js removed the DP one by name — and rewriting it to say who pays produced a second row saying exactly what this one already said. So the row is deleted rather than rewritten. This row was always the one that answered the question.",
+          "label": "Who pays for the ads",
+          "cells": ["You, straight to Google and Meta", "You, straight to Google and Meta", "BrandSure funds the agreed advertising"]
+        },
+        {
+          "label": "Who runs the ads",
+          "cells": ["BrandSure", "BrandSure", "BrandSure"]
+        },
+        {
+          "label": "Who calls the enquiry",
+          "cells": ["You", "BrandSure", "BrandSure"]
+        },
+        {
+          "label": "Who books the showroom visit",
+          "cells": ["You", "BrandSure", "BrandSure"]
+        },
+        {
+          "label": "Every enquiry written down",
+          "cells": ["No", "Yes", "Yes"]
+        },
+        {
+          "label": "Who closes the sale",
+          "cells": ["You", "You", "You"]
+        },
+        {
+          "label": "Minimum term",
+          "cells": ["fact:minimum_term", "fact:minimum_term", "A long-term partnership"]
+        }
+      ],
+      "note": "Ad money is always separate from the fee. On Agency and Digital Partner it stays in your own account and you pay Google and Meta yourself."
+    },
+
+    {
+      "type": "callout",
+      "tone": "tint",
+      "headline": "Not sure which one fits?",
+      "body": "Send us four numbers about your business. We will read them and tell you honestly which plan fits — and if none of them do, we will say that instead.",
+      "action": { "label": "Help me choose", "url": "/start/" }
+    },
+
+    {
+      "type": "cta",
+      "tone": "dark",
+      "headline": "Still deciding?",
+      "body": "You do not have to pick one now. Send the four numbers and we will tell you where you stand."
+    }
+  ]
+}

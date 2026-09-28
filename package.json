@@ -1,0 +1,25 @@
+{
+  "name": "brandsure-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Build, dev and QA tooling for the brandsure-v2 WordPress theme. Node runs here, never in production — brandsure.in is WordPress.com Atomic, which serves PHP. See docs/NODE-TOOLCHAIN.md.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npm run build:tokens && npm run build:icons",
+    "build:tokens": "node tools/build-tokens.mjs",
+    "build:icons": "node tools/build-icons.mjs",
+    "render": "php tools/render.php",
+    "dev": "node tools/dev.mjs",
+    "guard": "php wp-content/themes/brandsure-v2/tools/guard.php",
+    "qa": "node tools/qa/run.mjs",
+    "test": "npm run guard && npm run render && npm run qa",
+    "check": "npm run build -- --check && npm test"
+  },
+  "devDependencies": {
+    "lucide-static": "^1.41.0",
+    "playwright": "^1.56.1"
+  }
+}

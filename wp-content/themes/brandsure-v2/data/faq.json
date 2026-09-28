@@ -1,0 +1,41 @@
+{
+  "_comment": "Questions keyed by page slug. A key here MUST correspond to a page that renders a visible accordion, and a page rendering an accordion MUST have a key here — guard rule R6 checks both directions, because FAQPage schema claiming answers the reader cannot see is the thing being prevented. Questions are drawn from Language Sheet B5, the thirteen questions every prospect is silently asking. The commercial ones (B5 Q4 'how much do I have to spend' and Q5 'how much sales can this generate') are deliberately not answered here: the public part of Q4 lives on /plans/ and /digital-partner/, and Q5 cannot be answered publicly without a claim we would have to qualify.",
+
+  "how-it-works": [
+    {
+      "_source": "B5 Q1",
+      "q": "Will this actually bring me more customers?",
+      "a": "More enquiries, yes — that is what advertising does when it is aimed at people who buy furniture in your city. Whether those enquiries turn into orders depends on how fast they are called, whether a showroom visit gets booked, and what happens when the customer walks in. That is why we work on the whole chain and not just the ad."
+    },
+    {
+      "_source": "B5 Q2",
+      "q": "Will they actually come to my showroom?",
+      "a": "Some will. The number that do depends almost entirely on how quickly the enquiry is answered and whether an actual appointment is made. An enquiry called back in ten minutes behaves completely differently from the same enquiry called back the next day."
+    },
+    {
+      "_source": "B5 Q7 and Q8, which is also the 'who does what' answer",
+      "q": "What exactly do you do, and what does my team still do?",
+      "a": "It depends on the plan. At the least, we run the advertising and bring the enquiry. At the most, we also call every enquiry, follow up on WhatsApp and book the showroom visit. You always keep the showroom, the product, the price, the quotation, the close, production and delivery. The plans page shows exactly where the line sits for each one."
+    },
+    {
+      "_source": "B5 Q9",
+      "q": "Do I have to hire more people?",
+      "a": "Not to start. The work we take on is work your team is mostly not doing today anyway. What you do need is someone who can answer the phone when we book an appointment, and a salesperson in the showroom who can close."
+    },
+    {
+      "_source": "B5 Q10",
+      "q": "What if my factory cannot handle the orders?",
+      "a": "Then we slow down. We ask what you can comfortably produce in a month before anything starts, and we plan to that number. Bringing you more orders than you can deliver damages your name, not ours, and it is the fastest way to lose a customer you already paid to get."
+    },
+    {
+      "_source": "B5 Q11",
+      "q": "What happens if the marketing does not work?",
+      "a": "We tell you, with the numbers in front of you, and we change what is not working — usually the ads or the way enquiries are handled. If the problem is that the showroom or the product is not ready, we will say that too, even though it is not the easier conversation."
+    },
+    {
+      "_source": "B5 Q13",
+      "q": "Why pay you instead of hiring someone myself?",
+      "a": "You can, and some businesses should. One person gives you one person's skills, and this work needs several — advertising, calling, follow-up, product and pricing. Hiring for all of that takes time, and you carry the cost of every wrong hire while you learn what good looks like."
+    }
+  ]
+}

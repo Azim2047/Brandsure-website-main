@@ -1,0 +1,159 @@
+/* BrandSure — the global header. One component, identical on every template.
+   Namespaced (.bsnav) and fully self-contained: every custom property carries a
+   hard fallback, so the header renders correctly even on a page that defines no
+   design tokens of its own. Nothing here depends on page-level CSS, which is
+   what keeps the header from changing between pages.
+   Mobile-first; the desktop menu appears at 1000px, matching the existing site.
+   The header is 84px tall, carries the uploaded logo and stays dark on scroll.
+   That is the treatment the live site has been running since August; it is
+   reproduced here rather than reverted to the older 70px light-flip header. */
+
+.bsnav{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  background:rgba(23,35,43,.9);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  transition:background .3s var(--ease,cubic-bezier(.22,.61,.36,1)),box-shadow .3s ease;
+}
+.bsnav.is-light{
+  background:rgba(23,35,43,.96);
+  box-shadow:0 8px 28px rgba(8,30,46,.18);
+}
+.bsnav__wrap{
+  width:100%;max-width:1320px;margin:0 auto;
+  padding:0 var(--gut,20px);
+  display:flex;align-items:center;gap:28px;height:84px;
+}
+.bsnav__mobile .bsnav__wrap{height:auto;display:block}
+
+/* ---- brand ---- */
+.bsnav__brand{display:flex;align-items:center;gap:10px;margin-right:auto;text-decoration:none;flex:none}
+.bsnav__logo{width:160px;height:auto;max-height:48px;object-fit:contain;display:block}
+.bsnav__mark{
+  width:33px;height:33px;border-radius:9px;flex:none;display:grid;place-items:center;
+  background:var(--grad-brand,linear-gradient(135deg,#116E98 0%,#7DD1C9 65%,#C6E7B9 100%));
+  box-shadow:0 4px 14px rgba(17,110,152,.25);
+}
+.bsnav__mark span{color:#fff;font-weight:700;font-size:16px;line-height:1}
+.bsnav__name b{display:block;color:#fff;font-size:16px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.bsnav__name i{
+  font-style:normal;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--aqua,#7DD1C9);font-weight:500;
+}
+.bsnav.is-light .bsnav__name b{color:#fff}
+.bsnav.is-light .bsnav__name i{color:var(--aqua,#7DD1C9)}
+
+/* ---- desktop links ---- */
+.bsnav__links{display:none;align-items:center;gap:30px}
+.bsnav__link,.bsnav__ddbtn{
+  font:inherit;font-size:15px;font-weight:500;
+  color:rgba(255,255,255,.82);background:none;border:0;padding:6px 0;
+  display:inline-flex;align-items:center;gap:6px;cursor:pointer;text-decoration:none;
+  transition:color .2s ease;
+}
+.bsnav__link:hover,.bsnav__ddbtn:hover{color:#fff}
+.bsnav.is-light .bsnav__link,.bsnav.is-light .bsnav__ddbtn{color:rgba(255,255,255,.82)}
+.bsnav.is-light .bsnav__link:hover,.bsnav.is-light .bsnav__ddbtn:hover{color:#fff}
+
+/* active page — deliberately quiet: a thin aqua underline, no colour shouting */
+.bsnav__link.is-active,.bsnav__ddbtn.is-active{color:#fff;position:relative}
+.bsnav.is-light .bsnav__link.is-active,.bsnav.is-light .bsnav__ddbtn.is-active{color:#fff}
+.bsnav__link.is-active::after,.bsnav__ddbtn.is-active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;border-radius:2px;
+  background:var(--grad-aqua,linear-gradient(135deg,#7DD1C9 0%,#30A4A0 100%));
+}
+.bsnav__ddbtn.is-active::after{right:16px}
+
+/* ---- dropdown ---- */
+.bsnav__dd{position:relative}
+.bsnav__car{transition:transform .2s ease;flex:none}
+.bsnav__dd.is-open .bsnav__car{transform:rotate(180deg)}
+.bsnav__ddmenu{
+  position:absolute;top:calc(100% + 12px);left:50%;
+  transform:translateX(-50%) translateY(6px);
+  min-width:300px;background:#fff;
+  border:1px solid var(--border,#E8F3F2);border-radius:16px;
+  box-shadow:0 20px 50px rgba(8,30,46,.14);padding:8px;
+  opacity:0;visibility:hidden;
+  transition:opacity .2s ease,transform .2s ease,visibility .2s;
+}
+.bsnav__dd.is-open .bsnav__ddmenu{opacity:1;visibility:visible;transform:translateX(-50%)}
+.bsnav__ddmenu a{
+  display:block;padding:11px 14px;border-radius:10px;text-decoration:none;
+  font-size:14.5px;color:var(--ink,#081E2E);font-weight:500;
+}
+.bsnav__ddmenu a span{
+  display:block;font-size:12.5px;color:var(--subtle,#7F96A0);font-weight:400;margin-top:2px;
+}
+.bsnav__ddmenu a:hover,.bsnav__ddmenu a:focus-visible{background:var(--btn-hover-bg,#F0FBFB)}
+
+/* ---- CTA ---- */
+.bsnav__cta{
+  display:none;align-items:center;justify-content:center;
+  background:var(--blue,#116E98);color:#fff;text-decoration:none;
+  font-size:14px;font-weight:600;padding:12px 18px;
+  border-radius:var(--rb,10px);border:1px solid transparent;white-space:nowrap;
+  box-shadow:0 8px 24px rgba(17,110,152,.22);transition:background .2s ease;
+}
+.bsnav__cta:hover{background:var(--blue-hover,#0D5D81)}
+
+/* ---- burger ---- */
+.bsnav__burger{
+  width:44px;height:44px;flex:none;border-radius:11px;
+  border:1px solid rgba(255,255,255,.2);background:transparent;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;
+}
+.bsnav.is-light .bsnav__burger{border-color:rgba(255,255,255,.2);background:transparent}
+.bsnav__burger i{
+  display:block;width:17px;height:1.7px;border-radius:2px;background:#fff;
+  transition:transform .25s ease,opacity .2s ease;
+}
+.bsnav.is-light .bsnav__burger i{background:#fff}
+.bsnav.is-open .bsnav__burger i:nth-child(1){transform:translateY(6.7px) rotate(45deg)}
+.bsnav.is-open .bsnav__burger i:nth-child(2){opacity:0}
+.bsnav.is-open .bsnav__burger i:nth-child(3){transform:translateY(-6.7px) rotate(-45deg)}
+
+/* ---- mobile panel ---- */
+.bsnav__mobile{
+  display:none;background:#fff;border-top:1px solid var(--border,#E8F3F2);
+  max-height:calc(100vh - 84px);overflow:auto;
+}
+.bsnav.is-open .bsnav__mobile{display:block}
+.bsnav__mlink,.bsnav__mbtn{
+  font:inherit;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:15px 0;font-size:16px;font-weight:500;color:var(--ink,#081E2E);
+  text-decoration:none;border-bottom:1px solid var(--border-2,#F0F8F7);
+}
+.bsnav__mlink.is-active,.bsnav__mbtn.is-active{color:var(--blue,#116E98)}
+.bsnav__msec{border-bottom:1px solid var(--border-2,#F0F8F7)}
+.bsnav__msec .bsnav__mbtn{border-bottom:0}
+.bsnav__msub{display:none;padding:0 0 10px}
+.bsnav__msec.is-open .bsnav__msub{display:block}
+.bsnav__msec.is-open .bsnav__car{transform:rotate(180deg)}
+.bsnav__msub a{
+  display:block;padding:11px 0 11px 14px;font-size:15px;
+  color:var(--body,#4B6673);text-decoration:none;
+}
+.bsnav__mcta{
+  display:block;text-align:center;margin:18px 0 22px;
+  background:var(--blue,#116E98);color:#fff;text-decoration:none;
+  font-size:15px;font-weight:600;padding:16px 20px;border-radius:var(--rb,10px);
+}
+
+/* keeps content clear of the fixed header on templates whose own hero does not
+   already reserve the space */
+.bsnav-spacer{height:84px}
+
+/* the retired per-page header, kept only so legacy inline scripts still find
+   their element IDs */
+.bsnav-legacy{display:none!important}
+
+@media (min-width:1000px){
+  .bsnav__links{display:flex}
+  .bsnav__cta{display:inline-flex}
+  .bsnav__burger{display:none}
+  .bsnav__mobile{display:none!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .bsnav,.bsnav *{transition-duration:.001ms!important}
+}

@@ -1,0 +1,166 @@
+{
+  "_comment": "Growth Partnership. THE STRICTEST PAGE IN THE PROJECT. No rupee figure of any kind, no duration, no deposit, no setup fee, no percentage, no mechanism — guard rule R2 enforces all of it on this file specifically. Growth Partnership must still read as the most desirable thing on the site: we hide the commercial mechanism, not the plan. Videos 4 and 5 are gated and neither is named anywhere here.",
+  "_approval_status": "The two sentences in the hero body and in the 'How the commercials work' block are the APPROVED wording from Override 1 and are verbatim. The five stage names are fixed by Override 2. EVERYTHING ELSE ON THIS PAGE IS DRAFT and needs sign-off — see docs/OPEN-ITEMS.md item 6. It was written from the structure of Video 5 S1 and S2, which is non-commercial, translated into persona language. No commercial mechanism can leak from those two slides because neither contains one.",
+  "slug": "growth-partnership",
+  "title": "Growth Partnership — we invest in the growth side with you",
+  "meta_description": "For a small number of Indian furniture businesses. BrandSure funds the agreed Google and Meta advertising under the Growth Partnership.",
+  "sections": [
+    {
+      "type": "hero",
+      "tone": "dark",
+      "eyebrow": "For selected furniture businesses",
+      "headline": "We invest in the growth side with you.",
+      "_headline_note": "APPROVED VERBATIM — Override 1. Do not edit.",
+      "body": "BrandSure funds the agreed Google and Meta advertising under the Growth Partnership.",
+      "_body_note": "APPROVED VERBATIM — Override 1. Do not edit.",
+      "primary": {
+        "label": "Check If My Business Qualifies",
+        "url": "/start/?interest=Growth%20Partnership"
+      },
+      "secondary": {
+        "label": "See all three plans",
+        "url": "/plans/"
+      }
+    },
+    {
+      "type": "nested-boxes",
+      "tone": "light",
+      "_draft": true,
+      "headline": "A growth layer around your business. Not a takeover.",
+      "outer": {
+        "title": "What BrandSure builds and runs",
+        "items": [
+          {
+            "icon": "ad",
+            "label": "The advertising"
+          },
+          {
+            "icon": "phone",
+            "label": "The calling"
+          },
+          {
+            "icon": "calendar",
+            "label": "The appointments"
+          },
+          {
+            "icon": "written",
+            "label": "The systems"
+          }
+        ]
+      },
+      "inner": {
+        "title": "Your business, unchanged",
+        "items": [
+          {
+            "icon": "factory",
+            "label": "Your factory"
+          },
+          {
+            "icon": "showroom",
+            "label": "Your showroom"
+          },
+          {
+            "icon": "worker",
+            "label": "Your people"
+          },
+          {
+            "icon": "sofa",
+            "label": "Your product"
+          }
+        ]
+      },
+      "note": "Your company stays your company. We build the layer around it that brings the customers in."
+    },
+    {
+      "type": "icon-grid",
+      "tone": "tint",
+      "_draft": true,
+      "headline": "What we put in.",
+      "items": [
+        {
+          "icon": "ad",
+          "label": "The advertising",
+          "note": "Funded by BrandSure, on Google and Meta."
+        },
+        {
+          "icon": "website",
+          "label": "The website and brand",
+          "note": "Built properly once, and kept working."
+        },
+        {
+          "icon": "worker",
+          "label": "The growth team",
+          "note": "People who do this every day."
+        },
+        {
+          "icon": "phone",
+          "label": "Calling and follow-up",
+          "note": "Every enquiry answered and chased."
+        },
+        {
+          "icon": "sofa",
+          "label": "Product and pricing",
+          "note": "What you sell, and what it should sell for."
+        },
+        {
+          "icon": "written",
+          "label": "Business systems",
+          "note": "So the business runs on more than memory."
+        }
+      ]
+    },
+    {
+      "type": "prose-block",
+      "tone": "light",
+      "_stage_note": "WITHDRAWN IN CHAT 15. This was a five-stage public roadmap — Foundation · Stability · Profit per Order · Scale · Stable at Scale — carried over from Override 2. Layer 4 v4 §4 retires it twice over. First, the approved public paragraph 'replaces v3's public revenue-share row AND public 36-month/five-stage diagram'. Second, those five stages no longer exist even privately: numbers.v2.js v2 rebuilt them as four — Foundation, Optimisation, Scale, Stability — each with months attached, and the months are private. So this page named a sequence that was both withdrawn and, by then, wrong. What replaces it tells a reader deciding whether to ask the one useful thing — the work arrives in order, as the business is ready — without naming a stage, because naming stages invites the question of how long each takes, and that answer is private.",
+      "headline": "The work arrives in order, not all at once.",
+      "paragraphs": [
+        "Product, pricing, showroom and business systems are introduced progressively, as your business becomes ready for each one. Nobody fixes everything in the first month, and a partner who tells you otherwise has not run a furniture business.",
+        "Which work comes first depends on what we find when we review your business. That is what the review is for."
+      ]
+    },
+    {
+      "type": "tick-list",
+      "tone": "tint",
+      "_draft": true,
+      "headline": "What stays yours, always.",
+      "items": [
+        "Your company",
+        "Your factory",
+        "Your showroom",
+        "Your bank account",
+        "Your customers and their details",
+        "Your people",
+        "Your domain name"
+      ],
+      "note": "We take no ownership in your company, we do not run your factory, and we never touch your bank account."
+    },
+    {
+      "type": "callout",
+      "tone": "tint",
+      "_draft": true,
+      "headline": "This is not offered to everyone.",
+      "body": "Growth Partnership is offered to a small number of furniture businesses, after a business review. If we do not believe it will work for you, we will say so.",
+      "_action_note": "No button here. The page closes on one action, in the dark CTA below. Two identical buttons a screen apart read as a template mistake."
+    },
+    {
+      "type": "prose-block",
+      "tone": "light",
+      "headline": "How the commercials work.",
+      "paragraphs": [
+        "The complete commercial structure is explained with your business numbers after a business review.",
+        "The full explanation is shared privately at that point, against your own figures rather than an example."
+      ],
+      "_paragraph_notes": "First paragraph is APPROVED VERBATIM (Override 1). Second is DRAFT and states only that the explanation happens privately and later — it names no figure, no term and no mechanism."
+    },
+    {
+      "type": "cta",
+      "tone": "dark",
+      "_draft": true,
+      "headline": "Start with a business review.",
+      "body": "Send four numbers about your business. We will tell you honestly whether this is worth a conversation.",
+      "label": "Check If My Business Qualifies",
+      "url": "/start/?interest=Growth%20Partnership"
+    }
+  ]
+}

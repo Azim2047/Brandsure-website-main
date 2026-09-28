@@ -1,0 +1,103 @@
+/* BrandSure — blog and long-form styles.
+   Additive layer on top of brandsure-services.css, which supplies the design
+   tokens (:root) and the shared components (.wrap, .band, .h1, .card, .btn,
+   .chip, .eyebrow, .lead, .bc). Nothing here redefines a token or a component.
+   Mobile-first; the one breakpoint matches the rest of the site (760px). */
+
+/* --- listing ------------------------------------------------------------- */
+.bgrid{display:grid;gap:14px;margin-top:24px;list-style:none;padding:0}
+.bcard{display:flex;flex-direction:column;padding:0;overflow:hidden}
+.bcard__media{display:block;aspect-ratio:16/10;background:var(--border-2);overflow:hidden}
+.bcard__media img{width:100%;height:100%;object-fit:cover;
+  transition:transform .4s var(--ease)}
+.bcard:hover .bcard__media img{transform:scale(1.03)}
+.bcard__media--none{display:grid;place-items:center;background:var(--grad-aqua);color:#fff}
+.bcard__media--none span{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.bcard__body{display:flex;flex-direction:column;flex:1;padding:18px 20px 20px;gap:10px}
+.bcard__meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  font-size:12px;color:var(--subtle)}
+.bcard__cat{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue);background:var(--btn-hover-bg);border:1px solid var(--btn-border);
+  border-radius:100px;padding:4px 10px}
+.bcard__cat:hover{border-color:var(--aqua)}
+.bcard__title{font-size:19px;line-height:1.25;letter-spacing:-.02em}
+.bcard__title a:hover{color:var(--blue)}
+.bcard__ex{font-size:15px;line-height:1.6}
+.bcard__cta{margin-top:auto;padding-top:4px;font-size:14.5px;font-weight:600;color:var(--blue);
+  display:inline-flex;align-items:center;gap:7px}
+.bcard__cta .arw{transition:transform .2s var(--ease)}
+.bcard:hover .bcard__cta .arw{transform:translateX(3px)}
+
+/* --- pagination ---------------------------------------------------------- */
+.bpag{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  justify-content:center}
+.bpag .page-numbers{display:inline-flex;align-items:center;justify-content:center;
+  min-width:42px;height:42px;padding:0 12px;border-radius:var(--rb);
+  border:1px solid var(--btn-border);background:#fff;color:var(--blue);
+  font-size:14.5px;font-weight:600;
+  transition:background .2s var(--ease),border-color .2s var(--ease)}
+.bpag .page-numbers:hover{background:var(--btn-hover-bg);border-color:var(--aqua)}
+.bpag .page-numbers.current{background:var(--blue);border-color:var(--blue);color:#fff}
+.bpag .page-numbers.dots{border-color:transparent;background:none;color:var(--subtle)}
+
+/* --- empty state --------------------------------------------------------- */
+.bempty{margin-top:24px;text-align:center;padding:34px 20px;
+  border:1px dashed var(--btn-border);border-radius:var(--r);color:var(--body)}
+
+/* --- single article ------------------------------------------------------ */
+.bpost__head{max-width:70ch}
+.bpost__meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px;
+  font-size:13.5px;color:var(--subtle)}
+.bpost__meta a{color:var(--blue)}
+.bpost__media{margin-top:26px;border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--border);background:var(--border-2)}
+.bpost__media img{width:100%;height:auto}
+.bpost__foot{margin-top:30px;padding-top:22px;border-top:1px solid var(--border);
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* --- long-form typography (single posts and policy pages) ---------------- */
+/* .band resets p margins to 0 for the marketing sections, so editorial copy
+   restores its own rhythm here rather than changing the shared reset. */
+.bprose{max-width:72ch;font-size:16.5px;line-height:1.72}
+.bprose > *:first-child{margin-top:0}
+.bprose p,.bprose ul,.bprose ol,.bprose figure,.bprose blockquote,
+.bprose pre,.bprose table{margin:0 0 18px}
+.bprose h2{font-size:clamp(21px,4.4vw,28px);margin:34px 0 12px}
+.bprose h3{font-size:clamp(17px,3.6vw,21px);margin:26px 0 10px}
+.bprose h4{font-size:16.5px;margin:22px 0 8px}
+.bprose a{color:var(--blue);font-weight:500;
+  border-bottom:1px solid rgba(17,110,152,.28)}
+.bprose a:hover{border-color:var(--blue)}
+.bprose ul,.bprose ol{padding-left:22px}
+.bprose li{margin:0 0 8px}
+.bprose li::marker{color:var(--aqua-deep)}
+.bprose strong{color:var(--ink);font-weight:600}
+.bprose blockquote{padding:14px 18px;border-left:3px solid var(--aqua);
+  background:var(--border-2);border-radius:0 var(--rb) var(--rb) 0;color:var(--ink)}
+.bprose blockquote p:last-child{margin-bottom:0}
+.bprose img,.bprose figure img{border-radius:var(--rb)}
+.bprose figcaption{font-size:13px;color:var(--subtle);margin-top:8px}
+.bprose hr{border:0;border-top:1px solid var(--border);margin:30px 0}
+.bprose table{width:100%;border-collapse:collapse;font-size:15px}
+.bprose th,.bprose td{border:1px solid var(--border);padding:10px 12px;text-align:left}
+.bprose th{background:var(--border-2);color:var(--ink);font-weight:600}
+.bprose code{background:var(--border-2);border-radius:5px;padding:2px 6px;font-size:14px}
+.bprose pre{background:var(--dark);color:#E8F3F2;padding:16px;border-radius:var(--rb);
+  overflow-x:auto}
+.bprose pre code{background:none;padding:0;color:inherit}
+
+/* policy pages: same rhythm, plus a "last updated" line */
+.bpolicy__updated{font-size:13.5px;color:var(--subtle);margin-top:12px}
+
+/* --- footer legal strip (used when the theme footer has no menu) --------- */
+.bslinks{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;
+  padding:18px var(--gut);font-size:13px}
+.bslinks a{color:var(--subtle)}
+.bslinks a:hover{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+
+@media (min-width:760px){
+  .bgrid{grid-template-columns:1fr 1fr;gap:18px}
+  .bcard__body{padding:20px 24px 24px}
+  .bcard__title{font-size:20px}
+  .bpost__media{margin-top:30px}
+}

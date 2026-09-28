@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BrandSure — More Furniture Orders for Sofa & Furniture Manufacturers</title>
+<meta name="description" content="Want more furniture orders? You make the furniture. We bring customers and build the selling side of your business. Furniture-only growth specialists: marketing, sales systems and business growth under one roof.">
+<meta name="theme-color" content="#17232B">
+<link rel="canonical" href="https://www.brandsure.in/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BrandSure Consultancy Pvt. Ltd.">
+<meta property="og:title" content="Want more furniture orders?">
+<meta property="og:description" content="You make the furniture. We bring customers and build the selling side of your business. For sofa & furniture manufacturers in India.">
+<meta property="og:url" content="https://www.brandsure.in/">
+<meta property="og:image" content="https://www.brandsure.in/og-cover.jpg">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ BrandSure Theme v1.0 tokens ============ */
+:root{
+  --blue:#116E98;--blue-hover:#0D5D81;--aqua:#7DD1C9;--aqua-deep:#30A4A0;
+  --green:#C6E7B9;--green-strong:#A6DA8E;--green-line:#7DCC67;
+  --ink:#081E2E;--body:#4B6673;--subtle:#7F96A0;--bg:#FFFFFF;--dark:#17232B;
+  --border:#E8F3F2;--border-2:#F0F8F7;--btn-border:#CDE7E4;--btn-hover-bg:#F0FBFB;
+  --yellow:#FCC851;--yellow-bg:#FBF3DF;--wa:#25D366;
+  --grad-brand:linear-gradient(135deg,#116E98 0%,#7DD1C9 65%,#C6E7B9 100%);
+  --grad-aqua:linear-gradient(135deg,#7DD1C9 0%,#30A4A0 100%);
+  --shadow:0 10px 30px rgba(17,110,152,.05);--shadow-h:0 15px 40px rgba(17,110,152,.07);
+  --r:20px;--rb:10px;--maxw:1140px;--gut:20px;
+  --band:clamp(64px,8.5vw,116px);--ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:#fff;color:var(--body);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:700;letter-spacing:-.032em;line-height:1.1}
+p{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+img{max-width:100%;display:block}
+::selection{background:var(--green);color:var(--ink)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.band{padding:var(--band) 0;position:relative}
+.band--tint{background:linear-gradient(180deg,#FBFDFD,#F6FBFB)}
+.band--dark{background:var(--dark);color:rgba(255,255,255,.72)}
+.band--dark h2{color:#fff}
+.h1{font-size:clamp(38px,8vw,72px);line-height:1.05;letter-spacing:-.04em}
+.h2{font-size:clamp(26px,4.6vw,44px);line-height:1.12;letter-spacing:-.034em}
+.lead{font-size:clamp(16.5px,1.6vw,19px);line-height:1.6;max-width:56ch}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);
+  margin:0 0 16px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--grad-aqua);flex:none}
+.eyebrow--light{color:var(--aqua)}
+.center{text-align:center}
+.center .eyebrow{justify-content:center}
+.center .eyebrow::before{display:none}
+.center .eyebrow::after{display:none}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---- buttons: brand blue redirects, no green in body ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:600;
+  padding:17px 27px;border-radius:var(--rb);border:1px solid transparent;text-align:center;white-space:nowrap;
+  transition:background .22s var(--ease),border-color .22s var(--ease),color .22s var(--ease),box-shadow .22s var(--ease),transform .22s var(--ease)}
+.btn--primary{background:var(--blue);color:#fff;box-shadow:0 8px 24px rgba(17,110,152,.22)}
+.btn--primary:hover{background:var(--blue-hover);box-shadow:0 12px 30px rgba(17,110,152,.3)}
+.btn--outline{background:#fff;border-color:var(--btn-border);color:var(--blue)}
+.btn--outline:hover{background:var(--btn-hover-bg);border-color:var(--aqua)}
+.btn--onDark{background:rgba(255,255,255,.06);border-color:rgba(125,209,201,.34);color:#fff}
+.btn--onDark:hover{background:rgba(125,209,201,.14);border-color:var(--aqua)}
+.btn--sm{padding:12px 18px;font-size:14px}
+.btn .arw{transition:transform .22s var(--ease)}
+.btn:hover .arw{transform:translateX(3px)}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+/* ---- nav ---- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(23,35,43,.9);backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);transition:background .3s var(--ease),box-shadow .3s var(--ease)}
+.nav.is-light{background:rgba(255,255,255,.92);box-shadow:0 6px 24px rgba(8,30,46,.05)}
+.nav__in{display:flex;align-items:center;gap:22px;height:70px}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand__m{width:33px;height:33px;border-radius:9px;background:var(--grad-brand);display:grid;place-items:center;flex:none;box-shadow:0 4px 14px rgba(17,110,152,.25)}
+.brand__m span{color:#fff;font-weight:700;font-size:16px;line-height:1}
+.brand__t b{display:block;color:#fff;font-size:16px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.brand__t i{font-style:normal;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--aqua);font-weight:500}
+.nav.is-light .brand__t b{color:var(--ink)}
+.nav.is-light .brand__t i{color:var(--subtle)}
+.nav__links{display:none;align-items:center;gap:24px}
+.nav__links>a,.dd>button{font-size:14.5px;font-weight:500;color:rgba(255,255,255,.78);background:none;border:0;padding:6px 0;display:inline-flex;align-items:center;gap:6px;transition:color .2s var(--ease)}
+.nav__links>a:hover,.dd>button:hover{color:#fff}
+.nav.is-light .nav__links>a,.nav.is-light .dd>button{color:var(--body)}
+.nav.is-light .nav__links>a:hover,.nav.is-light .dd>button:hover{color:var(--ink)}
+.dd{position:relative}
+.dd__menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);min-width:280px;
+  background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 50px rgba(8,30,46,.14);
+  padding:8px;opacity:0;visibility:hidden;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.dd.is-open .dd__menu,.dd:hover .dd__menu{opacity:1;visibility:visible;transform:translateX(-50%)}
+.dd__menu a{display:block;padding:11px 14px;border-radius:10px;font-size:14.5px;color:var(--ink);font-weight:500}
+.dd__menu a span{display:block;font-size:12.5px;color:var(--subtle);font-weight:400;margin-top:2px}
+.dd__menu a:hover{background:var(--btn-hover-bg)}
+.dd__car{transition:transform .2s var(--ease)}
+.dd.is-open .dd__car,.dd:hover .dd__car{transform:rotate(180deg)}
+.nav__cta{display:none}
+.burger{width:44px;height:44px;border:1px solid rgba(255,255,255,.2);background:transparent;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.nav.is-light .burger{border-color:var(--border);background:#fff}
+.burger i{display:block;width:17px;height:1.7px;background:#fff;border-radius:2px;transition:transform .25s var(--ease),opacity .2s var(--ease)}
+.nav.is-light .burger i{background:var(--ink)}
+.nav.is-open .burger i:nth-child(1){transform:translateY(6.7px) rotate(45deg)}
+.nav.is-open .burger i:nth-child(2){opacity:0}
+.nav.is-open .burger i:nth-child(3){transform:translateY(-6.7px) rotate(-45deg)}
+.mnav{display:none;background:#fff;border-top:1px solid var(--border);max-height:calc(100vh - 70px);overflow:auto}
+.nav.is-open .mnav{display:block}
+.mnav a{display:block;padding:15px 0;font-size:16px;font-weight:500;color:var(--ink);border-bottom:1px solid var(--border-2)}
+.mnav details{border-bottom:1px solid var(--border-2)}
+.mnav summary{list-style:none;cursor:pointer;padding:15px 0;font-size:16px;font-weight:500;color:var(--ink);display:flex;justify-content:space-between;align-items:center}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav details a{padding:11px 0 11px 14px;font-size:15px;color:var(--body);border-bottom:0}
+.mnav .btn{width:100%;margin:18px 0 22px}
+
+/* ---- hero: spacious, centered, one question ---- */
+.hero{background:var(--dark);color:#fff;padding:calc(70px + clamp(56px,9vw,110px)) 0 clamp(56px,9vw,110px);position:relative;overflow:hidden}
+.hero__aura{position:absolute;top:-45%;left:50%;transform:translateX(-50%);width:min(1000px,130vw);aspect-ratio:1;border-radius:50%;
+  background:var(--grad-brand);opacity:.18;filter:blur(100px);pointer-events:none}
+.hero__grid{position:absolute;inset:0;pointer-events:none;opacity:.45;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:58px 58px;
+  -webkit-mask-image:radial-gradient(ellipse 62% 62% at 50% 34%,#000 10%,transparent 74%);
+  mask-image:radial-gradient(ellipse 62% 62% at 50% 34%,#000 10%,transparent 74%)}
+.hero__in{position:relative;max-width:860px;margin:0 auto;text-align:center}
+.hero .eyebrow{justify-content:center}
+.hero .eyebrow::before{display:none}
+.hero h1{color:#fff}
+.hero h1 em{font-style:normal;background:var(--grad-aqua);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero__sub{margin:26px auto 0;font-size:clamp(17.5px,2.1vw,22px);line-height:1.55;color:rgba(255,255,255,.78);max-width:34ch}
+.hero__sub b{color:#fff;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:32px}
+.chip{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);
+  border-radius:100px;padding:12px 20px;font-size:14.5px;font-weight:600;color:#fff;letter-spacing:-.01em}
+.chip i{font-style:normal;width:20px;height:20px;border-radius:50%;background:var(--green-strong);color:#2E6B18;
+  display:grid;place-items:center;font-size:11px;font-weight:700;flex:none}
+.chipnote{margin-top:14px;font-size:12px;color:rgba(255,255,255,.45)}
+.hero .acts{justify-content:center}
+.hero__note{margin-top:20px;font-size:13px;color:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;gap:8px}
+.hero__note i{width:7px;height:7px;border-radius:50%;background:var(--green-strong);box-shadow:0 0 0 4px rgba(166,218,142,.18);flex:none}
+
+/* ---- worries ---- */
+.worries{display:grid;gap:11px;margin:clamp(30px,4vw,44px) auto 0;max-width:560px}
+.worry{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;background:#fff;border:1px solid var(--border);
+  border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);text-align:left}
+.worry i{width:38px;height:38px;border-radius:11px;background:var(--border-2);display:grid;place-items:center;font-style:normal;font-size:17px}
+.worry p{font-size:17px;color:var(--ink);font-weight:500;letter-spacing:-.015em}
+.bigwords{margin:clamp(34px,5vw,52px) auto 0;max-width:720px}
+.bigwords h3{font-size:clamp(22px,3.4vw,32px);letter-spacing:-.03em;line-height:1.2}
+.bigwords .words{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px}
+.bigwords .words s{text-decoration:none;background:#fff;border:1px solid var(--border);border-radius:100px;
+  padding:9px 18px;font-size:14.5px;font-weight:600;color:var(--ink)}
+.bigwords>p{margin-top:22px;font-size:clamp(17px,2.2vw,21px);color:var(--ink);font-weight:600;letter-spacing:-.02em;line-height:1.4}
+.bigwords>p b{background:var(--grad-aqua);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---- wow ---- */
+.wow{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:clamp(32px,4vw,48px)}
+.wowc{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);
+  transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)}
+.wowc:hover{border-color:var(--aqua);transform:translateY(-3px);box-shadow:var(--shadow-h)}
+.wowc__art{height:92px;border-radius:13px;background:linear-gradient(160deg,#F6FBFB,#EDF6F7);border:1px solid var(--border);
+  margin-bottom:14px;display:grid;place-items:center;overflow:hidden;position:relative}
+.wowc b{display:block;font-size:16.5px;color:var(--ink);font-weight:600;letter-spacing:-.02em;line-height:1.3}
+.wowc span{display:block;font-size:14px;color:var(--body);margin-top:5px;line-height:1.5}
+/* mini artifacts */
+.art-site{width:78%;background:#fff;border:1px solid var(--border);border-radius:9px;overflow:hidden;box-shadow:0 6px 16px rgba(17,110,152,.08)}
+.art-site i{display:flex;gap:4px;padding:6px 8px;border-bottom:1px solid var(--border)}
+.art-site i s{width:6px;height:6px;border-radius:50%;background:#DCE9EE;display:block;text-decoration:none}
+.art-site i s:first-child{background:var(--aqua)}
+.art-site svg{display:block;margin:8px auto 10px}
+.art-ad{width:70%;background:#fff;border:1px solid var(--border);border-radius:9px;padding:9px 11px;box-shadow:0 6px 16px rgba(17,110,152,.08)}
+.art-ad em{font-style:normal;font-size:9px;font-weight:700;color:var(--blue);background:#E6F3F8;border-radius:4px;padding:2px 5px;letter-spacing:.05em}
+.art-ad u{display:block;height:6px;border-radius:3px;background:var(--ink);opacity:.85;margin-top:7px;width:86%;text-decoration:none}
+.art-ad u+u{width:60%;opacity:.25;margin-top:5px}
+.art-chat{width:80%;display:grid;gap:6px}
+.art-chat s{display:block;text-decoration:none;background:#fff;border:1px solid var(--border);border-radius:9px 9px 9px 3px;
+  height:20px;width:75%;box-shadow:0 4px 10px rgba(17,110,152,.06)}
+.art-chat s:last-child{margin-left:auto;width:62%;background:linear-gradient(135deg,rgba(125,209,201,.35),rgba(48,164,160,.3));border-color:rgba(48,164,160,.25);border-radius:9px 9px 3px 9px}
+.art-report{display:flex;align-items:flex-end;gap:7px;height:54px}
+.art-report s{display:block;width:16px;border-radius:5px 5px 2px 2px;background:#DCE9EE;text-decoration:none}
+.art-report s:nth-child(1){height:40%}.art-report s:nth-child(2){height:60%}
+.art-report s:nth-child(3){height:78%;background:var(--grad-aqua)}
+.art-report s:nth-child(4){height:100%;background:var(--grad-aqua)}
+.art-script{width:66%;display:grid;gap:7px}
+.art-script s{display:grid;grid-template-columns:12px 1fr;gap:7px;align-items:center;text-decoration:none}
+.art-script s i{width:12px;height:12px;border-radius:4px;background:var(--green-strong);display:grid;place-items:center;font-style:normal;font-size:8px;color:#2E6B18;font-weight:700}
+.art-script s u{display:block;height:6px;border-radius:3px;background:#D3E2E7;text-decoration:none}
+.art-tag{position:relative;background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 16px 10px 22px;
+  box-shadow:0 6px 16px rgba(17,110,152,.08);font-weight:700;color:var(--ink);font-size:17px;letter-spacing:-.02em}
+.art-tag::before{content:"";position:absolute;left:9px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--aqua)}
+.art-tag small{display:block;font-size:9.5px;font-weight:600;color:var(--aqua-deep);letter-spacing:.08em;margin-top:1px}
+.art-workers{display:flex}
+.art-workers s{width:34px;height:34px;border-radius:50%;background:#fff;border:2px solid #EDF6F7;display:grid;place-items:center;
+  font-size:14px;text-decoration:none;margin-left:-8px;box-shadow:0 4px 10px rgba(17,110,152,.08)}
+.art-workers s:first-child{margin-left:0}
+.wow__killer{margin-top:clamp(36px,5vw,56px);text-align:center}
+.wow__killer p{font-size:clamp(21px,3.2vw,32px);color:var(--ink);font-weight:700;letter-spacing:-.03em;line-height:1.3;max-width:26ch;margin:0 auto}
+.wow__killer p b{background:var(--grad-aqua);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wow__killer>span{display:block;margin-top:14px;font-size:16px;color:var(--body)}
+.qlink{display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--blue);font-weight:600;font-size:15.5px}
+.qlink:hover .arw{transform:translateY(3px)}
+.qlink .arw{transition:transform .2s var(--ease)}
+
+/* ---- proof ---- */
+.proof{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4.5vw,60px);align-items:center;margin-top:clamp(30px,4vw,46px)}
+.proof__copy p{font-size:17.5px;line-height:1.65}
+.proof__copy p+p{margin-top:14px}
+.proof__copy p b{color:var(--ink);font-weight:700}
+.proof__punch{margin-top:20px;font-size:clamp(18px,2vw,22px);color:var(--ink);font-weight:700;letter-spacing:-.025em;line-height:1.4}
+.proof__punch em{font-style:normal;background:var(--grad-aqua);-webkit-background-clip:text;background-clip:text;color:transparent}
+.proof__disc{margin-top:18px;font-size:12.5px;color:var(--subtle);line-height:1.55}
+.stackchart{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:clamp(22px,3vw,32px);box-shadow:var(--shadow)}
+.stackchart__t{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--subtle);margin-bottom:20px}
+.stack{display:flex;align-items:flex-end;gap:clamp(20px,3vw,36px);height:280px}
+.stack__col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:0}
+.blk{border-radius:12px;position:relative;display:grid;place-items:center;transition:transform 1s var(--ease)}
+.blk--base{background:#E4EDF1;height:35%}
+.blk--base b{font-size:clamp(15px,1.8vw,19px);color:var(--ink);letter-spacing:-.02em}
+.blk--base span{position:absolute;bottom:-24px;font-size:11.5px;color:var(--subtle);white-space:nowrap}
+.blk--new{background:var(--grad-aqua);height:65%;margin-bottom:8px;transform-origin:bottom;transform:scaleY(0);box-shadow:0 12px 30px rgba(48,164,160,.25)}
+.in .blk--new{transform:scaleY(1)}
+.blk--new b{color:#fff;font-size:clamp(16px,2vw,21px);letter-spacing:-.02em}
+.blk--new span{position:absolute;top:-26px;font-size:11.5px;font-weight:600;color:var(--aqua-deep);white-space:nowrap}
+.stack__lab{text-align:center;margin-top:32px;font-size:12.5px;color:var(--subtle)}
+.stack__total{margin-top:8px;text-align:center;font-size:14px;color:var(--ink);font-weight:600}
+.stack__total b{font-size:17px;letter-spacing:-.02em}
+/* founder strip */
+.fstrip{margin-top:clamp(34px,4vw,52px);display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;
+  background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:20px clamp(20px,3vw,30px);box-shadow:var(--shadow)}
+.fstrip__av{width:58px;height:58px;border-radius:50%;background:var(--grad-brand);display:grid;place-items:center;color:#fff;font-weight:700;font-size:22px;flex:none}
+.fstrip__facts{display:flex;flex-wrap:wrap;gap:8px 26px}
+.fstrip__facts s{text-decoration:none;display:block}
+.fstrip__facts b{display:block;font-size:18px;color:var(--ink);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.fstrip__facts span{display:block;font-size:12.5px;color:var(--subtle);margin-top:1px}
+.fstrip>a{white-space:nowrap}
+
+/* ---- control Q&A ---- */
+.qa{margin:clamp(28px,4vw,42px) auto 0;max-width:760px;border-top:1px solid var(--border)}
+.qa__row{padding:20px 0;border-bottom:1px solid var(--border);display:grid;gap:6px}
+.qa__row b{font-size:clamp(16px,1.9vw,18px);color:var(--body);font-weight:500;letter-spacing:-.01em}
+.qa__row p{font-size:clamp(19px,2.4vw,24px);color:var(--ink);font-weight:700;letter-spacing:-.025em;line-height:1.35}
+.qa__row p i{font-style:normal;color:var(--blue)}
+
+/* ---- earn (dark) + money list ---- */
+.earn{position:relative;overflow:hidden}
+.earn__aura{position:absolute;left:-15%;bottom:-50%;width:min(700px,90vw);aspect-ratio:1;border-radius:50%;
+  background:var(--grad-brand);opacity:.16;filter:blur(90px);pointer-events:none}
+.earn__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(30px,5vw,64px);align-items:center;position:relative}
+.earn p{font-size:clamp(17px,1.9vw,20px);line-height:1.65;color:rgba(255,255,255,.74)}
+.earn p+p{margin-top:16px}
+.earn p b{color:#fff;font-weight:700}
+.earn p em{font-style:normal;color:var(--aqua)}
+.money{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);border-radius:var(--r);padding:clamp(20px,2.6vw,28px)}
+.money h3{color:#fff;font-size:16px;letter-spacing:-.02em;margin-bottom:6px}
+.money>p{font-size:13.5px;color:rgba(255,255,255,.55);margin-bottom:14px}
+.money ul{list-style:none;margin:0;padding:0;display:grid}
+.money li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.09);
+  font-size:15.5px;color:#fff;font-weight:500}
+.money li:last-child{border-bottom:0}
+.money li i{width:28px;height:28px;border-radius:9px;background:rgba(125,209,201,.14);border:1px solid rgba(125,209,201,.25);
+  display:grid;place-items:center;font-style:normal;font-size:13px}
+.money li:last-child{color:var(--aqua);font-weight:600}
+
+/* ---- journey ---- */
+.jsteps{margin-top:clamp(30px,4vw,46px);display:grid;gap:0;border-top:1px solid var(--border)}
+.jstep{display:grid;grid-template-columns:64px 1fr;gap:8px 22px;padding:clamp(22px,3vw,30px) 0;border-bottom:1px solid var(--border);position:relative}
+.jstep::before{content:"";position:absolute;left:0;top:0;bottom:-1px;width:2px;background:var(--grad-aqua);
+  transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease);border-radius:2px}
+.jstep:hover::before{transform:scaleY(1)}
+.jstep i{font-style:normal;font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.04em;color:#D8E7EC;line-height:1;padding-top:2px;font-variant-numeric:tabular-nums}
+.jstep b{font-size:clamp(18px,2.1vw,22px);color:var(--ink);letter-spacing:-.025em;display:block}
+.jstep p{margin-top:7px;font-size:16.5px;max-width:58ch}
+.jnote{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:#FBFDFD;border:1px solid var(--border);
+  border-radius:100px;padding:11px 20px;font-size:14.5px;color:var(--ink);font-weight:500}
+.jnote i{font-style:normal}
+
+/* ---- fit (dark card) ---- */
+.elig{background:var(--dark);border-radius:26px;padding:clamp(28px,4.5vw,52px);position:relative;overflow:hidden;margin-top:clamp(26px,3vw,40px)}
+.elig__aura{position:absolute;right:-15%;top:-60%;width:min(560px,90%);aspect-ratio:1;border-radius:50%;background:var(--grad-brand);opacity:.18;filter:blur(80px);pointer-events:none}
+.elig__in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,52px);align-items:center}
+.elig h2{color:#fff}
+.elig__line{margin-top:18px;font-size:16px;color:var(--aqua);font-weight:600}
+.elig__checks{display:grid;gap:11px}
+.elig__checks s{text-decoration:none;display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:center;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:13px 16px}
+.elig__checks i{width:24px;height:24px;border-radius:50%;background:var(--green-strong);display:grid;place-items:center;
+  font-style:normal;font-weight:700;font-size:11px;color:#2E6B18}
+.elig__checks p{font-size:15.5px;color:#fff;font-weight:500;line-height:1.4}
+
+/* ---- help strip ---- */
+.helps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:clamp(24px,3vw,36px)}
+.helps a{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:#fff;border:1px solid var(--border);
+  border-radius:16px;padding:17px 20px;box-shadow:var(--shadow);transition:border-color .25s var(--ease),transform .25s var(--ease)}
+.helps a:hover{border-color:var(--aqua);transform:translateY(-2px)}
+.helps b{display:block;font-size:16px;color:var(--ink);font-weight:600;letter-spacing:-.015em}
+.helps span{display:block;font-size:14px;color:var(--body);margin-top:3px}
+.helps i{font-style:normal;color:var(--blue);font-size:17px}
+.helps__note{margin-top:16px;font-size:14.5px;color:var(--subtle)}
+
+/* ---- final ---- */
+.final{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(30px,5vw,64px);align-items:center}
+.final h2{max-width:17ch}
+.final__sub{margin-top:16px;font-size:17px;max-width:44ch}
+.cbform{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:clamp(22px,3vw,30px);box-shadow:0 18px 50px rgba(17,110,152,.09)}
+.cbform h3{font-size:18px;letter-spacing:-.02em}
+.cbform>p{font-size:14px;margin-top:5px}
+.cbform label{display:block;font-size:14px;font-weight:600;color:var(--ink);margin:16px 0 8px}
+.inp{width:100%;font-family:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--btn-border);
+  border-radius:var(--rb);padding:14px 15px;transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.inp::placeholder{color:#A9BAC1}
+.inp:focus{outline:none;border-color:var(--aqua);box-shadow:0 0 0 4px rgba(125,209,201,.18)}
+.inp[aria-invalid=true]{border-color:#E0A0A0;background:#FEFAFA}
+.cbform .btn{width:100%;margin-top:20px}
+.cbform small{display:block;margin-top:12px;font-size:12.5px;color:var(--subtle);text-align:center;line-height:1.5}
+.cbdone{display:none;text-align:center;padding:26px 4px}
+.cbdone.is-on{display:block}
+.cbdone i{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--green);color:#3F7F27;font-size:22px;font-style:normal;margin:0 auto 14px}
+.cbdone b{font-size:18px;color:var(--ink);letter-spacing:-.02em}
+.cbdone p{margin-top:8px;font-size:14.5px}
+
+/* ---- footer ---- */
+.ft{background:var(--dark);color:rgba(255,255,255,.6);padding:clamp(46px,5vw,64px) 0 30px}
+.ft__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:clamp(26px,5vw,56px)}
+.ft__b b{display:block;color:#fff;font-size:17px;font-weight:700;letter-spacing:-.03em}
+.ft__b .tag{display:block;margin-top:6px;font-size:14px;color:var(--aqua)}
+.ft__b p{margin-top:16px;font-size:14.5px;line-height:1.7}
+.ft__b a:hover{color:var(--aqua)}
+.ft h4{color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin:0 0 15px}
+.ft__links{display:grid;gap:10px;font-size:14.5px}
+.ft__links a{color:rgba(255,255,255,.66)}
+.ft__links a:hover{color:#fff}
+.ft__bar{margin-top:clamp(34px,4vw,48px);border-top:1px solid rgba(255,255,255,.1);padding-top:20px;
+  display:flex;flex-wrap:wrap;gap:10px 24px;font-size:12.5px;color:rgba(255,255,255,.42)}
+.ft__bar .sep{margin-left:auto}
+.ft__legal{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px 16px;font-size:13px}
+.ft__legal a{color:rgba(255,255,255,.5)}
+.ft__legal a:hover{color:var(--aqua);text-decoration:underline;text-underline-offset:3px}
+
+/* ---- sticky whatsapp pill: the ONLY green ---- */
+.wapill{position:fixed;right:16px;bottom:16px;z-index:70;display:inline-flex;align-items:center;gap:9px;
+  background:var(--wa);color:#fff;border-radius:100px;padding:14px 20px 14px 16px;font-size:14.5px;font-weight:600;
+  box-shadow:0 12px 32px rgba(37,211,102,.35);opacity:0;transform:translateY(140%);pointer-events:none;
+  transition:transform .35s var(--ease),opacity .35s var(--ease),box-shadow .25s var(--ease)}
+.wapill.is-on{opacity:1;transform:none;pointer-events:auto}
+.wapill:hover{box-shadow:0 16px 40px rgba(37,211,102,.45)}
+.wapill svg{width:21px;height:21px;flex:none}
+
+/* ---- reveal ---- */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}.blk--new{transform:scaleY(1)!important}
+}
+
+@media (min-width:1000px){
+  .nav__links{display:flex}
+  .nav__cta{display:block}
+  .burger{display:none}
+}
+@media (max-width:999px){
+  .proof{grid-template-columns:1fr}
+  .earn__grid{grid-template-columns:1fr}
+  .elig__in{grid-template-columns:1fr}
+  .final{grid-template-columns:1fr}
+  .ft__top{grid-template-columns:1fr 1fr}
+  .ft__b{grid-column:1/-1}
+}
+@media (max-width:640px){
+  :root{--gut:18px}
+  body{font-size:17.5px}
+  .acts .btn{width:100%}
+  .chips{flex-direction:column;align-items:stretch}
+  .chip{justify-content:center}
+  .wow{grid-template-columns:1fr}
+  .wowc b{font-size:17px}
+  .helps{grid-template-columns:1fr}
+  .fstrip{grid-template-columns:1fr;text-align:left}
+  .fstrip>a{width:100%}
+  .stack{height:230px}
+  .ft__top{grid-template-columns:1fr}
+  .wapill{right:14px;bottom:14px;padding:13px 18px 13px 15px}
+}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}.blk--new{transform:scaleY(1)!important}</style></noscript>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://www.brandsure.in/#organization","name":"BrandSure Consultancy Pvt. Ltd.","url":"https://www.brandsure.in/","description":"A Bengaluru-based, furniture-only growth partner for Indian furniture manufacturers and showroom-led furniture businesses.","email":"info@brandsure.in","telephone":"+91-8884446668","address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"identifier":"U73100KA2025PTC199105","areaServed":{"@type":"Country","name":"India"}},
+{"@type":"WebSite","@id":"https://www.brandsure.in/#website","url":"https://www.brandsure.in/","name":"BrandSure","publisher":{"@id":"https://www.brandsure.in/#organization"},"inLanguage":"en-IN"}]}
+</script>
+</head>
+<body data-page-service="Home" data-page-slug="home">
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav__in">
+      <a class="brand" href="index.html" aria-label="BrandSure home">
+        <span class="brand__m" aria-hidden="true"><span>B</span></span>
+        <span class="brand__t"><b>BrandSure</b><i>Furniture Growth Systems</i></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="how-it-works.html">How It Works</a>
+        <div class="dd" id="dd">
+          <button type="button" aria-expanded="false" aria-controls="ddmenu">Services <svg class="dd__car" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <div class="dd__menu" id="ddmenu">
+            <a href="furniture-labour-hiring-india.html">Labour Hiring Help<span>Find sofa carpenters, upholsterers &amp; teams</span></a>
+            <a href="furniture-growth-marketing-india.html">Growth &amp; Marketing<span>More enquiries and orders for your furniture</span></a>
+            <a href="furniture-business-consulting-india.html">Business Consulting<span>Pricing, showroom, production, profit</span></a>
+            <a href="furniture-product-design-services-india.html">Product Design<span>From reference photo to factory-ready</span></a>
+          </div>
+        </div>
+        <a href="about.html">About the Founder</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--primary btn--sm" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20want%20to%20discuss%20my%20business." target="_blank" rel="noopener" data-cta="nav">Talk to Us</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+  <div class="mnav" id="mnav">
+    <div class="wrap">
+      <a href="how-it-works.html">How It Works</a>
+      <details>
+        <summary>Services <span aria-hidden="true">›</span></summary>
+        <a href="furniture-labour-hiring-india.html">Labour Hiring Help</a>
+        <a href="furniture-growth-marketing-india.html">Growth &amp; Marketing</a>
+        <a href="furniture-business-consulting-india.html">Business Consulting</a>
+        <a href="furniture-product-design-services-india.html">Product Design</a>
+      </details>
+      <a href="about.html">About the Founder</a>
+      <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20want%20to%20discuss%20my%20business." target="_blank" rel="noopener" data-cta="nav">Talk to Us on WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= 1. HERO ================= -->
+<section class="hero" id="hero">
+  <span class="hero__aura" aria-hidden="true"></span>
+  <span class="hero__grid" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="hero__in">
+      <p class="eyebrow eyebrow--light">For sofa &amp; furniture manufacturers</p>
+      <h1 class="h1">Want more <em>furniture orders?</em></h1>
+      <p class="hero__sub"><b>You make the furniture.</b><br>We bring customers and build the selling side of your business.</p>
+
+      <div class="chips">
+        <span class="chip"><i aria-hidden="true">✓</i> Furniture-only growth specialists</span>
+        <span class="chip"><i aria-hidden="true">✓</i> Marketing, sales systems and business growth under one roof</span>
+      </div>
+      <p class="chipnote">Furniture manufacturers and showroom-led furniture businesses only.</p>
+
+      <div class="acts">
+        <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20want%20to%20discuss%20my%20business." target="_blank" rel="noopener" data-cta="hero">Discuss My Business on WhatsApp <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn btn--onDark" href="#wow">See What BrandSure Does ↓</a>
+      </div>
+      <p class="hero__note"><i aria-hidden="true"></i> We work only with furniture businesses · Kerala, Karnataka, Tamil Nadu &amp; across India</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. RECOGNITION ================= -->
+<section class="band center" aria-labelledby="worry-h">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">We know your daily life</p>
+      <h2 class="h2" id="worry-h">Is this happening in your business?</h2>
+    </div>
+
+    <div class="worries">
+      <div class="worry rv"><i aria-hidden="true">📉</i><p>"Orders are less this month."</p></div>
+      <div class="worry rv"><i aria-hidden="true">🔨</i><p>"One good worker left."</p></div>
+      <div class="worry rv"><i aria-hidden="true">💬</i><p>"Customer wants more discount."</p></div>
+      <div class="worry rv"><i aria-hidden="true">🏪</i><p>"Competitor is selling cheaper."</p></div>
+      <div class="worry rv"><i aria-hidden="true">📱</i><p>"I have to check every enquiry myself."</p></div>
+      <div class="worry rv"><i aria-hidden="true">🏦</i><p>"Salary date is coming."</p></div>
+    </div>
+
+    <div class="bigwords rv">
+      <h3>You are doing too many jobs yourself.</h3>
+      <div class="words" aria-hidden="true">
+        <s>Sales</s><s>Production</s><s>Pricing</s><s>Workers</s><s>Customers</s><s>Marketing</s>
+      </div>
+      <p>Your furniture may be good.<br><b>But everything still depends on you.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. WHAT BRANDSURE DOES ================= -->
+<section class="band band--tint" id="wow" aria-labelledby="wow-h">
+  <div class="wrap">
+    <div class="rv" style="max-width:680px">
+      <p class="eyebrow">What BrandSure does</p>
+      <h2 class="h2" id="wow-h">What if this work was handled properly?</h2>
+    </div>
+
+    <div class="wow">
+      <div class="wowc rv">
+        <div class="wowc__art"><div class="art-site"><i><s></s><s></s><s></s></i><svg width="72" height="34" viewBox="0 0 72 34" fill="none" aria-hidden="true"><rect x="12" y="6" width="48" height="12" rx="4" fill="#116E98" opacity=".85"/><rect x="7" y="14" width="58" height="11" rx="4" fill="#7DD1C9"/><rect x="5" y="10" width="7" height="16" rx="3" fill="#116E98"/><rect x="60" y="10" width="7" height="16" rx="3" fill="#116E98"/><rect x="12" y="26" width="5" height="5" rx="1.5" fill="#0F1920" opacity=".5"/><rect x="55" y="26" width="5" height="5" rx="1.5" fill="#0F1920" opacity=".5"/></svg></div></div>
+        <b>A proper furniture website</b>
+        <span>Customers see your products before they visit.</span>
+      </div>
+      <div class="wowc rv">
+        <div class="wowc__art"><div class="art-ad"><em>AD · GOOGLE</em><u></u><u></u></div></div>
+        <b>Google, Facebook &amp; Instagram ads</b>
+        <span>More people in your city find your furniture.</span>
+      </div>
+      <div class="wowc rv">
+        <div class="wowc__art"><div class="art-chat"><s></s><s></s><s></s></div></div>
+        <b>Every enquiry answered &amp; followed up</b>
+        <span>Customers who say "I'll decide later" are not forgotten.</span>
+      </div>
+      <div class="wowc rv">
+        <div class="wowc__art"><svg width="110" height="60" viewBox="0 0 110 60" fill="none" aria-hidden="true"><rect x="24" y="14" width="62" height="16" rx="5" stroke="#116E98" stroke-width="2"/><rect x="18" y="24" width="74" height="14" rx="5" stroke="#116E98" stroke-width="2"/><rect x="14" y="18" width="9" height="20" rx="4" stroke="#116E98" stroke-width="2"/><rect x="87" y="18" width="9" height="20" rx="4" stroke="#116E98" stroke-width="2"/><path d="M14 50h82" stroke="#30A4A0" stroke-width="1.5" stroke-dasharray="3 4"/><path d="M14 46v8M96 46v8" stroke="#30A4A0" stroke-width="1.5"/><text x="47" y="57" font-family="Inter,sans-serif" font-size="8" font-weight="600" fill="#30A4A0">84"</text></svg></div>
+        <b>New sofa designs &amp; photos</b>
+        <span>More good products to show and sell.</span>
+      </div>
+      <div class="wowc rv">
+        <div class="wowc__art"><div class="art-tag">₹ __,___<small>PROFIT KEPT</small></div></div>
+        <b>Pricing help</b>
+        <span>Know what price to sell at and still keep profit.</span>
+      </div>
+      <div class="wowc rv">
+        <div class="wowc__art"><div class="art-script"><s><i>✓</i><u></u></s><s><i>✓</i><u></u></s><s><i>✓</i><u style="width:70%"></u></s></div></div>
+        <b>Sales training for your staff</b>
+        <span>They know what to say to customers.</span>
+      </div>
+      <div class="wowc rv">
+        <div class="wowc__art"><div class="art-report"><s></s><s></s><s></s><s></s></div></div>
+        <b>A weekly sales report</b>
+        <span>See what is happening from your phone.</span>
+      </div>
+      <div class="wowc rv">
+        <div class="wowc__art"><div class="art-workers"><s>🪚</s><s>🧵</s><s>🛋️</s><s>+</s></div></div>
+        <b>Help finding furniture workers</b>
+        <span>Support when the factory needs more people.</span>
+      </div>
+    </div>
+
+    <div class="wow__killer rv">
+      <p>Like getting a marketing team, a sales team, a design team and a tech team — <b>without paying a single salary.</b></p>
+      <span>You don't have to hire every specialist separately.</span>
+      <br>
+      <a class="qlink" href="#proof">Has this worked before? <span class="arw" aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. PROOF ================= -->
+<section class="band" id="proof" aria-labelledby="proof-h">
+  <div class="wrap">
+    <div class="rv" style="max-width:760px">
+      <p class="eyebrow">Proof</p>
+      <h2 class="h2" id="proof-h">His old business continued.<br>We built a new one beside it.</h2>
+    </div>
+
+    <div class="proof">
+      <div class="proof__copy rv">
+        <p>A furniture manufacturer was selling an average of <b>₹47 lakhs a month</b> to dealers (B2B). That business continued as it was. Nothing was stopped or replaced.</p>
+        <p>In <b>9 months</b>, a new direct-customer sales business was built beside it — now averaging <b>₹87 lakhs a month in new sales</b>.</p>
+        <p class="proof__punch">Old business: still running.<br>New business: <em>bigger than the old one.</em></p>
+        <p class="proof__disc">One historical result. Results depend on the business, city, products and execution.</p>
+        <div class="acts">
+          <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20saw%20the%20%E2%82%B947L%20%2B%20%E2%82%B987L%20result.%20How%20was%20this%20done%3F%20I%20am%20a%20furniture%20manufacturer." target="_blank" rel="noopener" data-cta="proof">Ask How This Was Done <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="stackchart rv" id="stackWrap">
+        <p class="stackchart__t">Average monthly sales</p>
+        <div class="stack" role="img" aria-label="His dealer B2B sales of ₹47 lakhs per month continued as before. ₹87 lakhs per month of new direct-customer sales were built on top in 9 months. Combined ₹1.34 crore monthly.">
+          <div class="stack__col">
+            <div class="blk blk--new"><b class="num">+ ₹87L</b><span>new direct-customer sales — in 9 months</span></div>
+            <div class="blk blk--base"><b class="num">₹47L</b><span>his dealer (B2B) sales — still running</span></div>
+          </div>
+        </div>
+        <p class="stack__lab">Same factory. Same owner. One new selling side.</p>
+        <p class="stack__total">Together: <b class="num">₹1.34 Cr</b> / month</p>
+      </div>
+    </div>
+
+    <div class="fstrip rv">
+      <span class="fstrip__av" aria-hidden="true">B</span>
+      <div class="fstrip__facts">
+        <s><b class="num">50,000 sq.ft</b><span>manufacturing experience</span></s>
+        <s><b class="num">3 factories</b><span>operated before BrandSure</span></s>
+        <s><b class="num">₹87 Cr+</b><span>annual sales handled</span></s>
+      </div>
+      <a class="btn btn--outline btn--sm" href="about.html">Meet the founder</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. CONTROL (Q&A) ================= -->
+<section class="band band--tint" aria-labelledby="ctl-h">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">The part that matters most</p>
+      <h2 class="h2" id="ctl-h">Your business stays yours.</h2>
+    </div>
+
+    <div class="qa">
+      <div class="qa__row rv"><b>Will BrandSure take shares in my company?</b><p>No.</p></div>
+      <div class="qa__row rv"><b>Where do customers pay?</b><p>To <i>your</i> business. Into <i>your</i> account.</p></div>
+      <div class="qa__row rv"><b>Will BrandSure control my bank account?</b><p>No.</p></div>
+      <div class="qa__row rv"><b>Who owns and runs the factory?</b><p>You.</p></div>
+      <div class="qa__row rv"><b>Who handles manufacturing and delivery?</b><p>Your team.</p></div>
+      <div class="qa__row rv"><b>Then what does BrandSure work on?</b><p>The agreed marketing, sales support, website, product, pricing and growth work.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. HOW BRANDSURE EARNS ================= -->
+<section class="band band--dark earn" aria-labelledby="earn-h">
+  <span class="earn__aura" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="earn__grid">
+      <div>
+        <p class="eyebrow eyebrow--light rv">The question you're already asking</p>
+        <h2 class="h2 rv" id="earn-h">Then how does BrandSure make money?</h2>
+        <div class="rv" style="margin-top:24px">
+          <p><b>Two ways, depending on what your business needs.</b></p>
+          <p>Most businesses start on a monthly marketing plan, where you pay a fixed monthly fee and your own ad spend. Selected manufacturers work with us under a longer-term <em>Growth Partnership</em>, where our commercial structure is aligned with the growth of the business and BrandSure-funded Google and Meta advertising may be included.</p>
+          <p>Before you decide, we show you the complete calculation — <b>using your own numbers.</b> And if we don't believe the plan can work for your business, we'll tell you that ourselves.</p>
+        </div>
+        <div class="acts rv">
+          <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20Show%20me%20how%20the%20money%20works%20for%20my%20furniture%20business." target="_blank" rel="noopener" data-cta="earn">Show Me How the Money Works <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="money rv">
+        <h3>The calculation we show you</h3>
+        <p>With your numbers. Before you decide anything.</p>
+        <ul>
+          <li><i aria-hidden="true">🏭</i> Your product cost</li>
+          <li><i aria-hidden="true">🏷️</i> Your selling price</li>
+          <li><i aria-hidden="true">📈</i> Expected sales</li>
+          <li><i aria-hidden="true">💰</i> What you keep</li>
+          <li><i aria-hidden="true">🤝</i> What BrandSure receives</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. JOURNEY ================= -->
+<section class="band" aria-labelledby="jr-h">
+  <div class="wrap">
+    <div class="rv" style="max-width:680px">
+      <p class="eyebrow">No forms. No pressure.</p>
+      <h2 class="h2" id="jr-h">What happens after you WhatsApp us?</h2>
+    </div>
+
+    <div class="jsteps">
+      <div class="jstep rv"><i>01</i><div><b>Tell us about your business.</b><p>What furniture you make. Your city. Roughly how much you sell now.</p></div></div>
+      <div class="jstep rv"><i>02</i><div><b>We speak for a few minutes.</b><p>We understand your factory, showroom and current problems.</p></div></div>
+      <div class="jstep rv"><i>03</i><div><b>If your business fits, we show you the full plan.</b><p>What BrandSure will do. How sales can grow. What you have to do. How the money works.</p></div></div>
+      <div class="jstep rv"><i>04</i><div><b>Then you decide.</b><p>First discussion has no fee. No commitment.</p></div></div>
+    </div>
+
+    <div class="acts rv">
+      <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20make%20____%20in%20____%20(city).%20I%20want%20to%20discuss%20my%20business." target="_blank" rel="noopener" data-cta="journey">Start on WhatsApp <span class="arw" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. IS THIS FOR YOUR BUSINESS ================= -->
+<section class="band band--tint" aria-labelledby="fit-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="elig rv">
+      <span class="elig__aura" aria-hidden="true"></span>
+      <div class="elig__in">
+        <div>
+          <p class="eyebrow eyebrow--light">Not for everyone</p>
+          <h2 class="h2" id="fit-h">Is this plan right for your business?</h2>
+          <p class="elig__line">If this sounds like your business, let's talk.</p>
+          <div class="acts">
+            <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20think%20this%20plan%20can%20work%20for%20my%20business.%20I%20make%20____%20in%20____." target="_blank" rel="noopener" data-cta="fit">See If This Can Work for My Business <span class="arw" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="elig__checks">
+          <s><i aria-hidden="true">✓</i><p>You manufacture furniture, or control manufacturing</p></s>
+          <s><i aria-hidden="true">✓</i><p>You already have some regular sales</p></s>
+          <s><i aria-hidden="true">✓</i><p>Customers can see your products — a showroom or similar</p></s>
+          <s><i aria-hidden="true">✓</i><p>You can make more furniture if orders increase</p></s>
+          <s><i aria-hidden="true">✓</i><p>You are ready to share correct sales numbers</p></s>
+          <s><i aria-hidden="true">✓</i><p>The owner is involved in decisions</p></s>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 9. ONE SPECIFIC PROBLEM ================= -->
+<section class="band" aria-labelledby="hp-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv">
+      <h2 class="h2" id="hp-h" style="font-size:clamp(22px,3vw,30px)">Need help with one specific problem?</h2>
+      <p class="helps__note">You can start with one problem. That's fine.</p>
+    </div>
+    <div class="helps">
+      <a class="rv" href="furniture-labour-hiring-india.html"><span><b>Furniture Labour Hiring</b><span>Need workers for your furniture factory?</span></span><i aria-hidden="true">→</i></a>
+      <a class="rv" href="furniture-growth-marketing-india.html"><span><b>Furniture Growth &amp; Marketing</b><span>Need more enquiries and orders?</span></span><i aria-hidden="true">→</i></a>
+      <a class="rv" href="furniture-business-consulting-india.html"><span><b>Furniture Business Consulting</b><span>Not sure what is stopping your growth?</span></span><i aria-hidden="true">→</i></a>
+      <a class="rv" href="furniture-product-design-services-india.html"><span><b>Furniture Product Design</b><span>Need new sofa or furniture designs?</span></span><i aria-hidden="true">→</i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10. FINAL CTA ================= -->
+<section class="band band--tint" aria-labelledby="fin-h">
+  <div class="wrap">
+    <div class="final">
+      <div class="rv">
+        <p class="eyebrow">One step</p>
+        <h2 class="h2" id="fin-h">One message can change the next 3 years of your business.</h2>
+        <p class="final__sub">Tell us what you make and your city. We'll take it from there.</p>
+        <div class="acts">
+          <a class="btn btn--primary" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20want%20to%20discuss%20my%20business." target="_blank" rel="noopener" data-cta="final">Talk to BrandSure on WhatsApp <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <form class="cbform rv" id="cbform" novalidate>
+        <div id="cbfields">
+          <h3>Prefer a call instead?</h3>
+          <p>Leave your number. We'll call you.</p>
+          <label for="cb_name">Your name</label>
+          <input class="inp" id="cb_name" name="name" type="text" autocomplete="name" placeholder="Full name" required>
+          <label for="cb_phone">Mobile number</label>
+          <input class="inp" id="cb_phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile number" required>
+          <label for="cb_city">City</label>
+          <input class="inp" id="cb_city" name="city" type="text" autocomplete="address-level2" placeholder="e.g. Kochi" required>
+          <button class="btn btn--primary" type="submit">Request a Call Back</button>
+          <small>No spam. No commitment. One call to understand your business.</small>
+        </div>
+        <div class="cbdone" id="cbdone" role="status">
+          <i aria-hidden="true">✓</i>
+          <b>Got it. We'll call you.</b>
+          <p>Usually within one working day.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="ft" id="ft">
+  <div class="wrap">
+    <div class="ft__top">
+      <div class="ft__b">
+        <b>BrandSure Consultancy Pvt. Ltd.</b>
+        <span class="tag">Furniture Growth Systems. Built in India.</span>
+        <p>Bengaluru, Karnataka, India<br>
+          <a href="tel:+918884446668">+91 8884 446 668</a><br>
+          <a href="mailto:info@brandsure.in">info@brandsure.in</a></p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <nav class="ft__links" aria-label="Footer">
+          <a href="how-it-works.html">How It Works</a>
+          <a href="about.html">About the Founder</a>
+          <a href="services.html">Services</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <nav class="ft__links" aria-label="Services">
+          <a href="furniture-labour-hiring-india.html">Labour Hiring Help</a>
+          <a href="furniture-growth-marketing-india.html">Growth &amp; Marketing</a>
+          <a href="furniture-business-consulting-india.html">Business Consulting</a>
+          <a href="furniture-product-design-services-india.html">Product Design</a>
+        </nav>
+      </div>
+    </div>
+    <div class="ft__bar">
+      <span>CIN: U73100KA2025PTC199105</span>
+      <span class="sep">© 2026 BrandSure Consultancy Pvt. Ltd. All rights reserved.</span>
+    </div>
+    <nav class="ft__legal" aria-label="Legal">
+      <a href="/blog/">Blog</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+      <a href="/cookie-policy/">Cookie Policy</a>
+      <a href="/disclaimer/">Disclaimer</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ================= STICKY WHATSAPP (only green element) ================= -->
+<a class="wapill" id="wapill" href="https://wa.me/918884446668?text=Hi%20BrandSure.%20I%20am%20a%20furniture%20manufacturer.%20I%20want%20to%20discuss%20my%20business." target="_blank" rel="noopener" data-cta="sticky" aria-label="Chat with BrandSure on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 004.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm0 18.13h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.16 8.16 0 01-1.25-4.35c0-4.53 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.17 8.17 0 012.41 5.82c0 4.54-3.7 8.21-8.24 8.21z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+(function(){
+  "use strict";
+  window.dataLayer = window.dataLayer || [];
+  var nav = document.getElementById('nav'),
+      hero = document.getElementById('hero'),
+      pill = document.getElementById('wapill'),
+      ft = document.getElementById('ft'),
+      inputFocused = false;
+
+  /* nav flip + sticky pill (delayed: only after hero fully leaves viewport) */
+  function onScroll(){
+    var hb = hero.getBoundingClientRect().bottom;
+    nav.classList.toggle('is-light', hb < 70);
+    var fr = ft.getBoundingClientRect();
+    var footVisible = fr.top < window.innerHeight * 0.5;
+    pill.classList.toggle('is-on', hb < 0 && !footVisible && !inputFocused);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+  onScroll();
+
+  /* hide pill while typing (mobile keyboard) */
+  document.addEventListener('focusin', function(e){
+    if (e.target.matches('input, textarea, select')){ inputFocused = true; onScroll(); }
+  });
+  document.addEventListener('focusout', function(){
+    inputFocused = false; setTimeout(onScroll, 150);
+  });
+
+  /* mobile menu */
+  var burger = document.getElementById('burger');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) nav.classList.add('is-light');
+    else onScroll();
+  });
+  document.querySelectorAll('#mnav a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('is-open'); burger.setAttribute('aria-expanded','false'); });
+  });
+
+  /* services dropdown: click for touch, hover handled by CSS */
+  var dd = document.getElementById('dd');
+  var ddBtn = dd.querySelector('button');
+  ddBtn.addEventListener('click', function(){
+    var open = dd.classList.toggle('is-open');
+    ddBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('click', function(e){
+    if (!dd.contains(e.target)){ dd.classList.remove('is-open'); ddBtn.setAttribute('aria-expanded','false'); }
+  });
+
+  /* scroll reveals + proof bar animation */
+  var reveals = document.querySelectorAll('.rv, #stackWrap');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:.15});
+    reveals.forEach(function(el, i){ el.style.transitionDelay = Math.min(i % 5, 4) * 50 + 'ms'; io.observe(el); });
+  } else { reveals.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* whatsapp click tracking */
+  var q = new URLSearchParams(location.search);
+  function src(){
+    var u = q.get('utm_source');
+    if (u) return u + (q.get('utm_medium') ? ' / ' + q.get('utm_medium') : '');
+    if (q.get('gclid')) return 'google / cpc';
+    if (!document.referrer) return 'direct';
+    try { return new URL(document.referrer).hostname.replace(/^www\./,''); } catch(e){ return 'referral'; }
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    window.dataLayer.push({
+      event:'whatsapp_click',
+      page_service: document.body.dataset.pageService,
+      page_slug: document.body.dataset.pageSlug,
+      cta_position: a.dataset.cta || 'unknown',
+      device: window.matchMedia('(min-width:760px)').matches ? 'desktop' : 'mobile',
+      traffic_source: src(),
+      campaign: q.get('utm_campaign') || null
+    });
+  }, true);
+
+  /* scroll depth */
+  var marks = [25,50,75,100], fired = {};
+  window.addEventListener('scroll', function(){
+    var d = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+    marks.forEach(function(m){
+      if (d >= m && !fired[m]){ fired[m] = true; window.dataLayer.push({event:'scroll_depth', percent:m, page_slug:'home'}); }
+    });
+  }, {passive:true});
+
+  /* callback form */
+  var cb = document.getElementById('cbform');
+  cb.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    cb.querySelectorAll('.inp').forEach(function(i){
+      var v = i.value.trim(), bad = v === '';
+      if (!bad && i.type === 'tel'){ var d = v.replace(/\D/g,''); if (d.length < 10 || d.length > 12) bad = true; }
+      i.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) ok = false;
+    });
+    if (!ok){ var f = cb.querySelector('[aria-invalid=true]'); if (f) f.focus(); return; }
+    var data = {};
+    new FormData(cb).forEach(function(v,k){ data[k] = v; });
+    data.submitted_at = new Date().toISOString();
+    data.source = location.href;
+    /* CONNECT ENDPOINT HERE (n8n webhook / CRM):
+       fetch('https://your-endpoint.example/callback', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)}); */
+    window.dataLayer.push({event:'callback_request', page_slug:'home'});
+    console.log('BrandSure callback request', data);
+    document.getElementById('cbfields').style.display = 'none';
+    document.getElementById('cbdone').classList.add('is-on');
+  });
+})();
+</script>
+</body>
+</html>
